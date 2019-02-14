@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<div class="blog-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <h2 class="blog-post-title">{{ page.title }}</h2>
+                {% if page.subtitle %}
+                    <h3 class="blog-post-subtitle">{{ page.subtitle }}</h3>
+                {% endif %}
+                <div class="blog-post-meta">{{ page.date | date_to_long_string }}</div>
+            </div>
+            <div class="col-3" style="margin-top: -50px;">
+                <ul class="list-group">
+                    <li class="list-group-item"><img src="{{ site.url }}/assets/img/{{ page.author }}.png" /></li>
+                    <li class="list-group-item">{{ site.data.authors[page.author].name }}</li>
+                    {% if site.data.authors[page.author].twitter %}
+                        <li class="list-group-item">
+                            <i class="fab fa-twitter"></i><a href="https://www.twitter.com/{{ site.data.authors[page.author].twitter }}"> {{ site.data.authors[page.author].twitter }}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+    {{ content }}
+</div>

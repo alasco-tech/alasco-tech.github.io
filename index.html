@@ -1,0 +1,24 @@
+---
+title: Welcome to the Alasco Tech Blog
+layout: default
+author: Alasco Tech Team
+---
+<div class="blog-post">
+  <h2 class="blog-post-title"><p>Hi and welcome to Alasco’s tech blog!</p></h2>
+  
+  <p>Here we'd like to share our experiences and thoughts building Alasco’s tech platform. We heavily rely on open source
+    and the web community at large and would like to contribute back with this blog. If you have any questions (or
+    would like to <a href="https://alasco.breezy.hr/">join us</a>), feel free to reach out <a href="https://www.twitter.com/alascotech">@AlascoTech</a>!</p>
+
+  <p>
+    Check out our latest posts:
+    <ul class="list-unstyled">
+      {% for post in site.posts %}
+      <li class="post-excerpt">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <blockquote>{{ post.excerpt }}</blockquote>
+      </li>
+      {% endfor %}
+    </ul>
+  </p>
+</div>
