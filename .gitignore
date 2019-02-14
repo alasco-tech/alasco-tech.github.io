@@ -1,3 +1,4 @@
 # local jekyll setup:
 .bundle
 vendor/
+_site/
