@@ -1,0 +1,56 @@
+---
+---
+
+@import "bootstrap/bootstrap";
+// bootstrap import based on https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-1/
+
+body {
+  background-color: $white;
+  font-family: $font-stack;
+}
+
+
+.welcome-container {
+  background-color: $gray-300;
+  padding: 3rem;
+  //margin-bottom: 2rem;
+}
+
+/* Blog-CSS mostly stolen from https://v4-alpha.getbootstrap.com/examples/blog/ */
+.blog-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  background-color: $white;
+}
+
+// code-highlighting
+@import "murphy.css";
+.lineno {
+  color: #7b8a8b !important;
+  padding: 0.5rem;
+}
+
+
+// footer  https://bootsnipp.com/snippets/rlXdE
+section {
+  padding: 60px 0;
+}
+
+section .section-title {
+  text-align: center;
+  color: $gray-300;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+#footer {
+  background: $gray-300 !important;
+}
+
+#footer h5 {
+  padding-left: 10px;
+  border-left: 3px solid #eeeeee;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}

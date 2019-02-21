@@ -2,63 +2,78 @@
 ---
 <html>
 
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-            crossorigin="anonymous">
-        <link rel="stylesheet" href="https://app.alasco.de/static/css/app.css">
-        <link rel="stylesheet" href="{{ site.url }}/assets/css/base.css">
-        {% seo %}
-    </head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ site.url }}/assets/css/base.css">
+  {% seo %}
+</head>
 
-    <body>
-        <div class="blog-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <a href="{{ site.url }}">
-                            <img src="{{ site.url }}/assets/img/logo.jpg" class="img-fluid" />
-                        </a>
-                    </div>
-                    <div class="col-sm-3 offset-sm-1">
-                    </div>
-                    <p class="lead blog-description">The Alasco Tech Blog</p>
-                </div>
-            </div>
+<body>
+<div class="container">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 blog-main">
-                        <a name="content-top"></a>
-                        {{ content }}
-                    </div>
-                    <div class="col-sm-3 offset-sm-1 blog-sidebar">
-                        <!-- about box! -->
-                        <div class="sidebar-module">
-                            <h4><a href="https://www.alasco.de">Alasco GmbH</a></h4>
-                            <p>We digitalize the buildingindustry!</p>
-                        </div>
-                        <div class="sidebar-module">
-                            <h4>Elsewhere</h4>
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><a href="mailto:tech@alasco.de"><i class="fas fa-envelope"></i></a></li>
-                                <!-- TODO: add real tech-mail address -->
-                                <li class="list-inline-item"><a href="https://www.github.com/alasco-tech"><i class="fab fa-github"></i></a></li>
-                                <li class="list-inline-item"><a href="https://www.twitter.com/AlascoTech"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/alasco-gmbh/"><i class="fab fa-linkedin"></i></li>
-                                <li class="list-inline-item"><a href="https://www.xing.com/companies/alascogmbh"><i class="fab fa-xing"></i></li>
-                            </ul>
-                        </div>
+  <div class="row blog-header">
+    <div class="col-2">
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="https://www.github.com/alasco-tech"><i class="fab fa-github"></i></a>
+        </li>
+        <li class="list-inline-item"><a href="https://www.twitter.com/AlascoTech"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="list-inline-item"><a href="https://www.linkedin.com/company/alasco-gmbh/"><i
+            class="fab fa-linkedin"></i></li>
+        <li class="list-inline-item"><a href="https://www.xing.com/companies/alascogmbh"><i class="fab fa-xing"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-8 text-center">
+      <a href="{{ site.url }}">
+        <img src="{{ site.url }}/assets/img/header_logo.png" class="img-fluid"/>
+      </a>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
 
-                    </div>
+  <div class="row">
+    <div class="col">
+      {{ content }}
+    </div>
+  </div>
 
-                </div>
-            </div>
+</div>
 
-        <footer class="blog-footer">
-            <a href="#content-top"">Back to Top</a>
-        </footer>
-    </body>
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About Us</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Privacy</a></li>
+            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Impressum</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				</hr>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p>Alasco GmbH</p>
+				</div>
+				</hr>
+			</div>
+		</div>
+	</section>
 
+</body>
 </html>
