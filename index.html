@@ -6,7 +6,7 @@ author: Alasco Tech Team
 
 
 <!-- Missing: loop over posts -->
-<div class="row mb-md-4">
+<div class="row mb-4">
   <div class="col welcome-container">
     <h3>Hi and welcome to Alasco’s tech blog!</h3>
     <div>Here we'd like to share our experiences and thoughts building Alasco’s tech platform. We heavily rely on
@@ -19,26 +19,26 @@ author: Alasco Tech Team
   </div>
 </div>
 
-<div class="row mb-md-4">
+{% for post in site.posts %}
+<div class="row mb-4 post-overview-element">
   <div class="col-sm-6">
-    <img src="{{ site.url }}/assets/img/post_thumb.jpg" class="img-fluid"/>
+    <a href="{{ post.url }}">
+      <img src="{{ site.url }}/assets/img/post_thumb.jpg" class="img-fluid"/>
+    </a>
   </div>
   <div class="col-sm-6">
-    <h4>Post Title</h4>
-    <h5>Post Subtitle</h5>
-    Bacon ipsum dolor amet sausage beef ribs kielbasa ball tip pork belly doner, pork cupim. Prosciutto bacon rump
-    jowl, jerky bresaola landjaeger buffalo t-bone short loin salami. Capicola kevin shankle landjaeger tongue.
-  </div>
-</div>
+    <a href="{{ post.url }}">
+      <h4 class="blog-post-title">{{ post.title }}</h4></a>
 
-<div class="row mb-md-4">
-  <div class="col-sm-6">
-    <img src="{{ site.url }}/assets/img/post_thumb.jpg" class="img-fluid"/>
-  </div>
-  <div class="col-sm-6">
-    <h4>Post Title</h4>
-    <h5>Post Subtitle</h5>
-    Bacon ipsum dolor amet sausage beef ribs kielbasa ball tip pork belly doner, pork cupim. Prosciutto bacon rump
-    jowl, jerky bresaola landjaeger buffalo t-bone short loin salami. Capicola kevin shankle landjaeger tongue.
+    <a href="{{ post.url }}" style="text-decoration: none">
+      {% if post.subtitle %}
+      <h5 class="blog-post-subtitle">{{ post.subtitle }}</h5>
+      {% endif %}
+      <div>
+        {{ post.excerpt | strip_html | strip_newlines | truncate: 250 }}
+      </div>
+    </a>
+
   </div>
 </div>
+{% endfor %}

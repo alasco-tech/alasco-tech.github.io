@@ -1,30 +1,36 @@
 ---
 layout: default
 ---
-<div class="blog-post">
-    <div class="container">
-        <div class="row">
-            <div class="col-9">
-                <h2 class="blog-post-title">{{ page.title }}</h2>
-                {% if page.subtitle %}
-                    <h3 class="blog-post-subtitle">{{ page.subtitle }}</h3>
-                {% endif %}
-                <div class="blog-post-meta">{{ page.date | date_to_long_string }}</div>
-            </div>
-            <div class="col-3" style="margin-top: -50px;">
-                <ul class="list-group">
-                    <li class="list-group-item"><img src="{{ site.url }}/assets/img/{{ page.author }}.png" /></li>
-                    <li class="list-group-item">{{ site.data.authors[page.author].name }}</li>
-                    {% if site.data.authors[page.author].twitter %}
-                        <li class="list-group-item">
-                            <i class="fab fa-twitter"></i><a href="https://www.twitter.com/{{ site.data.authors[page.author].twitter }}"> {{ site.data.authors[page.author].twitter }}</a>
-                        </li>
-                    {% endif %}
-                </ul>
-                
-            </div>
-        </div>
-    </div>
 
-    {{ content }}
+<div class="row">
+  <div class="col">
+    <div class="row">
+
+      <div class="col-3">
+        <img class="img-fluid" src="{{ site.url }}/assets/img/{{ page.author.image|default: 'avatar.png' }}"
+             alt="Author's profile picture"/>
+        <div class="text-muted">{{ site.data.authors[page.author].name }}
+          {% if site.data.authors[page.author].twitter %}
+          <p>
+            <a href="https://www.twitter.com/{{ site.data.authors[page.author].twitter }}"><i
+                class="fab fa-twitter"> </i>{{
+              site.data.authors[page.author].twitter }}</a></p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-9">
+          <h1 class="blog-post-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <em class="blog-post-subtitle">{{ page.subtitle }}</em>
+        {% endif %}
+        <div class="text-right text-muted">{{ page.date | date: "%B %d, %Y" }}</div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col blog-post-content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
 </div>

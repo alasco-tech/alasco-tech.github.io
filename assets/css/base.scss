@@ -4,6 +4,9 @@
 @import "bootstrap/bootstrap";
 // bootstrap import based on https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-1/
 
+//@import "jektify";
+// Spotify plugin...
+
 body {
   background-color: $white;
   font-family: $font-stack;
@@ -23,6 +26,28 @@ body {
   margin-bottom: 2rem;
   margin-top: 1rem;
   background-color: $white;
+}
+
+.blog-post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-post-author-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-post-title {
+  text-transform: capitalize;
+}
+
+.blog-post-subtitle {
+  font-style: italic;
+}
+
+.post-overview-element a {
+  color: $primary;
 }
 
 // code-highlighting
