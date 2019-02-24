@@ -10,3 +10,5 @@ defaults:
 
 sass:
   sass_dir: _sass
+
+ga_id: "UA-134504184-1"
