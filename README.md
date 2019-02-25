@@ -13,6 +13,7 @@ In the [_data](./_data) folder is a the [authors.yml](./_data/authors.yml) file,
 $nickname:
   name: $fullname
   twitter: $twitterhandle  # optional
+  image: $avatar.[png,jpg]  # image needs to be in ./assets/img/
 ```
 
 ### Create your first post
