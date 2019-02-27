@@ -9,15 +9,19 @@
         crossorigin="anonymous">
   <link rel="stylesheet" href="{{ site.url }}/assets/css/base.css">
   {% if jekyll.environment != 'development' %}
-    {% include analytics.html %}
+  {% include analytics.html %}
   {% endif %}
   {% seo %}
 </head>
 
 <body>
 <div class="container">
-  {% include header.html %}
-  {{ content }}
+  <div class="row">
+    <div class="col-10">
+      {% include header.html %}
+      {{ content }}
+    </div>
+  </div>
 </div>
 
 {% include footer.html %}
