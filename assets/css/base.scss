@@ -5,8 +5,6 @@
 @import "custom/_cards";
 // bootstrap import based on https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-1/
 
-//@import "jektify";
-// Spotify plugin...
 
 body {
   background-color: $white;
@@ -24,25 +22,14 @@ h2 {
 
 h3 {
   font-weight: $font-weight-bold;
-
 }
 
 .welcome-container {
   background-color: $gray-200;
   padding: 1rem;
-  margin-bottom: 2rem;
   border: 0;
   box-shadow: none;
 }
-
-//.welcome-container h2 {
-//  padding: 1rem;
-//  font-weight: $font-weight-bold;
-//}
-//
-//.welcome-container p {
-//  padding: 1rem;
-//}
 
 /* Blog-CSS mostly stolen from https://v4-alpha.getbootstrap.com/examples/blog/ */
 .blog-header {
@@ -79,10 +66,6 @@ h3 {
 .blog-post-subtitle {
   font-style: italic;
 }
-
-//.post-overview-element a {
-//  color: $primary;
-//}
 
 .hidden-link {
   color: $primary;
