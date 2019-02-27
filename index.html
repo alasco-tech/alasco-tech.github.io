@@ -6,23 +6,27 @@ author: Alasco Tech Team
 ---
 
 {% for post in site.posts %}
-<div class="row mb-4 post-overview-element">
+<div class="row mb-4">
   <div class="col-sm-6">
     <a href="{{ post.url }}">
       <img src="{{ site.url }}/assets/img/post_thumb.jpg" class="img-fluid"/>
     </a>
   </div>
   <div class="col-sm-6">
-    <a href="{{ post.url }}">
-      <h4 class="blog-post-title mb-0">{{ post.title }}</h4></a>
+    <a href="{{ post.url }}" class="hidden-link">
+      <h4 class="blog-post-title mb-0 hidden-link">{{ post.title }}</h4></a>
 
-    <a href="{{ post.url }}">
-      <div class="mb-2">
+    <a href="{{ post.url }}" class="hidden-link">
+      <div class="mb-2 hidden-link">
         {{ site.data.authors[post.author].name }}, <span class="text-small">{{ post.date | date: "%B %e, %Y" }}</span>
       </div>
-      <div class="text-muted">
+      <div class="text-muted hidden-link mb-3">
         {{ post.excerpt | strip_html | strip_newlines | truncate: 250 }}
       </div>
+    </a>
+
+    <a href="{{ post.url }}" class="mt-2">
+      Read more
     </a>
 
   </div>

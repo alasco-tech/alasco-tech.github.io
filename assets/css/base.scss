@@ -2,6 +2,7 @@
 ---
 
 @import "bootstrap/bootstrap";
+@import "custom/_cards";
 // bootstrap import based on https://experimentingwithcode.com/creating-a-jekyll-blog-with-bootstrap-4-and-sass-part-1/
 
 //@import "jektify";
@@ -12,13 +13,36 @@ body {
   font-family: $font-stack;
 }
 
+h1 {
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-weight: $font-weight-bold;
+
+}
+
+h3 {
+  font-weight: $font-weight-bold;
+
+}
 
 .welcome-container {
-  background-color: $gray-300;
+  background-color: $gray-200;
   padding: 1rem;
   margin-bottom: 2rem;
   border: 0;
+  box-shadow: none;
 }
+
+//.welcome-container h2 {
+//  padding: 1rem;
+//  font-weight: $font-weight-bold;
+//}
+//
+//.welcome-container p {
+//  padding: 1rem;
+//}
 
 /* Blog-CSS mostly stolen from https://v4-alpha.getbootstrap.com/examples/blog/ */
 .blog-header {
@@ -31,6 +55,15 @@ body {
 .blog-post-content img {
   max-width: 100%;
   height: auto;
+}
+
+.blog-post-content p {
+  margin-bottom: 2.2rem;
+  font-size: $font-size-lg;
+}
+
+.blog-post-content {
+  line-height: 1.6;
 }
 
 .blog-post-author-box img {
@@ -46,8 +79,13 @@ body {
   font-style: italic;
 }
 
-.post-overview-element a {
+//.post-overview-element a {
+//  color: $primary;
+//}
+
+.hidden-link {
   color: $primary;
+  text-decoration: none;
 }
 
 // code-highlighting

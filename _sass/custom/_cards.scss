@@ -1,0 +1,46 @@
+.card {
+  .card-header {
+    border-bottom: none;
+    padding: 1.25rem;
+  }
+}
+
+.card {
+  .card-header + .card-body {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+}
+
+.card {
+  .card-header {
+    h5.card-title {
+      color: $dark;
+      margin-bottom: 0px;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+.card {
+  box-shadow: 0 1px 15px 1px rgba($primary, 0.07);
+}
+
+.card a.collapsing-header {
+  cursor: pointer;
+}
+.card a.collapsing-header.collapsed .card-header {
+  border-bottom: none;
+}
+.card a.collapsing-header.collapsed .fas {
+  transform: rotate(90deg);
+}
+.card a.collapsing-header .fas {
+  transition: 0.3s transform ease-in-out;
+}
+
+.card.pull-up {
+ transition: all .25s ease;
+ &:hover{
+   box-shadow: 0 2px 20px 2px rgba($primary, 0.3);
+ }
+}
