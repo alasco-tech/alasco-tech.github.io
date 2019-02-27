@@ -13,17 +13,14 @@ author: Alasco Tech Team
     </a>
   </div>
   <div class="col-sm-6">
-    <a href="{{ post.url }}" class="hidden-link">
-      <h4 class="blog-post-title mb-0 hidden-link">{{ post.title }}</h4></a>
+      <h4 class="blog-post-title mb-0 hidden-link">{{ post.title }}</h4>
 
-    <a href="{{ post.url }}" class="hidden-link">
       <div class="mb-2 hidden-link">
         {{ site.data.authors[post.author].name }}, <span class="text-small">{{ post.date | date: "%B %e, %Y" }}</span>
       </div>
       <div class="text-muted hidden-link mb-3">
         {{ post.excerpt | strip_html | strip_newlines | truncate: 250 }}
       </div>
-    </a>
 
     <a href="{{ post.url }}" class="mt-2">
       Read more
