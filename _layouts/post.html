@@ -21,7 +21,7 @@ layout: default
                       <div class="col-md-4"></div>
                       <div class="col-md-8">
                         <img class="img-fluid"
-                             src="{{ site.url }}/assets/img/{{ page.author.image|default: 'avatar.png' }}"
+                             src="{{ site.url }}/assets/img/{{ site.data.authors[page.author].image|default: 'avatar.png' }}"
                              alt="Author's profile picture"/>
                       </div>
                     </div>
