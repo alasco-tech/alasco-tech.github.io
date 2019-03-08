@@ -37,7 +37,7 @@ After the closing `---` your actual post starts, feel free to write in simple ma
 Some simple steps to get you going, tested with Mac OS, should work fine on
 other \*nix systems too! [Readme from github](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
 
-1. Install bundler & jekyll
+### Install bundler & jekyll
 
 ```bash
 sudo gem install bundler
@@ -46,7 +46,7 @@ bundle install --path vendor/bundle
 
 
 After this you're actually up and running!
-1. Run jekyll
+### Run jekyll
 ```bash
 bundle exec jekyll serve
 ```
