@@ -58,9 +58,5 @@ bundle update
 ```
 
 ## TODO
-- [ ] Google Analytics
-- [ ] Privacy Policy
-- [ ] Imprint (do we need one?)
-- [ ] Nicer design
 - [ ] Make repo public
 - [ ] Create repo for "alasco-utils" so we can link to the code instead of hard-coding it
