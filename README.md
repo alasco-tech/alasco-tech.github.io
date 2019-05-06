@@ -56,6 +56,3 @@ your dependencies:
 ```bash
 bundle update
 ```
-
-## TODO
-- [ ] Create repo for "alasco-utils" so we can link to the code instead of hard-coding it
