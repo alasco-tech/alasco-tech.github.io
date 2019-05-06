@@ -38,7 +38,7 @@ The final step was to introduce a cleanup script, that removes infrastructure on
 
 For this we created a [script](https://github.com/alasco-tech/alasco-tools), that loops over the existing branches and compares them to the provisioned infrastructure (we tag the stacks with the corresponding branch). Upon deleting, it’s important to not only delete the stack itself but also handle S3 buckets. Unfortunately S3 buckets which are non-empty cannot be deleted. Therefore our script empties buckets before triggering the stack delete. Here’s our script for your convenience:
 
-<script src="http://gist-it.appspot.com/https://github.com/alasco-tech/alasco-tools/blob/master/clean_up_cf/remove_branchless_stacks.py"></script>
+<script src="//gist-it.appspot.com/github/alasco-tech/alasco-tools/blob/master/clean_up_cf/remove_branchless_stacks.py"></script>
 
 As this script needs both Github access as well as AWS credentials, we decided to execute it as a scheduled build on CircleCI (currently on a hourly schedule). So we can provide credentials via environment variables in a secure way. This then looks like this in the CircleCI config:
 
