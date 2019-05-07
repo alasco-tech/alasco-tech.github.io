@@ -9,14 +9,14 @@ author: Alasco Tech Team
 <div class="row mb-4">
   <div class="col-sm-6">
     <a href="{{ post.url }}">
-      <img src="{{ site.url }}/assets/img/post_thumb.jpg" class="img-fluid"/>
+      <img src="{{ site.url }}/assets/img/{{ post.thumb|default: 'post_thumb.jpg' }}" class="img-fluid"/>
     </a>
   </div>
   <div class="col-sm-6">
       <h4 class="blog-post-title mb-0">{{ post.title }}</h4>
 
       <div class="mb-2">
-        {{ site.data.authors[post.author].name }}, <span class="text-small">{{ post.date | date: "%B %e, %Y" }}</span>
+        {{ site.data.authors[post.author].name }} - <span class="text-small">{{ post.date | date: "%B %e, %Y" }}</span>
       </div>
       <div class="text-muted mb-3">
         {{ post.excerpt | strip_html | strip_newlines | truncate: 250 }}
