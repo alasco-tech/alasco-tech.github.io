@@ -53,7 +53,7 @@ Activity: [Three by Three](https://www.qeek.co/blog/collaborative-idea-explorati
 
 Everyone writes three ideas on what to do to improve the next sprint, loosely based on the phase before - it’s great if somebody has a new idea too of course! By ensuring to do three rounds of three ideas we can leverage what I like to call last-minute-craziness. At some point you’d run out of “logical” ideas so at this point you might find new approaches disconnected from your existing views and processes. 
 ### Close the retrospective
-Goal: Bring attendees back to “reality”, 
+*Bring attendees back to “reality”*
 Activity: I was very keen on getting feedback as this was the very first retrospective I moderated! I used the last couple of minutes to let people slowly go back to a work-mindset by giving me their views on me, my presentation and the choice of activities. Very helpful and great insights indeed!
 
 ## Key Takeaways
