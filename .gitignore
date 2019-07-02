@@ -3,3 +3,4 @@
 vendor/
 _site/
 .idea/
+*.swp
