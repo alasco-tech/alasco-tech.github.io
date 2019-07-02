@@ -1,13 +1,13 @@
 ---
 author: moser
-date: 2019-07-01
+date: 2019-07-02
 layout: post
 title: "ShipIt day: Recap"
 thumb: shipit_day_thumb.png
 ---
 
 
-In our day-to-day work focussed on digitizing the cost controlling in
+In our day-to-day work focussed on digitizing the cost controlling in 
 construction projects, we sometimes lack the time to freely experiment on
 unlikely ideas to solve our customers’ problems and to collaborate with all
 other roles & teams in our company. From time to time, you have to step out of
