@@ -12,7 +12,7 @@ author: Alasco Tech Team
       <img src="{{ site.url }}/assets/img/{{ post.thumb|default: 'post_thumb.jpg' }}" class="img-fluid"/>
     </a>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-6 click-to-post js-click-to-post" data-href="{{ post.url }}">
       <h4 class="blog-post-title mb-0">{{ post.title }}</h4>
 
       <div class="mb-2">
@@ -29,3 +29,21 @@ author: Alasco Tech Team
   </div>
 </div>
 {% endfor %}
+
+<script type="text/javascript">
+  function onClickOpenPost(el) {
+    el.addEventListener("click", function(evt) {
+      var url = el.getAttribute("data-href");
+      if (evt.metaKey || evt.ctrlKey || evt.button === 1) {
+        window.open(url, "_blank");
+      } else {
+        window.location = url;
+      }
+    });
+  }
+
+  var els = document.getElementsByClassName("js-click-to-post");
+  for(var idx = 0; idx < els.length; idx++) {
+    onClickOpenPost(els[idx]);
+  }
+</script>
