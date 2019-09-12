@@ -40,11 +40,11 @@ This motivates and empowers to do the best work possible. There is a lot more to
 *Improving the internal tools!*
 
 During the next part of my internship I developed internal tools for our Customer Success department. This team helps our Customers to setup their projects and support them when questions or problems occur. I developed tools that speed up imports and automate manual tasks.
-In that time I certainly learnt a lot about the intricacies of the Django Admin (admin interface of the framework Django) but it also was a great opportunity to discover large parts of the code base. This work prepared me to later work on features for our customers.
+In that time I certainly learnt a lot about the intricacies of the [Django Admin](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/) (admin interface of the framework Django) but it also was a great opportunity to discover large parts of the code base. This work prepared me to later work on features for our customers.
 
 ### 3 Research of a big feature
 I was thrown into the cold water of accounting software and web authentication. The ultimate goal was to develop a direct upload of processed invoices from Alasco to DATEV.
-My first task was to research the requirements of DATEV for us to be able to use their API. Then I was supposed to use its crucial functionality once in a sandbox. Basti likes to call this kind of endeavor a "Durchstich" (Tracer Bullet Development). The idea is that in the spirit of agile development one always moves to the point of highest uncertainty. Everything has to work once and one makes it pretty afterwards. This preparation gave us a good idea of the work to be done in order to properly implement the feature.
+My first task was to research the requirements of [DATEV](https://developer.datev.de/portal/) for us to be able to use their API. Then I was supposed to use its crucial functionality once in a sandbox. Basti likes to call this kind of endeavor a "Durchstich" (Tracer Bullet Development). The idea is that in the spirit of agile development one always moves to the point of highest uncertainty. Everything has to work once and one makes it pretty afterwards. This preparation gave us a good idea of the work to be done in order to properly implement the feature.
 
 ### 4 Building the big feature!
 During my last weeks, I got the chance to work together with Anselm to fully develop the DATEV integration. I had done the groundwork but there was still quite a lot to do to turn the result of my hack-days into production code.
