@@ -24,26 +24,26 @@ My internship had four phases:
 ### 1 Ahhh so that's how it's done?!
 *Getting to know the clever ways of working together at Alasco.*
 
-On my first day Martin Vielsmaier helped me setup all necessary tools for development. I witnessed my first stand-up and managed to deploy in the afternoon.<br>
+On my first day Martin Vielsmaier helped me setup all necessary tools for development. I witnessed my first stand-up and managed to deploy in the afternoon.
 Let me repeat that for you:
 
 > **🚀 Deploy on the first day!!!**
 
-Pretty awesome if you ask me.<br>
+Pretty awesome if you ask me.
 In the following weeks I worked together with Martin Kapfhammer on my first feature. It was cool to learn to work in a scrum team. Every morning during the stand-up each member answers three questions:
 - What did I do yesterday?
 - What will I do today?
 - Is something standing in my way?
 
-This motivates and empowers to do the best work possible. There is a lot more to agile software development but the Stand-Up is an essential part of it.
+This motivates and empowers to do the best work possible. There is a lot more to agile software development but the stand-Up is an essential part of it.
 ### 2 Deep dive into the powerful Django Admin
 *Improving the internal tools!*
 
-During the next part of my internship I developed internal tools for our Customer Success department. This team helps our Customers to setup their projects and support them when questions or problems occur. I developed tools that speed up imports and automate manual tasks.<br/>
+During the next part of my internship I developed internal tools for our Customer Success department. This team helps our Customers to setup their projects and support them when questions or problems occur. I developed tools that speed up imports and automate manual tasks.
 In that time I certainly learnt a lot about the intricacies of the Django Admin (admin interface of the framework Django) but it also was a great opportunity to discover large parts of the code base. This work prepared me to later work on features for our customers.
 
 ### 3 Research of a big feature
-I was thrown into the cold water of accounting software and web authentication. The ultimate goal was to develop a direct upload of processed invoices from Alasco to DATEV.<br/>
+I was thrown into the cold water of accounting software and web authentication. The ultimate goal was to develop a direct upload of processed invoices from Alasco to DATEV.
 My first task was to research the requirements of DATEV for us to be able to use their API. Then I was supposed to use its crucial functionality once in a sandbox. Basti likes to call this kind of endeavor a "Durchstich" (Tracer Bullet Development). The idea is that in the spirit of agile development one always moves to the point of highest uncertainty. Everything has to work once and one makes it pretty afterwards. This preparation gave us a good idea of the work to be done in order to properly implement the feature.
 
 ### 4 Building the big feature!
@@ -54,7 +54,8 @@ So as you can tell the work was interesting. Now let me challenge your attention
 ### The vibe 💪🏝😉
 In short: it's young, dynamic, fun, ambitious, honest and social. We had super-fun team events every month but also spontaneously ended up quite often sharing a drink or hitting the climbing gym together. People are passionate about what they do, say what they think and help each other out if they can. The founders have a lot of experience with agile processes from Stylight and the development process is very professional. Design-sprint, user research and scrum. All these terms are actually lived, not just talked about.
 
-So here you go! That was a rough overview of my work at Alasco. I would like thank all the amazing people at Alasco for the engaged code discussions, relaxed lunches on the terrace and your patience with all my questions.<br/>
+So here you go! That was a rough overview of my work at Alasco. I would like thank all the amazing people at Alasco for the engaged code discussions, relaxed lunches on the terrace and your patience with all my questions.
+
 Thank you and see you again soon!
 
 -------------------
