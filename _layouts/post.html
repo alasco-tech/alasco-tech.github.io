@@ -34,6 +34,12 @@ layout: default
                               class="fab fa-twitter"> </i>{{
                             site.data.authors[page.author].twitter }}</a></p>
                         {% endif %}
+                        {% if site.data.authors[page.author].linkedin %}
+                        <p>
+                          <a href="https://www.linkedin.com/in/{{ site.data.authors[page.author].linkedin }}/"><i
+                              class="fab fa-linkedin"> </i>{{
+                            site.data.authors[page.author].linkedin }}</a></p>
+                        {% endif %}
                       </div>
                     </div>
 
