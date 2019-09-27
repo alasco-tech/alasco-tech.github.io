@@ -39,7 +39,7 @@ Here is a collection of things we experimented with before we created our versio
 
 Dealing with a complex domain (cost controlling and workflows in construction projects) we came up with our current development process, which incorporates our users and domain experts in every stage. Compared to our experience with B2C products, we spend more time in the first phases of understanding the user's problem and sketching possible solutions.
 
-### Alascos 4WD process (four wheel development process)
+### Alascos 4WD process
 One of the biggest challenges in agile development is to find the point where an insight is good enough to move on to the next "phase" and rule out options. Keeping all options open until the end would increase the cost immeasurably.
 
 Therefore, we have divided the process into the following four parts and defined artifacts as output for each phase to provide input for the next phase.
