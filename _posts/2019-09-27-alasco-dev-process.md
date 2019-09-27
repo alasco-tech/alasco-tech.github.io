@@ -26,10 +26,10 @@ Here are a few examples you might recognize from your agile team:
 
 ### Experiments
 At Alasco we like to do experiments before we adapt things and don’t waste time in opinionated discussions. The current landscape of tools and methodologies to structure a development process might be overwhelming and every team has to find their combination and workflow. 
-![The innovation spectrum of methodologies]({{ site.url }}/assets/img/development_process_chart.png "The innovation spectrum of methodologies")
+![The innovation spectrum of methodologies]({{ site.url }}/assets/img/innovation_spectrum.jpg "The innovation spectrum of methodologies")
 
 
-Here is a collection of things we tried before we created our version of a development process for our SaaS product. 
+Here is a collection of things we experimented with before we created our version of a development process for our SaaS product. 
 - [UX Burner](https://medium.com/ux-burner)
 - [Design sprints](https://www.gv.com/sprint/)
 - Scrum, Kanban
@@ -41,8 +41,14 @@ Here is a collection of things we tried before we created our version of a devel
 
 Dealing with a complex domain (cost controlling and workflows in construction projects) we came up with our current development process, which incorporates our users and domain experts in every stage. Compared to our experience with B2C products, we spent more time in the first phases of understanding the user's problem and sketching possible solutions.
 
-### Alascos 4WD development process
+### Alascos 4WD process (four wheel development process)
+One of the biggest challenges in agile development is to find the point where an insight is good enough to move on to the next "phase" and rule out options. Keeping all options open until the end would increase the cost immeasurably.
 
+Therefore, we have divided the process into the following four parts and defined artifacts as output for each phase to provide input for the next phase.
+
+![Alasco's development process]({{ site.url }}/assets/img/development_process.png "Alasco's development process")
+
+In the next weeks we will present each phase in detail in a blog post and explain how and why we estimate twice.
 
 Good reads:
 [When, which … Design Thinking, Lean, Design Sprint, Agile?](https://medium.com/@geertwlclaes/when-which-design-thinking-lean-design-sprint-agile-a4614fa778b9)
