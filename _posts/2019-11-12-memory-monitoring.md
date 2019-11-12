@@ -1,30 +1,30 @@
 ---
 author: wearebasti
-date: 2019-11-08
+date: 2019-11-12
 layout: post
 title: Memory Monitoring on AWS Elastic Beanstalk
 subtitle: A way to close a blind spots in infrastructure monitoring
 thumb: monitoring.jpg
 ---
 
-There’s a lot of automated and helpful metrics collected via Amazon’s Cloudwatch when you run your system on the AWS Cloud. By deploying your applications via the AWS Elastic Beanstalk you even get a predefined dashboard with a lot of helpful metrics: CPU Utilization, Network Traffic and more!
+There’s a lot of automated and helpful metrics collected via Amazon’s Cloudwatch when you run your system on the AWS Cloud. By deploying your applications via the AWS Elastic Beanstalk you even get a predefined dashboard with a lot of helpful metrics: CPU utilization, network traffic and more!
 
-Elastic Beanstalk is an easy way to deploy web application to Amazon’s AWS Cloud without investing a lot of time & resources in infrastructure setup. It supports many different languages and levels of application maturity. You can deploy your code directly into a set up server application (like Django) or manually run a multi-docker environment. You can learn more in the official [AWS Documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html).
+Elastic Beanstalk is an easy way to deploy web application to Amazon’s AWS Cloud without investing a lot of time & resources in infrastructure setup. It supports many different languages and levels of application maturity. You can deploy your code directly into a preconfigured server application (like Django) or manually run a multi-docker environment. You can learn more in the official [AWS Documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html).
 
 ### Discovering the Blind Spot
-At [Alasco](https://www.alasco.de/en/) we’re using Elastic Beanstalk to deploy our application as well as our release candidates for internal & external testing. (To learn more about our development process read our posts about the [Alasco Development Process](https://alasco-tech.github.io/2019/09/27/alasco-dev-process.html) and what happens [When an Engineer becomes Product Manager](https://alasco-tech.github.io/2019/02/14/engineer-to-pm.html)) This works pretty fine for us and we are thankful for the free resources we can spend on actually improving our application!
+At [Alasco](https://www.alasco.de/en/) we’re using Elastic Beanstalk to deploy our application as well as our feature branches for internal & external testing (To learn more about our development process read our posts about the [Alasco Development Process](https://alasco-tech.github.io/2019/09/27/alasco-dev-process.html) and what happens [When an Engineer becomes Product Manager](https://alasco-tech.github.io/2019/02/14/engineer-to-pm.html)) This works pretty smooth and we can spend the free resources on actually improving our application!
 
-At some point we realized that one of our release candidate environments died and after investigation we saw that it had run out of memory! Fortunately we use rather small instances with little computing power for those, so we saw it here way earlier than it would happen on our production systems. Nevertheless we realized one thing: **We have a blind spot!**
+At some point we realized that one of our feature branches died and after investigation we found out that it had run out of memory! Fortunately we use rather small instances with little computing power for our feature branches, so we saw it here way earlier than it would happen on our production systems. Nevertheless we realized one thing: **We have a blind spot!**
 
 ### Covering the Blind Spot
-We decided to put monitoring on the main memory used by our application to make sure to not run into this problem again. Our first approach was to “just add the metric from Cloudwatch to our dashboard”. This turned out to not be as easy! For reasons we can only guess, Amazon decided to not provide this metric automatically for EC2 instances (unlike CPU Utilization). 
+We decided to put monitoring on our application’s main memory to make sure to not run into this problem again. Our first approach was to “just add the metric from Cloudwatch to our dashboard”. This turned out to be quite difficult! Probably for technical reasons, Amazon does not provide memory usage metrics for EC2 instances.
 
-There’re even an open discussion from [2012](https://forums.aws.amazon.com/thread.jspa?messageID=338138&#338138), [2013](https://forums.aws.amazon.com/thread.jspa?messageID=421861&#421861) (and many more) on the AWS Developer Forums. Those old forum posts have often solutions linked, but those are often outdated by now and not necessarily directly applicable to Elastic Beanstalk.
+There’re open discussions from [2012](https://forums.aws.amazon.com/thread.jspa?messageID=338138&#338138), [2013](https://forums.aws.amazon.com/thread.jspa?messageID=421861&#421861) (and many more) on the AWS Developer Forums. Those old forum posts have often solutions linked, but those are often outdated by now and not necessarily directly applicable to Elastic Beanstalk.
 
 #### Rolling our own Solution
 After accepting the harsh reality that there’s nothing “out of the box”, we started searching for solutions to monitor the memory usage of our systems. We were of course especially interested in everything related to Elastic Beanstalk. We ended up implementing our own solution based on the [AWS Cloudwatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) - at this point a big thank you to all the blog and forum posts online that made this possible!
 
-Goal: Report main memory usage of our instances so we can easily track them in Cloudwatch.
+**Goal: Report main memory usage of our instances so we can easily track them in Cloudwatch.**
 
 To make this goal reality we only needed two parts implemented, IAM Policies and the cloudwatch agent installed on our EC2 instances.
 
@@ -33,7 +33,7 @@ We put the necessary Policies in our cloudformation template (via [troposphere](
 
 
 #### Cloudwatch Agent
-The installation of the Cloudwatch Agent was a bit trickier as we wanted it to be as automatic as possible. We decided to use an “ebextension”, which are little config files in a folder called “.ebextensions” the configure and customize your Elastic Beanstalk environment.
+The installation of the Cloudwatch Agent was a bit trickier as we wanted it to be as automatic as possible. We decided to use an “ebextension”, which are little config files in a “.ebextensions” folder which configure and customize your Elastic Beanstalk environment.
 
 Our cloudwatch agent extension needed to ensure the agent is installed and running with the correct configuration.
 
@@ -85,7 +85,7 @@ The `append_dimensions` in this example adds the AWS Elastic Beanstalk environme
 
 
 ### Conclusion
-Amazon provides a wide variety of tools and metrics that help to ensure a reliable system, but not everything works out of the box. In my opinion, it's very important to cover as much as possible with automatic monitoring and be aware of any blind spots (or better: cover them!).
+Amazon provides a wide variety of tools and metrics that help to ensure a reliable system, but not everything works out of the box. In my opinion, it's very important to cover as much as possible with automatic monitoring and be aware of any blind spots (and cover them!).
 
 I hope this helps somebody with a similar problem in the future! And don't
 forget to stay tuned for other upcoming stories of our tech-life at [Alasco](https://alasco-tech.github.io/)!
