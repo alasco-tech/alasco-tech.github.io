@@ -8,18 +8,18 @@ thumb: money.jpg
 ---
 
 Much of our code at Alasco deals with storing, computing and presenting monetary values along with taxes. Handling money — similar to time and date — involves a number of details and edge cases that are best left to a dedicated library or data type. 
-Python has with `datetime` a standard library for common issues of time and date: parsing dates, date arithmetic & comparison, time zones, and localization. 
+Python has with `datetime` a standard library for common issues of time and date: parsing dates, date arithmetic & comparison, time zones and localization. 
 Unfortunately, there is no similar built-in for dealing with money and its peculiarities: currencies, quantization/rounding of cents, taxes, parsing/localization, etc.
 
 So while it would be absurd for a project like ours to reimplement basic date/time handling, we found ourselves having to write our own `money` datatype. There are a couple of Python money libraries, in particular [py-moneyed](https://github.com/limist/py-moneyed) or [python-money](https://github.com/carlospalol/money), that solve issues regarding currencies and quantization. However, none deal with taxation or the handling of both precise and quantized (rounded) money, topics very relevant to us.
 
-I will skip some basics about representing money, e.g. that [you shouldn't use floats](https://stackoverflow.com/questions/3730019/why-not-use-double-or-float-to-represent-currency/3730040#3730040) to represent amounts, or that every amount comes with a currency attached. Proper localization is also handled well by libraries like `py-moneyed`. Instead I will show how we handle two more delicate issues when dealing with money: 1. rounding and 2. taxes.
+I will skip some basics about representing money, e.g. that [you shouldn't use floats](https://stackoverflow.com/questions/3730019/why-not-use-double-or-float-to-represent-currency/3730040#3730040) to represent amounts, or that *every* amount comes with a currency attached. Proper localization is also handled well by libraries like `py-moneyed`. Instead I would like to show how we handle two more delicate issues when dealing with money: 1. rounding and 2. taxes.
 
 ## 1. Two Approaches to Rounding Money
 
 There are two types of libraries for storing monetary value: 
-  - **Discrete**: store the sub-units of the currency as an integer, e.g. `1000` to represent 10 EUR. (See [RubyMoney](https://github.com/RubyMoney/money) or [Dinero.js](https://github.com/sarahdayan/dinero.js)). 
-  - **Exact**: keep track of partial cents (e.g. as `Decimals`), possibly to a very high precision. (See [py-moneyed](https://github.com/limist/py-moneyed) or [python-money](https://github.com/carlospalol/money))
+ - **Discrete**: store the sub-units of the currency as an integer, e.g. `1000` to represent 10 EUR. (See [RubyMoney](https://github.com/RubyMoney/money) or [Dinero.js](https://github.com/sarahdayan/dinero.js)). 
+ - **Exact**: keep track of partial cents (e.g. as `Decimals`), possibly to a very high precision. (See [py-moneyed](https://github.com/limist/py-moneyed) or [python-money](https://github.com/carlospalol/money))
 
 ### Discrete Money
 
