@@ -28,18 +28,21 @@ layout: default
                     <div class="row">
                       <div class="col text-right">
                         <div class="mb-0">{{ site.data.authors[page.author].name }}</div>
+
+
                         {% if site.data.authors[page.author].twitter %}
-                        <p>
+                        <div style="white-space: nowrap;">
                           <a href="https://www.twitter.com/{{ site.data.authors[page.author].twitter }}"><i
-                              class="fab fa-twitter"> </i>{{
-                            site.data.authors[page.author].twitter }}</a></p>
+                              class="fab fa-twitter"> </i> {{ site.data.authors[page.author].twitter }}</a>
+                        </div>
                         {% endif %}
                         {% if site.data.authors[page.author].linkedin %}
-                        <p>
+                        <div style="white-space: nowrap;">
                           <a href="https://www.linkedin.com/in/{{ site.data.authors[page.author].linkedin }}/"><i
-                              class="fab fa-linkedin"> </i>{{
-                            site.data.authors[page.author].linkedin }}</a></p>
+                              class="fab fa-linkedin"> </i> {{site.data.authors[page.author].linkedin }}</a>
+                        </div>
                         {% endif %}
+
                       </div>
                     </div>
 
