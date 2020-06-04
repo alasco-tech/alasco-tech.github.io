@@ -9,14 +9,14 @@ thumb: perry-grone-lbLgFFlADrY-unsplash.jpg
 At Alasco we work every day to reduce costs and duration of construction projects. Following this clear vision and goal of bringing value to our customers, there are two major topics that define our work: Culture (the values we live  and work by) and teamwork.
 
 ### Culture & Teamwork at Alasco:
-Our work is based on our four company values in all things we do:
+Our work and all the things we do are based on our four company values:
 
 - Ambition
 - Appreciation
 - Positivity
 - Trust
   
-These values are not only mere words for us, they are a guiding star for our processes, communication and work-life. 
+These values are not only mere words for us, they are a guiding star for our processes, communication and work life. 
 
 Besides our culture, teamwork is a very important topic for us.
 
@@ -24,13 +24,13 @@ Besides our culture, teamwork is a very important topic for us.
     <footer class="blockquote-footer">Vince Lombardi</footer>
 </blockquote>
 
-In a fast growing team such as Alasco it can be challenging to keep our values in sync, to constantly support the growth of the team and to make it easy for new members to really feel like a part of the team. 
+In a fast growing team such as ours it can be challenging to keep our values in sync, to constantly support the growth of the team and to make it easy for new members to really feel like a part of the team. 
 
 For these reasons we organize many team events every year.
 
 Alasco does an all-team event each month. Everyone from each department is invited! It fosters connections between different teams.  Additionally the product and engineering department has an additional event once per quarter (because of COVID-19 we bumped that up to once a month!). 
 
-Following, I’d like to show an example of each of those events: company wide, team internal and remote team events!
+Following, I’d like to show an example of each of these events: company wide, team internal and remote team events!
 
 Two learnings from our team event organization: 
 Doodle is your friend for finding a date where most people have time. After you fixed a date, it’s as easy as a Slack poll to define what you actually want to!
@@ -43,7 +43,7 @@ On of the highlights is our yearly [Alasco ski-trip](https://www.linkedin.com/po
 The bus tour itself is a great team event already to get to know each other better, spending a weekend together in the alps: just fabulous!
 
 ### Product & Engineering Team Internal
-As mentioned above, we also do activities in the individual teams, in addition to our company wide team events. The latest product team event was a visit to a local trampoline park in Munich. About two hours of jumping, playing dodge ball and laughing with each other helped us a lot to tighten bonds.
+As mentioned above, we also do activities within the individual teams, in addition to our company wide team events. The latest product team event was a visit to a local trampoline park in Munich. About two hours of jumping, playing dodge ball and laughing with each other helped us a lot to tighten bonds.
 
 ![Relaxing in the trampolin park]({{ site.url }}/assets/img/team_event_trampolin.jpg "Relaxing in the trampolin park")
 
