@@ -15,7 +15,7 @@ So while it would be absurd for a project like ours to reimplement basic date/ti
 
 I will skip some basics about representing money, e.g. that [you shouldn't use floats](https://stackoverflow.com/questions/3730019/why-not-use-double-or-float-to-represent-currency/3730040#3730040) to represent amounts, or that *every* amount comes with a currency attached. Proper localization is also handled well by libraries like `py-moneyed`. Instead I would like to show how we handle two more delicate issues when dealing with money: 1. rounding and 2. taxes.
 
-## 1. Two Tpyes of Money
+## 1. Two Types of Money
 
 There are two types of libraries for storing monetary value: 
 
