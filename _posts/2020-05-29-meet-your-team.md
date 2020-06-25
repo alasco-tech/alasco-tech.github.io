@@ -52,7 +52,7 @@ After the exhausting activity we let the evening come to an end by having dinner
 ### Remote
 Given the state-wise recommended lockdown the Alasco team went full-remote. To keep up the spirits in these times, our lovely colleagues [Hanna](https://www.linkedin.com/in/hannakoepff/) and [Thomas](https://www.linkedin.com/in/tplatiel/) organized a remote beer tasting!
 
-![Remote beer tasting]({{ site.url }}/assets/img/team_event_beer.png "Remote beer tasting")
+![Remote beer tasting]({{ site.url }}/assets/img/team_event_beer.jpg "Remote beer tasting")
 
 The nice people at [Hoppe Bräu](https://www.hoppebraeu.de/en) agreed to give us an introduction into the art of  brewing beer, including the brewing process and recognizing the taste notes of different beers. We learned a lot from the infamous “Hell” to the exotic “New England Pale Ale”: A rather important skill set for our Munich-based team!
 
