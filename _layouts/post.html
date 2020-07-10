@@ -2,66 +2,48 @@
 layout: default
 ---
 
-<div class="row">
-  <div class="col">
-
-    <div class="row">
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col">
-            <div class="card welcome-container mb-4">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-9">
-                    <h1 class="card-title">{{ page.title }}</h1>
-                    <p class="card-text">{{ page.subtitle }}</p>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="row">
-                      <div class="col-md-4"></div>
-                      <div class="col-md-8">
-                        <img class="img-fluid"
-                             src="{{ site.url }}/assets/img/{{ site.data.authors[page.author].image|default: 'avatar.png' }}"
-                             alt="Author's profile picture"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col text-right">
-                        <div class="mb-0">{{ site.data.authors[page.author].name }}</div>
-
-
-                        {% if site.data.authors[page.author].twitter %}
-                        <div style="white-space: nowrap;">
-                          <a href="https://www.twitter.com/{{ site.data.authors[page.author].twitter }}"><i
-                              class="fab fa-twitter"> </i> {{ site.data.authors[page.author].twitter }}</a>
-                        </div>
-                        {% endif %}
-                        {% if site.data.authors[page.author].linkedin %}
-                        <div style="white-space: nowrap;">
-                          <a href="https://www.linkedin.com/in/{{ site.data.authors[page.author].linkedin }}/"><i
-                              class="fab fa-linkedin"> </i> {{site.data.authors[page.author].linkedin }}</a>
-                        </div>
-                        {% endif %}
-
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<div id="top" class="section article-header">
+  <div class="max-width-container">
+    <div class="max-width-container article">
+      <h1 class="h1-article-headline">{{ page.title }}</h1>
+      <h2 class="h2-subheadline">{{ page.subtitle }}<a href="https://www.twitter.com/schuon"><em><br></em></a></h2>
+      <div class="author-container"><img src="{{ site.url }}/assets/img/{{ site.data.authors[page.author].image|default: 'avatar.png' }}" alt="" class="author-image big">
+        <div class="author-info">
+          <div class="author-name">{{ site.data.authors[page.author].name }}</div>
+          <div class="article-date">{{ page.date | date: "%B %e, %Y" }}</div>
         </div>
-        <div class="row">
-          <div class="col blog-post-content">
+        <div class="author-socials">
+          {% if site.data.authors[page.author].twitter %}
+          <div class="flexcontainer social"><img src="{{ site.url }}/assets/images/twitter-square-brands.svg" alt="" class="social-icon"><a href="https://www.twitter.com/{{ site.data.authors[page.author].twitter }}" target="_blank" class="author-social-link">@{{ site.data.authors[page.author].twitter }}</a></div>
+          {% endif %}
+          {% if site.data.authors[page.author].linkedin %}
+          <div class="flexcontainer social"><img src="{{ site.url }}/assets/images/linkedin-brands.svg" alt="" class="social-icon"><a href="https://www.linkedin.com/in/{{ site.data.authors[page.author].linkedin }}/" target="_blank" class="author-social-link">{{ site.data.authors[page.author].linkedin }}</a></div>
+          {% endif %}
+
+        </div>
+      </div>
+      <div class="article-header-image-container"><img src="{{ site.url }}/assets/img/{{ page.thumb|default: 'post_thumb.jpg' }}"  alt="Software engineer in front of a white board" class="article-header-image"></div>
+    </div>
+  </div>
+  <div class="max-width-container"></div>
+</div>
+<div class="section article">
+  <div class="max-width-container">
+    <div class="max-width-container article">
+      <div class="flexcontainer">
+        <div class="flex-box-70">
+          <div class="flex-box-padding w-clearfix">
             {{ content }}
           </div>
         </div>
+        <div class="flex-box-30">
+          <div class="flex-box-padding">
+            <div class="job-box">
+              <h4 class="h4-jobbox">Join our growing team!</h4>
+              <h5>We&#x27;re hiring.</h5><a href="https://alasco.breezy.hr/" target="_blank" class="button-grey w-button">View Jobs now</a></div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3">
-        {% include sidebar.html %}
-      </div>
-
     </div>
   </div>
 </div>

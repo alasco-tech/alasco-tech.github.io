@@ -1,0 +1,49 @@
+---
+title: Hi and Welcome to the Alasco Tech Blog!
+subtitle: Here we'd like to share our experiences and thoughts building Alasco’s tech platform. We heavily rely on open source and the web community at large and would like to contribute back with this blog. If you have any questions (or would like to <a href="https://alasco.breezy.hr/">join us</a>), feel free to reach out <a  href="https://www.twitter.com/alascotech">@AlascoTech</a>!
+layout: page
+author: Alasco Tech Team
+---
+
+{% for post in site.posts %}
+<div class="row mb-4">
+  <div class="col-sm-6">
+    <a href="{{ post.url }}">
+      <img src="{{ site.url }}/assets/img/{{ post.thumb|default: 'post_thumb.jpg' }}" class="img-fluid"/>
+    </a>
+  </div>
+  <div class="col-sm-6 click-to-post js-click-to-post" data-href="{{ post.url }}">
+      <h4 class="blog-post-title mb-0">{{ post.title }}</h4>
+
+      <div class="mb-2">
+        {{ site.data.authors[post.author].name }} - <span class="text-small">{{ post.date | date: "%B %e, %Y" }}</span>
+      </div>
+      <div class="text-muted mb-3">
+        {{ post.excerpt | strip_html | strip_newlines | truncate: 250 }}
+      </div>
+
+    <a href="{{ post.url }}" class="mt-2">
+      Read more
+    </a>
+
+  </div>
+</div>
+{% endfor %}
+
+<script type="text/javascript">
+  function onClickOpenPost(el) {
+    el.addEventListener("click", function(evt) {
+      var url = el.getAttribute("data-href");
+      if (evt.metaKey || evt.ctrlKey || evt.button === 1) {
+        window.open(url, "_blank");
+      } else {
+        window.location = url;
+      }
+    });
+  }
+
+  var els = document.getElementsByClassName("js-click-to-post");
+  for(var idx = 0; idx < els.length; idx++) {
+    onClickOpenPost(els[idx]);
+  }
+</script>

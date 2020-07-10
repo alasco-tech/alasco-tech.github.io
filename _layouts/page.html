@@ -2,21 +2,20 @@
 layout: default
 ---
 
-<div class="row">
-  <div class="col-md-9">
 
-    <div class="card welcome-container mb-4">
-      <div class="card-body">
-        <h1 class="card-title">{{ page.title }}</h1>
-        <p class="card-text">{{ page.subtitle }}</p>
+<div class="section header">
+  <div class="max-width-container">
+    <div class="flexcontainer">
+      <div class="flex-box-50">
+        <div class="flex-box-padding">
+          <h1>Tech in the Construction Industry</h1>
+          <p>Here we&#x27;d like to share our experiences and thoughts building Alasco’s tech platform. We heavily rely on open source and the web community at large and would like to contribute back with this blog. If you have any questions (or would like to <a href="https://alasco.breezy.hr/" target="_blank" class="textlink">join us</a>), feel free to reach out <a href="https://twitter.com/alascotech" class="textlink">@AlascoTech</a>!</p>
+        </div>
+      </div>
+      <div class="flex-box-50">
+        <!--<div class="flex-box-padding"><a href="#" class="category-button w-button">All Categories</a><a href="#" class="category-button w-button">Team</a><a href="#" class="category-button w-button">Coding</a><a href="#" class="category-button w-button">Coding</a><a href="#" class="category-button w-button">Category Lorem Ipsum</a><a href="#" class="category-button w-button">Category Lorem Alasco</a><a href="#" class="category-button w-button">Coding</a><a href="#" class="category-button w-button">Coding</a><a href="#" class="category-button w-button">Category Lorem Alasco</a></div>-->
       </div>
     </div>
-
-    {{ content }}
-
-  </div>
-
-  <div class="col-md-3">
-    {% include sidebar.html %}
   </div>
 </div>
+{{ content }}

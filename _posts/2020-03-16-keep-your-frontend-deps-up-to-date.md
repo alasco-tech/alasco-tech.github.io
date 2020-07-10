@@ -54,7 +54,7 @@ DEPENDENCY_CHECK_RESULT="$(npm run check-for-updates)"
 
 We are now ready to open the PR when updates have been made during the build:
 
-```
+{% highlight bash linenos %}
 if [ "HAS_NEW_DEPS" == "1" ]; then
   echo "### Create branch"
   git checkout -b "frontend-update-${CIRCLE_SHA1}"
@@ -76,7 +76,7 @@ if [ "HAS_NEW_DEPS" == "1" ]; then
 else
   echo "No dependency updates available"
 fi
-```
+{% endhighlight %}
 
 The updates and PR are ready now but we still need to make sure that those changes are not breaking anything in our app. We handle this with tests written with `react-testing-library` and `enzyme`. Our automated test suite and selective manual tests are executed. As the description of the PR contains a list of changes it’s very transparent and not a big effort at all.
 
