@@ -25,28 +25,31 @@
 <body>
   {% include header_new.html %}
   {{ content }}
-<!--
+
   <div class="section recommended-posts">
     <div class="max-width-container">
       <h2>Recommended Posts</h2>
     </div>
     <div class="max-width-container">
       <div class="flexcontainer">
+
+        {% for post in site.posts %}
+        {% if post.tags contains "featured" %}
         <div class="flex-box-50">
           <div class="flex-box-padding">
-            <a data-w-id="7a37eb57-2a25-259a-c3cd-9a2618dc9c13" href="../articles/lean-ux-at-a-saas-startup.html" class="article-link-block w-inline-block">
+            <a data-w-id="06f08df4-8d04-178d-5325-4f7e27001551" href="{{ post.url }}" class="article-link-block w-inline-block">
               <div class="post-container">
                 <div class="category-label">
                   <div>Category</div>
                 </div>
-                <div class="article-image-container"><img src="../images/lean_UX.jpg" alt="UX designer working with paper prototypes" class="article-teaser-image"></div>
+                <div class="article-image-container"><img src="{{ site.url }}/assets/img/{{ post.thumb|default: 'post_thumb.jpg' }}" alt="{{ post.title }}" class="article-teaser-image"></div>
                 <div class="post-text-container">
-                  <h3 class="article-heading">Lean UX At A SaaS Startup</h3>
-                  <p data-w-id="7a37eb57-2a25-259a-c3cd-9a2618dc9c1d" class="article-teaser-text"><em>Why Lean UX?</em> Especially in startups, we are working in an environment of limited resources and the organization has to make clear decisions on what to invest them in.</p>
-                  <div class="author-container"><img src="../images/julia_bastian.jpg" alt="Portrait Julia Bastian" class="author-image">
+                  <h3 class="article-heading">{{ post.title }}</h3>
+                  <p data-w-id="3e90a71a-1326-8569-f2ef-3f960b8e4fc2" class="article-teaser-text" style="height: 0px;">{{ post.excerpt | strip_html | strip_newlines | truncate: 140 }}</p>
+                  <div class="author-container"><img src="{{ site.url }}/assets/img/{{ site.data.authors[post.author].image|default: 'avatar.png' }}" alt="{{ site.data.authors[post.author].name }}" class="author-image">
                     <div class="author-info">
-                      <div class="author-name">Julia Bastian</div>
-                      <div class="article-date">25.06.2020</div>
+                      <div class="author-name">{{ site.data.authors[post.author].name }}</div>
+                      <div class="article-date">{{ post.date | date: "%B %e, %Y" }}</div>
                     </div>
                   </div>
                 </div>
@@ -54,32 +57,13 @@
             </a>
           </div>
         </div>
-        <div class="flex-box-50">
-          <div class="flex-box-padding">
-            <a data-w-id="7a37eb57-2a25-259a-c3cd-9a2618dc9c2a" href="../articles/keep-your-frontend-dependencies-up-to-date.html" class="article-link-block w-inline-block">
-              <div class="post-container">
-                <div class="category-label">
-                  <div>Category</div>
-                </div>
-                <div class="article-image-container recommended"><img src="../images/frontenddeps.jpg" srcset="../images/frontenddeps-p-1080.jpeg 1080w, ../images/frontenddeps.jpg 1280w" sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 43vw, 44vw" alt="Lorem Ipsum" class="article-teaser-image"></div>
-                <div class="post-text-container">
-                  <h3 class="article-heading">Keep your frontend dependencies Up-To-Date</h3>
-                  <p data-w-id="7a37eb57-2a25-259a-c3cd-9a2618dc9c34" class="article-teaser-text">At Alasco we are developing various Frontend components every day in order to achieve that our customers have the best user experience possible to fulfill their daily tasks.</p>
-                  <div class="author-container"><img src="../images/sebastian_mark.jpg" alt="" class="author-image">
-                    <div class="author-info">
-                      <div class="author-name">Sebastian Mark</div>
-                      <div class="article-date">16.03.2020</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
+        {% endif %}
+        {% endfor %}
+        
       </div>
     </div>
   </div>
-  -->
+  
 
   {% include footer_new.html %}
 
