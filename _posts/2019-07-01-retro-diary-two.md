@@ -4,7 +4,9 @@ date: 2019-07-01
 layout: post
 title: Wedding Retro
 subtitle: "Or: My Retro Diary Part Two"
-thumb: retro_diary_two_thumb.png
+thumb: wedding_retro.jpg
+teaseralt: Post-it notes from a retrospective meeting
+description: Insights on how we do agile retrospectives at Alasco. Following the five steps of agile retrospectives, learn which methods we use and what our key takeaways are.
 ---
 
 Welcome to the continuation of my "retro-diary" following up on my very first [article](https://alasco-tech.github.io/2019/05/07/retro-diary-one.html). I'd like to share some more insights on how we do agile retrospectives at Alasco. I hope the ideas of my last article were helpful - I'd be very happy to hear about your own experiences!
@@ -45,7 +47,7 @@ The name already gives that it fits the theme. The [old bridal rhyme](https://en
 *Something Blue* → Any blocker or source of sadness
 
 
-![Something old or something blue?]({{ site.url }}/assets/img/retro_diary_two_rhyme.png "The old bridal rhyme")
+![Something old or something blue?]({{ site.url }}/assets/images/retro_diary_two_rhyme.png "Many post-it notes from a retrospective meeting on a whiteboard")
 
 
 In my opinion, especially the mapping from the rhyme to actual work process related items leads to think out of the box more than by just having the four questions to answer.

@@ -4,7 +4,9 @@ date: 2020-05-29
 layout: post
 title: Meet Your (New) Colleagues
 subtitle: Team events at Alasco
-thumb: perry-grone-lbLgFFlADrY-unsplash.jpg
+thumb: your_new_team.jpg
+teaseralt: Team members putting their hands together
+description: Culture & Teamwork at Alasco; How we build trust, ambition, positivity and appreciation through team events and social gatherings.
 ---
 At Alasco we work every day to reduce costs and duration of construction projects. Following this clear vision and goal of bringing value to our customers, there are two major topics that define our work: Culture (the values we live  and work by) and teamwork.
 
@@ -38,21 +40,21 @@ Doodle is your friend for finding a date where most people have time. After you 
 ### Company Wide
 On of the highlights is our yearly [Alasco ski-trip](https://www.linkedin.com/posts/alasco-software_teamalasco-skitrip-alascoonsnow-activity-6642799752998080513-l8uL) - A great way to grow and stay together. Lots of fun is guaranteed! If you can’t or don’t want to ski there’s of course always an alternative program provided for you - this year we did a hike with Alpacas!
 
-![A couple of Alascians skiing]({{ site.url }}/assets/img/team_event_skitrip.jpg "A couple of Alascians skiing")
+![A couple of Alascians skiing]({{ site.url }}/assets/images/team_event_skitrip.jpg "A couple of Alascians skiing")
 
 The bus tour itself is a great team event already to get to know each other better, spending a weekend together in the alps: just fabulous!
 
 ### Product & Engineering Team Internal
 As mentioned above, we also do activities within the individual teams, in addition to our company wide team events. The latest product team event was a visit to a local trampoline park in Munich. About two hours of jumping, playing dodge ball and laughing with each other helped us a lot to tighten bonds.
 
-![Relaxing in the trampolin park]({{ site.url }}/assets/img/team_event_trampolin.jpg "Relaxing in the trampolin park")
+![Relaxing in the trampolin park]({{ site.url }}/assets/images/team_event_trampolin.jpg "Relaxing in the trampolin park")
 
 After the exhausting activity we let the evening come to an end by having dinner together at an artisan burger joint and sharing some drinks!
 
 ### Remote
 Given the state-wise recommended lockdown the Alasco team went full-remote. To keep up the spirits in these times, our lovely colleagues [Hanna](https://www.linkedin.com/in/hannakoepff/) and [Thomas](https://www.linkedin.com/in/tplatiel/) organized a remote beer tasting!
 
-![Remote beer tasting]({{ site.url }}/assets/img/team_event_beer.jpg "Remote beer tasting")
+![Remote beer tasting]({{ site.url }}/assets/images/team_event_beer.jpg "Remote beer tasting")
 
 The nice people at [Hoppe Bräu](https://www.hoppebraeu.de/en) agreed to give us an introduction into the art of  brewing beer, including the brewing process and recognizing the taste notes of different beers. We learned a lot from the infamous “Hell” to the exotic “New England Pale Ale”: A rather important skill set for our Munich-based team!
 

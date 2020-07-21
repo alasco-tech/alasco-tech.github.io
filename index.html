@@ -19,11 +19,11 @@ author: Alasco Tech Team
               <div class="category-label">
                 <div>Category</div>
               </div>
-              <div class="article-image-container"><img src="{{ site.url }}/assets/img/{{ post.thumb|default: 'post_thumb.jpg' }}" alt="{{ post.title }}" class="article-teaser-image"></div>
+              <div class="article-image-container"><img src="{{ site.url }}/assets/images/{{ post.thumb|default: 'post_thumb.jpg' }}" alt="{{ post.teaseralt | default: post.title }}" class="article-teaser-image"></div>
               <div class="post-text-container">
                 <h3 class="article-heading">{{ post.title }}</h3>
                 <p data-w-id="3e90a71a-1326-8569-f2ef-3f960b8e4fc2" class="article-teaser-text" style="height: 0px;">{{ post.excerpt | strip_html | strip_newlines | truncate: 140 }}</p>
-                <div class="author-container"><img src="{{ site.url }}/assets/img/{{ site.data.authors[post.author].image|default: 'avatar.png' }}" alt="{{ site.data.authors[post.author].name }}" class="author-image">
+                <div class="author-container"><img src="{{ site.url }}/assets/images/{{ site.data.authors[post.author].image|default: 'placeholder_author.jpg' }}" alt="{{ site.data.authors[post.author].name }}" class="author-image">
                   <div class="author-info">
                     <div class="author-name">{{ site.data.authors[post.author].name }}</div>
                     <div class="article-date">{{ post.date | date: "%B %e, %Y" }}</div>

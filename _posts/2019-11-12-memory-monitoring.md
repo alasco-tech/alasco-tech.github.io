@@ -4,7 +4,9 @@ date: 2019-11-12
 layout: post
 title: Memory Monitoring on AWS Elastic Beanstalk
 subtitle: A way to close a blind spots in infrastructure monitoring
-thumb: monitoring.jpg
+thumb: aws_monitoring.jpg
+teaseralt: Memory monitoring graphs on a screen
+description: Using AWS Elastic Beanstalk for memory monitoring at Alasco. How we report main memory usage of our instances and easily track them in Cloudwatch.
 ---
 
 There’s a lot of automated and helpful metrics collected via Amazon’s Cloudwatch when you run your system on the AWS Cloud. By deploying your applications via the AWS Elastic Beanstalk you even get a predefined dashboard with a lot of helpful metrics: CPU utilization, network traffic and more!

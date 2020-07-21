@@ -2,45 +2,44 @@ schuon:
   name: Sebastian Schuon
   twitter: schuon
   title: Founder
-  image: schuon.jpg
+  image: sebastian_schuon.jpg
 
 wearebasti:
   name: Sebastian Seitz
   twitter: wearebasti
   linkedin: seitzsebastian
   title: Software Engineer
-  image: wearebasti.jpg
+  image: sebastian_seitz.jpg
 
 moser:
   name: Martin Vielsmaier
   twitter: moserei
   title: Software Engineer
-  image: moser.png
+  image: martin_vielsmaier.jpg
 
 jan-engelmann:
   name: Jan Engelmann
   linkedin: jan-paul-engelmann
   title: Intern Engineering
-  image: engelmann.jpeg
+  image: jan_engelmann.jpg
  
 anselmbauer:
   name: Anselm Bauer
   linkedin: anselmbauer
   title: Founder
-  image: anselmbauer.jpg
+  image: anselm_bauer.jpg
 
 chrisittner:
   name: Chris Ittner
   title: Software Engineer
-  image: chrisittner.png
 
 sebastianmark:
   name: Sebastian Mark
   title: Software Engineer
-  image: sebastianmark.jpg
+  image: sebastian_mark.jpg
 
 juliabastian:
   name: Julia Bastian
   title: UX Researcher
-  image: juliabastian.jpg
+  image: julia_bastian.jpg
   linkedin: julia-bastian

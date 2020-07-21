@@ -4,11 +4,10 @@ plugins:
 
 defaults:
   - scope:
-      path: "assets/img"
+      path: "assets/images"
     values:
       image: true
 
-sass:
-  sass_dir: _sass
-
 ga_id: "UA-134504184-1"
+
+title: "Alasco | Tech Blog"

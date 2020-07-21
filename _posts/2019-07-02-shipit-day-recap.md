@@ -3,7 +3,9 @@ author: moser
 date: 2019-07-02
 layout: post
 title: "ShipIt day: Recap"
-thumb: shipit_day_thumb.png
+thumb: shipit_day.jpg
+teaseralt: Alasco ShipIt day banner
+description: Recap of the Alasco ShipIt Day 2019. Check out what our product team came up with in an axciting and fun 24h hackathon.
 ---
 
 
@@ -42,7 +44,7 @@ favorite ideas in a spreadsheet before the meeting, because asking everyone for
 their favorites and writing their answers down on the whiteboard took quite
 some time.
 
-![Alascians working on ideas](/assets/img/shipit_day_team.jpg)
+![Alascians working on ideas](/assets/images/shipit_day_team.jpg "Alasco team members working together")
 
 With 5 teams formed we started into the 24 hours at 3 PM on Tuesday. At 7 PM
 the traditional ShipIt day food - Pizza - was served. Already within the first

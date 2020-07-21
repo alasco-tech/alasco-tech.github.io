@@ -3,7 +3,10 @@ author: schuon
 date: 2019-02-14
 layout: post
 title: When an engineer becomes product manager
+thumb: engineer_productmanager.jpg
 subtitle: ...how to build a development pipeline that makes it super convenient to check out new features
+teaseralt: Software engineer in front of a white board
+description: Read about how an engineer became a product manager at Alasco and how to build a development pipeline that makes it super convenient to check out new features.
 ---
 In this post, I would like to talk about our infrastructure and how we deploy. I, Sebastian, had been coding the initial version of Alasco. As time went on and the team grew, I moved into the product manager role. Today I am responsible for the product, but more from a strategic point and less from a technical point. My transition was gradual, at first I stopped writing features and the last thing I worked on was infrastructure - both because I enjoy it for the empowerment it gives and because it’s quite decoupled from the daily product development work.
 
@@ -20,16 +23,16 @@ As we host on AWS, we looked at different options to describe our infrastructure
 ## AWS Beanstalk as the nucleus of a deployment
 ElasticBeanstalk has the concept of an application and an environment. Think of an application as a group of environments. Between those you can, for example, share deployed versions of your software. We decided to have two dedicated applications, one for production and one for staging. This is an additional safe-guard that separates production from staging. Then all the feature-branches get deployed as an environment in the staging app. This looks like this:
 
-![Elastic Beanstalk Environment Overview]({{ site.url }}/assets/img/engineer_to_po_1.png "Elastic Beanstalk Environment Overview")
+![Elastic Beanstalk Environment Overview]({{ site.url }}/assets/images/engineer_to_po_1.png "Screenshot of the AWS Beanstalk staging app")
 
 From a technical standpoint we decided to have two separate CloudFormation templates: one that spins up the application (that’s rarely executed) and one to spin up an environment within an application. We started our work based on Caktus’s [AWS Webstack](https://github.com/caktus/aws-web-stacks) but soon deviated so heavily from it that it was not forkable anymore. For example we reworked it to have most parameters not being CloudFormation Parameters in the template but that we set them at template generation time in code. This gave us a better feeling of control as well as reducing complexity at stack creation time. Also we could then create inheritance of settings and selectively overwriting parameters. This ensures environments are as similar as possible and differences are clearly visible.
 
 ## CicleCI to drive deploys
-![CircleCI Workflow]({{ site.url }}/assets/img/engineer_to_po_2.png "CircleCI Workflow")
+![CircleCI Workflow]({{ site.url }}/assets/images/engineer_to_po_2.png "Screenshot of deployment in CircleCI")
 
 We tweaked the deploy step in CircleCI to generate the CloudFormation templates, afterwards the template is executed and this brings up the stack. The stack provisions not only our application on Beanstalks, but also the RDS databases, S3 buckets and alike. We also create a DNS entry so the application can be reached by the branch’s name (that’s what all the work has been for!):
 
-![URL Output]({{ site.url }}/assets/img/engineer_to_po_3.png "URL Output")
+![URL Output]({{ site.url }}/assets/images/engineer_to_po_3.png "Screenshot of the DNS entry "Environemnt ready to browse")
 
 ## Saving some $$$
 Over time we upgraded out setup to install test data on newly created stack as to make testing even easier. We also applied some tweaks to save costs. First, we modified the branch deploys to use cheaper hardware (think smaller instances) as well as reduced redundancy (e.g. only one instance behind a load balancer). The latter also speed up our deployment times, as we didn’t needed rolling updates on multiple instances. The next improvement was to introduce skipped provisioning on branches that ended on -no-infra. Some things just don’t need an infrastructure to demo (like a modified source code formatter).
