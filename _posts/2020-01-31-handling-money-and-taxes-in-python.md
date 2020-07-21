@@ -4,7 +4,9 @@ date: 2020-01-31
 layout: post
 title: Handling Money and Taxes in Python
 subtitle: How we deal with VAT and rounding in the backend
-thumb: money.jpg
+thumb: money_and_taxes_in_python.jpg
+teaseralt: Stacks of coins on white background
+description: How we deal with VAT and rounding in the backend at Alasco. Whats the difference between discrete money and exact money? Find out here!
 ---
 
 Much of our code at Alasco deals with storing, computing and presenting monetary values along with taxes. Handling money — similar to time and date — involves a number of details and edge cases that are best left to a dedicated library or data type. 

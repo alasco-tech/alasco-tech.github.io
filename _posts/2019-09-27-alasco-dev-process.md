@@ -4,7 +4,9 @@ date: 2019-09-27
 layout: post
 title: Developing in 4WD mode
 subtitle: Alasco’s journey to the current development process
-thumb: development_process_2.png
+thumb: developing_in_4wd_1.jpg
+teaseralt: Alasco development cycle visualized
+description: Alasco’s journey to the current development process. Learn about the problems we had with agile methodologies and how we fixed them.
 ---
 At Alasco, we strive to improve the cost control methods of construction processes through the combination of modern software and digital workflows. 
 One year ago we founded the company and started to build the first product iterations with a very small team and no bigger processes behind. As time went by, our team grew to a full-fledged agile team with all disciplines needed to build great products (PO, UX researchers, designers, developers, etc…). 
@@ -24,7 +26,7 @@ Here are a few examples you might recognize from your agile team:
 
 ### Experiments
 At Alasco we like to do experiments before we adapt things and don’t waste time in opinionated discussions. The current landscape of tools and methodologies to structure a development process might be overwhelming and every team has to find their combination and workflow. 
-![The innovation spectrum of methodologies]({{ site.url }}/assets/img/innovation_spectrum.jpg "The innovation spectrum of methodologies")
+![The innovation spectrum of methodologies]({{ site.url }}/assets/images/innovation_spectrum.jpg "Comparison of tools and methodologies to structure a development process")
 
 
 Here is a collection of things we experimented with before we created our version of a development process for our SaaS product. 
@@ -44,7 +46,7 @@ One of the biggest challenges in agile development is to find the point where an
 
 Therefore, we have divided the process into the following four parts and defined artifacts as output for each phase to provide input for the next phase.
 
-![Alasco's development process]({{ site.url }}/assets/img/development_process_2.png "Alasco's development process")
+![Alasco's development process]({{ site.url }}/assets/images/developing_in_4wd.jpg "Alasco development cycle visualized")
 
 In the next weeks we will present each phase in detail in a blog post and explain how and why we estimate twice.
 

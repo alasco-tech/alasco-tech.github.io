@@ -4,7 +4,9 @@ date: 2019-09-12
 layout: post
 title: My life as an intern at Alasco
 subtitle: Deploy on the first day!!!
-thumb: welcome.png
+thumb: welcome_at_alasco.jpg
+teaseralt: Welcome to the Alasco Team
+description: An Alasco intern shares his experiences starting from the first day. From deploying on the first day to team events, check out what it's like to be an intern at Alasco.
 ---
 
 #  My life as an intern at Alasco

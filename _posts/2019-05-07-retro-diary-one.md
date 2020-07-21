@@ -4,7 +4,9 @@ date: 2019-05-07
 layout: post
 title: A Retro a Sprint Keeps the Doctor Away
 subtitle: My Retrospective Diary
-thumb: retro_diary_one_thumb.jpg
+thumb: retro_board.jpg
+teaseralt: Post-it notes from a retrospective meeting on a whiteboard
+description: One of the best tools for continuous improvement are retrospectives. Not only do they have a fixed place in the scrum cycle but are targeted to answer the three most important questions.
 ---
 Starting with this post I’d like to share some insights on how we do agile retrospectives at Alasco. I’ve been lucky enough to have worked in agile-positive environments and learn from experienced agile coaches like [Torsten Wunderlich](https://twitter.com/wunderbricks) and [Manuel Küblböck](https://twitter.com/ManuelKublbock). In the summer of 2018 I eventually did the scrum master certification to learn more on improving teams from the inside!
 
@@ -35,7 +37,7 @@ Activity: [The Good, the Bad and the Ugly](https://retromat.org/en/?id=121)
 
 Stolen from the great [Wild West Retrospective](https://qualityswdev.com/2016/02/04/wild-wild-west-retrospective/) by Manuel Küblböck this targets the past sprint and helps to collect ‘wild’ ideas of what was good and bad for everyone. I even drew the nice little post-it personas that Manuel uses in this retrospective.
 
-![The Good, the Bad and the Ugly]({{ site.url }}/assets/img/retro_diary_one_gbu.png "The Good, the Bad and the Ugly")
+![The Good, the Bad and the Ugly]({{ site.url }}/assets/images/retro_diary_one_gbu.png "The Good, the Bad and the Ugly")
 
 With this activity I targeted for an unordered collection of impressions about the past sprint from multiple views. Great side-effect: Everyone gets a status update from other team members too!
 

@@ -4,7 +4,9 @@ date: 2019-09-24
 layout: post
 title: Dependency Hell? Automate it Away!
 subtitle: A way out of shaky deploys and unfixed security holes.
-thumb: dependency_updates_thumb.png
+thumb: dependency_hell.jpg
+teaseralt: Hand holding a compass
+description: Learn more about Alasco's build process and how we automated updating our dependencies in our base docker images.
 ---
 
 For a couple of years I've been working in DevOps environments now. This enabled me to learn about various technologies:
@@ -42,7 +44,7 @@ After weeks, months or even years of neglecting upgrades you're stuck with a sys
 
 All this would be avoidable by upgrading early and often. A lot of teams struggle with little confidence in the safety of upgrades. This becomes a vicious circle: 
 
-![Vicious Circle]({{ site.url }}/assets/img/dependency_updates_2.png "Vicious circle of postponing updates")
+![Vicious Circle]({{ site.url }}/assets/images/dependency_updates_2.png "4-step visualization of problems with software upgrades")
 
 One possible solution would be to follow the advice [Robert C. Martin (Uncle Bob)](http://cleancoder.com) on twitter on the topic of refactoring:
 
@@ -176,4 +178,4 @@ if __name__ == "__main__":
 
 Through this setup we merged by now 39 pull requests and counting! It helps tremendously to stay up to date with our dependencies and everyone in the team can make sure the update is safe by just following the normal build procedures.
 
-![Pull Request with diff output]({{ site.url }}/assets/img/dependency_updates_1.png "Pull Request with diff output")
+![Pull Request with diff output]({{ site.url }}/assets/images/dependency_updates_1.png "Pull Request with diff output")

@@ -7,7 +7,7 @@ layout: default
     <div class="max-width-container article">
       <h1 class="h1-article-headline">{{ page.title }}</h1>
       <h2 class="h2-subheadline">{{ page.subtitle }}<a href="https://www.twitter.com/schuon"><em><br></em></a></h2>
-      <div class="author-container"><img src="{{ site.url }}/assets/img/{{ site.data.authors[page.author].image|default: 'avatar.png' }}" alt="" class="author-image big">
+      <div class="author-container"><img src="{{ site.url }}/assets/images/{{ site.data.authors[page.author].image|default: 'placeholder_author.jpg' }}" alt="" class="author-image big">
         <div class="author-info">
           <div class="author-name">{{ site.data.authors[page.author].name }}</div>
           <div class="article-date">{{ page.date | date: "%B %e, %Y" }}</div>
@@ -22,7 +22,7 @@ layout: default
 
         </div>
       </div>
-      <div class="article-header-image-container"><img src="{{ site.url }}/assets/img/{{ page.thumb|default: 'post_thumb.jpg' }}"  alt="Software engineer in front of a white board" class="article-header-image"></div>
+      <div class="article-header-image-container"><img src="{{ site.url }}/assets/images/{{ page.thumb|default: 'post_thumb.jpg' }}"  alt="{{ page.teaseralt | default: page.title }}" class="article-header-image"></div>
     </div>
   </div>
   <div class="max-width-container"></div>
@@ -32,7 +32,7 @@ layout: default
     <div class="max-width-container article">
       <div class="flexcontainer">
         <div class="flex-box-70">
-          <div class="flex-box-padding w-clearfix">
+          <div class="flex-box-padding w-clearfix article-content">
             {{ content }}
           </div>
         </div>

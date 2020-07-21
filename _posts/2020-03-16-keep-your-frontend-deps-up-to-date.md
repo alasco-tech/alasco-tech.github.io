@@ -4,8 +4,10 @@ date: 2020-03-16
 layout: post
 title: Keep your frontend dependencies up-to-date
 subtitle: How we tackle the problem to update our frontend deps on a regular basis
-thumb: frontenddeps.jpg
+thumb: frontenddeps_1.jpg
 tag: featured
+teaseralt: Code on a computer screen
+description: How we tackle the problem to update our frontend deps on a regular basis at Alasco, using npm-check-updates.
 ---
 
 At Alasco we are developing various Frontend components every day in order to achieve that our customers have the best user experience possible to fulfill their daily tasks. This leads to not only developing everything by ourselves but also using third-party packages from the development community.

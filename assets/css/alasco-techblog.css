@@ -523,14 +523,14 @@ li {
   color: #066;
 }
 
-.article a {
+.article-content a {
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
   color: #0f9999;
   text-decoration: none;
 }
 
-.article a:hover {
+.article-content a:hover {
   color: #066;
 }
 
@@ -657,7 +657,7 @@ li {
 
 .quote {
   margin-bottom: 5px;
-  font-size: 1.3em;
+  font-size: 1.3em !important;
   font-style: italic;
   text-align: left;
 }
@@ -665,7 +665,7 @@ li {
 .quote.quote-author {
   margin-bottom: 15px;
   color: #0f9999;
-  font-size: 0.9em;
+  font-size: 0.9em !important;
   text-align: left;
 }
 

@@ -14,7 +14,7 @@ $nickname:
   name: $fullname
   twitter: $twitterhandle  # optional
   linkedin: $linkedin-handle  # optional
-  image: $avatar.[png,jpg]  # image needs to be in ./assets/img/
+  image: $avatar.[png,jpg]  # image needs to be in ./assets/images/
 ```
 
 ### Create your first post
