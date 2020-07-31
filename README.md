@@ -1,6 +1,6 @@
 # Readme
 
-This is the tech blog of the Alasco engineering squad.
+This is the tech blog of the Alasco engineering squad, we write about everything we find interesting in our daily work --> www.alasco.tech
 
 
 ## Adding posts
