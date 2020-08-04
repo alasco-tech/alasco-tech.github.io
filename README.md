@@ -27,6 +27,7 @@ date: 2019-02-14  # date of the post, in format `YYYY-MM-DD`
 layout: post  # fixed string, tells jekyll what template (layout) to use
 title: $title  #required, shows up as page-title, headline, ...
 subtitle: $subtitle  # optional, displayed under the title
+description: $longer_description  # optional, will be used by jekyll-seo-tag for seo meta links
 ---
 ```
 
