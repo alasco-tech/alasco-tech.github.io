@@ -56,6 +56,6 @@ Given the state-wise recommended lockdown the Alasco team went full-remote. To k
 
 ![Remote beer tasting]({{ site.url }}/assets/images/team_event_beer.jpg "Remote beer tasting")
 
-The nice people at [Hoppe Bräu](https://www.hoppebraeu.de/en) agreed to give us an introduction into the art of  brewing beer, including the brewing process and recognizing the taste notes of different beers. We learned a lot from the infamous “Hell” to the exotic “New England Pale Ale”: A rather important skill set for our Munich-based team!
+The nice people at [Hoppebräu](https://www.hoppebraeu.de/en) agreed to give us an introduction into the art of  brewing beer, including the brewing process and recognizing the taste notes of different beers. We learned a lot from the infamous “Hell” to the exotic “New England Pale Ale”: A rather important skill set for our Munich-based team!
 
 Personally, I think team events are essential to a work environment. Getting to know your colleagues in a setting outside the workplace strengthens your bonds and ultimately helps you understand them at work.
