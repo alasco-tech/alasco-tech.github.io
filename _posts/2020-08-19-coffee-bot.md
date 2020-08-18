@@ -1,8 +1,10 @@
 ---
-author: chrisittner
+author:
+- chrisittner
+- wearebasti
 date: 2020-08-19
 layout: post
-title: Coffeegram - One Coffee and a Photo Please
+title: Coffeegram - One Coffee & a Picture Please
 subtitle: The story of our picture taking coffee machine
 thumb: coffee-lovers-p-800.jpeg
 teaseralt: Three cups of different coffees - Photo by Nathan Dumlao (https://unsplash.com/@nate_dumlao)
