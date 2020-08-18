@@ -35,6 +35,15 @@ Make sure to have the three `-` as start and end signal for the front matter or 
 
 After the closing `---` your actual post starts, feel free to write in simple markdown or html. Just make sure to name your file accordingly (`.md` or `.html`).
 
+### Multiple Authors
+If your article is a joint effort of multiple persons, feel free to use yaml list style for the author information in the frontmatter. The rest should work automatically!
+
+```yaml
+author:
+- $nickname1
+- $nickname2
+```
+
 ## Run jekyll pages on local machine
 Some simple steps to get you going, tested with Mac OS, should work fine on
 other \*nix systems too! [Readme from github](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
