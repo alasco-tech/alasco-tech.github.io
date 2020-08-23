@@ -2,7 +2,7 @@
 author:
 - chrisittner
 - wearebasti
-date: 2020-08-19
+date: 2020-08-23
 layout: post
 title: Coffeegram - One Coffee & a Picture Please
 subtitle: The story of our picture taking coffee machine
