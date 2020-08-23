@@ -40,8 +40,8 @@ If your article is a joint effort of multiple persons, feel free to use yaml lis
 
 ```yaml
 author:
-- $nickname1
-- $nickname2
+  - $nickname1
+  - $nickname2
 ```
 
 ## Run jekyll pages on local machine
