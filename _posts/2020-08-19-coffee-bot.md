@@ -22,6 +22,8 @@ As around March the Corona/Covid-19 pandemic hit Germany hard we followed offici
 
 For a couple of weeks now we are allowed back in the office, following some strict safety regulations our management team has set up! One of the key tasks was to make sure that the coffee machine wouldn’t become a superspreader location. Our rule: Wear a mask and gloves! 
 
+![Coffee Process Diagram: idea -> brewing -> slack message]({{ site.url}}/assets/images/coffee_process.png "Process for Coffee in Pandemic Times")
+
 Having more than 40 employees, this rule would soon result in an enormous amount of waste. To make this easier and reduce plastic waste (aka: used gloves), everyone making coffee is supposed to be making a bunch of coffee for everyone in need of a delicious hot cup and inform everyone via slack. **Plot twist:** Our office consists of two floors, so it was very easy to forget people not being visible.
 
 As we try hard to be inclusive, this was not ok for us! During our ShipIt Day in August, my colleague Basti and I decided to address this problem and come up with a solution that keeps everyone safe while making sure that a regular coffee supply is secured.
