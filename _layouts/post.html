@@ -6,21 +6,19 @@ layout: default
   <div class="max-width-container">
     <div class="max-width-container article">
       <h1 class="h1-article-headline">{{ page.title }}</h1>
-      <h2 class="h2-subheadline">{{ page.subtitle }}<a href="https://www.twitter.com/schuon"><em><br></em></a></h2>
-      <div class="author-container"><img src="{{ site.url }}/assets/images/{{ site.data.authors[page.author].image|default: 'placeholder_author.jpg' }}" alt="" class="author-image big">
-        <div class="author-info">
-          <div class="author-name">{{ site.data.authors[page.author].name }}</div>
-          <div class="article-date">{{ page.date | date: "%B %e, %Y" }}</div>
-        </div>
-        <div class="author-socials">
-          {% if site.data.authors[page.author].twitter %}
-          <div class="flexcontainer social"><img src="{{ site.url }}/assets/images/twitter-square-brands.svg" alt="" class="social-icon"><a href="https://www.twitter.com/{{ site.data.authors[page.author].twitter }}" target="_blank" class="author-social-link">@{{ site.data.authors[page.author].twitter }}</a></div>
-          {% endif %}
-          {% if site.data.authors[page.author].linkedin %}
-          <div class="flexcontainer social"><img src="{{ site.url }}/assets/images/linkedin-brands.svg" alt="" class="social-icon"><a href="https://www.linkedin.com/in/{{ site.data.authors[page.author].linkedin }}/" target="_blank" class="author-social-link">{{ site.data.authors[page.author].linkedin }}</a></div>
-          {% endif %}
+      <h2 class="h2-subheadline">{{ page.subtitle }}</h2>
 
-        </div>
+      {% if page.author.first %}
+        {% comment %} author is not a string, but an array {% endcomment %}
+        {% if page.author.size > 1 %}
+          {% include multi_author_info.html %}
+        {% else %}
+          {% include single_author_info.html %}
+        {% endif %}
+      {% else %}
+        {% include single_author_info.html %}
+      {% endif %}
+
       </div>
       <div class="article-header-image-container"><img src="{{ site.url }}/assets/images/{{ page.thumb|default: 'post_thumb.jpg' }}"  alt="{{ page.teaseralt | default: page.title }}" class="article-header-image"></div>
     </div>
