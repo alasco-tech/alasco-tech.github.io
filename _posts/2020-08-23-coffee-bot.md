@@ -51,8 +51,8 @@ A [Raspberry Pi](https://www.raspberrypi.org/) monitors the real-time wattage of
 ![Coffee usage graphed via Datadog]({{ site.url}}/assets/images/coffee-datadog-p-800.jpeg "Watts used by the coffee grinder and cups served via Datadog")
 
 ### Software
-Starting from a vanilla [Raspberry Pi OS Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os/) installation, we set up SSH and wifi credentials for [headless usage]((https://desertbot.io/blog/headless-raspberry-pi-3-bplus-ssh-wifi-setup).
-We used a system-service to make sure the coffee bot would stay available 24/7.
+Starting from a vanilla [Raspberry Pi OS Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os/) installation, we set up SSH and wifi credentials for [headless usage](https://desertbot.io/blog/headless-raspberry-pi-3-bplus-ssh-wifi-setup).
+We used a systemd-service to make sure the coffee bot would stay available 24/7.
 
 
 This project would not have been possible without the great libraries by:
