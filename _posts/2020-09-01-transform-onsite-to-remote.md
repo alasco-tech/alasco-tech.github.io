@@ -15,7 +15,7 @@ With COVID-19 spreading all over the world and putting the world into a global p
 
 Since the beginning of Alasco the engineering team was focused on having every team member on-site in the office. Advantages of on-site teams are e.g. easier day-to-day meetings, simple communication and a great team spirit. Further we are trying to pair program as much as possible, which is also easier to do in person.
 
-## What challenges did we face?
+## Which challenges did we face?
 
 After we got the information that we needed to shift our office mode to home office we had to face new challenges without much preparation. The communication within the team always focused on being as transparent as possible. Our focus on frequent and direct communication was hampered by the sudden full remote setup.
 
@@ -35,7 +35,7 @@ To still live the team spirit it was really helpful that every team member was a
 
 Last but not least I would like to close this blog post with my six learnings during our process to become a remote engineering team:
 
-- communicate and share (even it’s a very small) informations as much as possible
+- communicate and share (even it's small) informations as much as possible
 - keep up your daily routines
 - stay open for new ideas and processes
 - ask questions as much as possible
