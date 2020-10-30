@@ -22,7 +22,7 @@ jan-engelmann:
   linkedin: jan-paul-engelmann
   title: Intern Engineering
   image: jan_engelmann.jpg
- 
+
 anselmbauer:
   name: Anselm Bauer
   linkedin: anselmbauer
@@ -43,3 +43,9 @@ juliabastian:
   title: UX Researcher
   image: julia_bastian.jpg
   linkedin: julia-bastian
+
+francisali:
+  name: Francis Ali
+  title: Software Engineer
+  image: francis_ali.png
+  twitter: sixfwa
