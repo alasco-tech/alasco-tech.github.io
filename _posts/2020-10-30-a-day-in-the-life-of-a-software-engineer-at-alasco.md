@@ -33,7 +33,7 @@ Alasco maintains a rather flexible working schedule, meaning that there is no we
 
 Daily stand-ups occur every morning and usually last between 10-15 minutes. Once that is finished, emails are checked and coffee is drunk. I guess in most professions coffee is vital in getting any meaningful work done, this is definitely the case as a developer. Once a decent amount of caffeine is swimming in our bloodstreams, the programming begins.
 
-However on some mornings, there are more meetings that usual. To list a few:
+However on some mornings, there are more meetings than usual. To list a few:
 
 - Weekly Kickoff - where all employees are given the latest updates within the company. Such as; new hires, company strategy and goals.
 - Product review - where both engineering teams present their latest features to the rest of the company.
@@ -51,7 +51,7 @@ Typical food choices are usually:
 
 Once everyone's had their fill, it's back to work. Each developer is usually working on a story (such as a feature) or on bug fixes. This is done either on one's own or in pairs. Once a story has reached completion, a pull request is made for other developers to review and any visible changes are assessed by the Product Owner. If everything has been approved and well tested, the story is then deployed to production.
 
-All in all, the afternoon is very much like the morning, just a few hours longer. Some afternoons can have more meetings than others, however one which takes place everyday is the daily check=in, which is a reflection of the morning stand-up. This is where each team member re-evaluates the question, _what do you plan on achieving today?_.
+All in all, the afternoon is very much like the morning, just a few hours longer. Some afternoons can have more meetings than others, however one which takes place everyday is the daily check-in, which is a reflection of the morning stand-up. This is where each team member re-evaluates the question, _what do you plan on achieving today?_.
 
 On the other hand, if it's not an afternoon meeting, it's back to furthering the progress of new features or bug fixes. All this of course is made possible by our good friend _Coffee_. Who without, would make coding tasks much more strenuous. Having said this, the end of the day is usually signaled when caffeine no longer works as fuel for the mind, hence making problems that would have seemed easy in the morning, 10x harder.
 
