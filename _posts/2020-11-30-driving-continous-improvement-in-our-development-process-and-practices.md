@@ -9,7 +9,7 @@ teaseralt: Upwards arrows - Photo By Jungwoo Hong (https://unsplash.com/@hjwinun
 description: How do we drive continuous improvements in our development processes and collaboration at Alasco? This article gives you a sneak peek into our practices.
 ---
 
-One of the basic principles of scrum teams is continuous improvement and learning. Thus, many of the improvements to our development process and practices were derived as action items from our regular retrospectives, but also from other initiatives in the **_Product & Engineering (P&E)_** team.
+One of the basic principles of Scrum teams is continuous improvement and learning. Thus, many of the improvements to our development process and practices were derived as action items from our regular retrospectives, but also from other initiatives in the **_Product & Engineering (P&E)_** team.
 
 This blog post provides you with some insights in what we tried out to improve our development process and practices to make it more effective and enjoyable for all members of the **_P&E_** team in the last year. This time frame was chosen due to me being part of the engineering team at Alasco for 1 year now.
 
