@@ -19,9 +19,7 @@ There are two perspectives to the later discussed experiments and actions:
 
 **2. Things we as the P&E team tried out deliberately to aim for growth in terms of efficiency and process improvements.**
 
-
 ---
-
 
 # Things we changed due to a growing team
 
