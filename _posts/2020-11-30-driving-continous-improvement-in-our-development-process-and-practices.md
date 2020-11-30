@@ -9,9 +9,9 @@ teaseralt: Upwards arrows - Photo By Jungwoo Hong (https://unsplash.com/@hjwinun
 description: How do we drive continuous improvements in our development processes and collaboration at Alasco? This article gives you a sneak peek into our practices.
 ---
 
-One of the basic principles of scrum teams is continuous improvement and learning. Thus, many of the improvements to our development process and practices were derived as action items from our regular retrospectives, but also from other initiatives in the Product & Engineering (P&E) team.
+One of the basic principles of scrum teams is continuous improvement and learning. Thus, many of the improvements to our development process and practices were derived as action items from our regular retrospectives, but also from other initiatives in the **_Product & Engineering (P&E)_** team.
 
-This blog post provides you with some insights in what we tried out to improve our development process and practices to make it more effective and enjoyable for all members of the P&E team in the last year. This time frame was chosen due to me being part of the engineering team at Alasco for 1 year now.
+This blog post provides you with some insights in what we tried out to improve our development process and practices to make it more effective and enjoyable for all members of the **_P&E_** team in the last year. This time frame was chosen due to me being part of the engineering team at Alasco for 1 year now.
 
 There are two perspectives to the later discussed experiments and actions:
 
@@ -23,13 +23,14 @@ There are two perspectives to the later discussed experiments and actions:
 
 # Things we changed due to a growing team
 
+
 To give you some background info: As our Product and Engineering team is growing constantly, we split into two engineering teams focusing on certain product areas in our app. Both teams currently consist of 5 engineers plus one product manager.
 This organizational change also led to some improvements in our organization and communication as a team and thus to a higher speed.  Some of the challenges we tried to overcome with the following actions are: Team growth, multiple engineering teams, maintaining technical excellence with more people and features, tackling upcoming architectural changes with multiple teams.
 
 ## Engineering bi-weekly:
 After splitting into two autonomous engineering teams, we needed one dedicated event where we could discuss upcoming issues and to offer a space where every team member can bring up topics which affect both engineering teams in their development process and practices at Alasco. For this reason, our “Engineering bi-weekly” event was born. It's a facilitated, time-boxed event (60 min) where we first do a check-in on past actions to evaluate learning from the “trial” period (mostly the previous sprint) and decide if the actions had a “positive” contribution to our team. If yes, and after a quick “cost-benefit analysis” we go ahead with integrating this action part into our Sprint routine. If not, we skip the experiment again and might try out something different.
 
-After evaluating the past actions, we discuss the prepared topic which every engineer is “welcome” to add to the meeting slides in advance. During this part, every topic is discussed and potential solutions are evaluated as actions items. Finally we decide on an action as an experiment for the next sprint.
+After evaluating the past actions, we discuss the prepared topic which every engineer is welcome to add to the meeting slides in advance. During this part, every topic is discussed and potential solutions are evaluated as actions items. Finally we decide on an action as an experiment for the next sprint.
 
 ## Backend and Frontend forum:
 Having the same goals as the **_Engineering bi-weekly_** (promote knowledge exchange between independent and autonomous teams) on a more general, we implemented “Forums” aka Guilds or Communities of practice as a format to discuss ideas problems and solutions in the area of backend and frontend developing.
