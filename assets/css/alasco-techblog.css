@@ -283,6 +283,7 @@ li {
   transition: all 200ms ease;
   color: #046;
   text-decoration: none;
+  width: 100%;
 }
 
 .article-link-block:hover {
