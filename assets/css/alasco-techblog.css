@@ -742,7 +742,6 @@ li {
     -ms-flex-preferred-size: 70%;
     flex-basis: 70%;
     overflow: hidden;
-    overflow: hidden;
   }
   .flex-box-30 {
     -webkit-flex-basis: 30%;
