@@ -609,7 +609,8 @@ li {
 }
 
 .article pre{
-  white-space:pre-wrap;
+  white-space: pre;
+  overflow-x: auto;
 }
 
 .button_load_less {
@@ -740,11 +741,14 @@ li {
     -webkit-flex-basis: 70%;
     -ms-flex-preferred-size: 70%;
     flex-basis: 70%;
+    overflow: hidden;
+    overflow: hidden;
   }
   .flex-box-30 {
     -webkit-flex-basis: 30%;
     -ms-flex-preferred-size: 30%;
     flex-basis: 30%;
+    overflow: hidden;
   }
   .social-icon {
     width: 15px;
@@ -796,6 +800,7 @@ li {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
+    overflow: hidden;
   }
   .job-box {
     margin-top: 30px;
