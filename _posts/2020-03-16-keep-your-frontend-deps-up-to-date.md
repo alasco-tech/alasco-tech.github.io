@@ -75,7 +75,8 @@ if [ "HAS_NEW_DEPS" == "1" ]; then
   printf "$DEPENDENCY_CHECK_RESULT" > pr_description.txt
 
   echo "### Update PR description"
-  pip install --user PyGithub python ../.circleci/pull_request.py -t "Update Frontend deps" -b "frontend-update-${CIRCLE_SHA1}" -d pr_description.txt
+  pip install --user PyGithub
+  python ../.circleci/pull_request.py -t "Update Frontend deps" -b "frontend-update-${CIRCLE_SHA1}" -d pr_description.txt
 else
   echo "No dependency updates available"
 fi
