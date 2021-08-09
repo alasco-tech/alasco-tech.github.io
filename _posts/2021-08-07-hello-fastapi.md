@@ -13,7 +13,7 @@ Over a year ago, we reorganised our engineering team into two separate Scrum tea
 
 By today, we are working in three teams and are growing quickly and there is still no telling from our code where one team ends and the other team starts. In order to be prepared for the point where this causes friction, we recently set aside some time to investigate how a more modularised next generation of our application backend could look like. The result is that we will be implementing new feature areas using a FastAPI-based stack, rather than adding them to our Django application.
 
-## Goodbye Django?
+# Goodbye Django?
 
 Django is a reasonable starting point for a web application backend, even in 2021. It is very stable, has great documentation and a large amount and variety of available extensions. Being very guiding and integrated, the framework makes it easy to churn out CRUD views and apis. However, with growing business logic, we adopted an increasingly heavy service layer that sits in-between the models/ORM and the rest of Django. Much of the efficiency and lightness of Django derives from the integration of its ORM with the views, the apis, the serializers, the forms, the admin, ... — almost every Django ingredient works directly on active record model instances and QuerySets. Over time, Django gets somewhat in the way, with many unused features and decent but not stellar support for our core requirements.
 
@@ -21,7 +21,7 @@ An additional motivation for exploring other setups was that we were looking for
 
 For the first motivation, FastAPI — an api-only framework based on the fast-growing starlette/pydantic ecosystem — is a perfect fit, along with the SQLAlchemy ORM. On top of that, we defined our own module structure with rather independent, layered components that still get deployed as a single app. We have set up our new backend stack to run alongside our current Django application. Both frameworks being Python-based, we deploy them alongside as two different wsgi-entrypoints of a webserver in a single container.
 
-## A new component structure
+# A new component structure
 
 For our new components we'll try out the following code structure. At the core of each component is `domain/`, the folder containing model classes for all the business entities that the component is about, plus their basic behaviour. These are defined as pure python classes (or dataclasses or pydantic classes) and do not contain any persistence logic. Additionally, there is a `db/` folder that contains all persistence code related to loading and storing domain model instances. `db/` may import `domain/` but not vice versa. The persistence layer defines one repository per domain aggregate that services may use to load and update data.
 
