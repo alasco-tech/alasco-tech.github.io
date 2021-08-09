@@ -4,7 +4,7 @@ date: 2021-08-07
 layout: post
 title: Hello FastAPI
 subtitle: Towards an improved backend code structure
-thumb: fastapi-logo.jpeg
+thumb: fastapi-logo.png
 teaseralt: FastAPI Logo
 description: We recently added a FastAPI-based setup alongside our main Django app.
 ---
