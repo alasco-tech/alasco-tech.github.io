@@ -53,7 +53,7 @@ Tokens are the core visual styles that form the basis of every piece of UI. At t
 
 **What separates a token from a simple variable?** 
 
-Let's take the example of color. A simple color variable could be `gray-80`. That's great. At least we're not using a hex value directly. But when trying to decide what color to use for text on an orange background in a banner, the variable alone doesn't provide an answer. 
+Let's take the example of color. A simple color variable could be *gray-80*. That's great. At least we're not using a hex value directly. But when trying to decide what color to use for text on an orange background in a banner, the variable alone doesn't provide an answer. 
  
 **A token contains a decision.** 
 
@@ -71,9 +71,9 @@ The same rationale applies to spacing. Instead of dealing with pixel values dire
 
 Although anything new we write is written in Typescript/React, some existing views of the app are still made up of Django html templates. To restyle those as part of the redesign, we needed a flexible solution that works in non-React contexts to encode our tokens. This eliminated other React-based approaches, like [styled-system](https://styled-system.com/). 
 
-CSS to rescue. [Tailwindcss](https://tailwindcss.com/), a popular utility class framework, allowed us to create our design language and encode our decisions in tokens. Those tokens are then made available as css classes, which we can use across the design system package, Django templates, as well as in react components outside of the design system to apply the design decisions. 
+CSS to rescue. [Tailwindcss](https://tailwindcss.com/), a popular utility class framework, allowed us to create our design language and encode our decisions in tokens. Those tokens are then made available as css classes, which we can use across the design system package, Django templates, as well as in React components outside of the design system to apply the design decisions. 
 
-Here's how the shared language for a **heading** text style looks like across our utility classes, react components, and [text styles in Figma](https://www.figma.com/best-practices/typography-systems-in-figma/).
+Here's how the shared language for a **heading** text style looks like across our utility classes, React components, and [text styles in Figma](https://www.figma.com/best-practices/typography-systems-in-figma/).
 
 ![Design System Shared Language]({{ site.url }}/assets/images/design-system-shared-language.png "Design System Shared Language")
 
@@ -101,7 +101,7 @@ Let's look back at what we have so far.
 ![Design System Overview Looking Back]({{ site.url }}/assets/images/design-system-overview.png "Design System Overview Looking Back")
 
 
-This has already been a positive improvement to our workflow. Creating realistic mockups is a matter of composing Figma components and applying tokens. Going from design to pixel perfect UI is a matter of examining the Figma design for components, choosing the matching component from the react library, or applying the corresponding tokens to translate the design into code. The shared language is starting to take hold. 
+This has already been a positive improvement to our workflow. Creating realistic mockups is a matter of composing Figma components and applying tokens. Going from design to pixel perfect UI is a matter of examining the Figma design for components, choosing the matching component from the React library, or applying the corresponding tokens to translate the design into code. The shared language is starting to take hold. 
 
 ## From 2 to 7+ teams
 
