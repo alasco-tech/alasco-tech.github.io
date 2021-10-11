@@ -50,6 +50,9 @@ francisali:
   image: francis_ali.png
   twitter: sixfwa
 
+frontend-team:
+  name: Frontend Team
+
 lysanderkiesel:
   name: Lysander Kiesel
   title: Software Engineer
