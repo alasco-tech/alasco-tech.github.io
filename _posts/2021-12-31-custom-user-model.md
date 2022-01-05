@@ -25,7 +25,7 @@ Thinking of Django as of 2022, it's only natural to do it in terms of a single m
 
 ## Taking over the User model
 
-Django's documentation once leaned on the pessimistic side about changing a User model mid-project. At present however [the official Django docs](https://docs.djangoproject.com/en/4.0/topics/auth/customizing/#changing-to-a-custom-user-model-mid-project) no longer makes a case for any impending doom by doing so. An official guide for making the changes is nowhere to be found there, but rather a comprehensive set of steps is actually hinted, and can be promptly referred to in [one of those long-lived threads of the Django ticket tracker](https://code.djangoproject.com/ticket/25313#comment:24).
+Django's documentation once leaned on the pessimistic side about changing a User model mid-project. At present however [the official Django docs](https://docs.djangoproject.com/en/4.0/topics/auth/customizing/#changing-to-a-custom-user-model-mid-project) no longer make a case for any impending doom by doing so. An official guide for making the changes is nowhere to be found there, but rather a comprehensive set of steps is actually hinted, and can be promptly referred to in [one of those long-lived threads of the Django ticket tracker](https://code.djangoproject.com/ticket/25313#comment:24).
 
 So these are the steps we followed:
 
@@ -113,6 +113,6 @@ A few words of praise must also go to Django itself.
 
 The machinery behind the swappable models works so well, that we were a bit puzzled on how it was possible to have two different migrations (`auth.0001_initial` and `core.0001_initial`) both creating a User model, without one conflicting with the other. We found out that the trick lies in the `swappable` option of the user creation operation in `auth.0001_initial`, which renders the operation no-op when a custom user is detected in the project.
 
-It was also impressive how at some point in the middle of the cleanup, we were able to use indistinctly `settings.AUTH_USER_MODEL`, `get_user_model()`, or `"core.User"` as pointers in our relation database fields, without generating any changes in migrations.
+It was also impressive how at some point in the middle of the cleanup, we were able to use indistinctly `settings.AUTH_USER_MODEL`, `get_user_model()`, or `"core.User"` as pointers in our database relation fields, without generating any changes in migrations.
 
-We continue to monitor any possible effects of the change, learn from the process, and plan new anecdotes.
+We continue to monitor any possible effects from the change, learn from the process, and plan new anecdotes.
