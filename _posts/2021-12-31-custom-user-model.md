@@ -9,7 +9,7 @@ teaseralt: Bike trying to pull the tablecloth trick with a table full of crocker
 description: How we switched from django.contrib.auth.models.User to a custom User model mid-project
 ---
 
-Contrary to what some may think, there is [science behind the trick of pulling the tablecloth](https://www.physlink.com/education/askexperts/ae269.cfm) from a table full of crockery, without making a major mess in the family's porcelain heirloom. There's not much cientific consensus, however, in the widely accepted notion that the trick requires skill, precision, and most importantly, courage.
+Contrary to what some may think, there is [science behind the trick of pulling the tablecloth](https://www.physlink.com/education/askexperts/ae269.cfm) from a table full of crockery, without making a major mess in the family's porcelain heirloom. There's not much scientific consensus, however, in the widely accepted notion that the trick requires skill, precision, and most importantly, courage.
 
 Some situations in life, especially in software develpment, seem to resemble the tablecloth trick: one must change the foundation of considerable parts of the codebase without making the whole thing fall into pieces. Such is the case of changing the User model in a Django project that has been in production for some years.
 
@@ -31,7 +31,9 @@ So these are the steps we followed:
 
 We first defined a custom User model identical in structure to that of `django.contrib.auth`:
 
-```
+<br/>
+
+```python
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import UserManager as BaseUserManager
 
@@ -48,6 +50,8 @@ class User(AbstractUser):
         db_table = "auth_user"
 ```
 
+<br/>
+
 The manager definition turned out to be important for us, as without it we started getting errors saying that `User.objects` couldn't be used because the manager had been swapped out.
 
 We then updated the setting `AUTH_USER_MODEL` to point to this newly created model.
@@ -56,9 +60,13 @@ Next, we did an exploratory step of regenerating our migrations from zero, only 
 
 We then ran into circular dependecies in migrations, as warned by the Django docs. This resulted from 3rd party packages depending on the User model, now defined in the first migration, which also depended on migrations of the 3rd party packages. Manually tweaking the migrations seemed daunting at first, but the solution was rather straightforward, as we only needed to move the operations and depedencies associated to the 3rd party apps into the second migration.
 
-| _Before: Cyclic dependency_                                                                      | _After: Happiness_                                                                             |
+<br/>
+
+| _Before: Circular dependency_                                                                    | _After: Happiness_                                                                             |
 | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
 | ![Circular dependencies on migrations]({{ site.url }}/assets/images/migration_dependencies1.png) | ![Solved dependencies on migrations]({{ site.url }}/assets/images/migration_dependencies2.png) |
+
+<br/>
 
 After that, we were able to run `python manage.py makemigrations` without any errors, and without any changes being detected. We could also run all our migrations in an empty database and reach to the exact same state. The result in production was that we didn't have to run any new migrations, or do any manual changes in the `django_migrations` table. Just what we needed!
 
