@@ -83,16 +83,14 @@ The second part of our adventure was to merge the User and Profile models togeth
 <br/>
 
 ```python
-from django.db.models import Q, F
+from django.db.models import  F
 
-all_fields_are_equal = (
-    Q(field1=F("profile__field1"))
-    & Q(field2=F("profile__field2"))
-    & ...
-    & Q(fieldn=F("profile__fieldn"))
-)
-
-assert not User.objects.exclude(all_fields_are_equal).exists()
+assert not User.objects.exclude(
+    field1=F("profile__field1"),
+    field2=F("profile__field2"),
+    ...
+    fieldn=F("profile__fieldn"),
+).exists()
 ```
 
 <br/>
