@@ -72,15 +72,34 @@ After that, we were able to run `python manage.py makemigrations` without any er
 
 One thing that we didn't do from the guide was to repurpose the content type record of the former User model into the new one. It turned out to be an optional step for us, as we're not making critical use of the content type machinery. We currently have two content type records in production, one for `auth.User` and another for our new User model. We might decide to merge them at a later time.
 
-We could have also renamed the database table after the takeover, from `auth_user` to the default name of `core_user`, by just removing the `db_table` in the Meta options. However, we decided not to do so as of now, as that would have broken a number of queries we're using in other external tools.
+We could have also renamed the database table after the takeover, from `auth_user` to the default name of `core_user`. This is doable by just removing the `db_table` in the Meta options. However, we decided not to do so as of now, as that would have broken a number of queries we're running in other external tools.
 
 As a final touch of code cleanup, we decided to start referring directly to our new User model, instead of doing it implicitly via `settings.AUTH_USER_MODEL` or `django.contrib.auth.get_user_model()`. This goes against the prescription of [certain section of the Django documentation](https://docs.djangoproject.com/en/4.0/topics/auth/customizing/#referencing-the-user-model), but our codebase was actually never intended to run in user agnostic situations, so we decided that we were not gaining any benefit from the indirection. Hopefully, we will not regret this decision in the future, otherwise, we will diligently write about it 😆.
 
 ## Merging User and Profile models
 
-The second part of our adventure was to merge the User and Profile models together, as we could then have all the extended fields directly in the User model. For the main part, we only had to do a migration to transfer the data from one model to the other, after creating the fields in the new User model.
+The second part of our adventure was to merge the User and Profile models together, as we could then have all the extended fields directly in the User model. For the main part, we only had to do a migration to transfer the data from one model to the other, after creating the fields in the new User model. In order to make sure that all fields had been copied over, we included an assertion like this at the end of our data migration:
 
-However, we did have to fix a number of foreign keys that were pointing to the Profile model, and replace them with foreign keys to the associated user records. We also had to make extensive corrections in our codebase to remove the dot access from user to profile, as well as the profile references in the `select_related` in our queries.
+<br/>
+
+```python
+from django.db.models import Q, F
+
+all_fields_are_equal = (
+    Q(field1=F("profile__field1"))
+    & Q(field2=F("profile__field2"))
+    & ...
+    & Q(fieldn=F("profile__fieldn"))
+)
+
+assert not User.objects.exclude(all_fields_are_equal).exists()
+```
+
+<br/>
+
+The assertion made sure that the migration was reverted if any field was different. This was only possible in the context of an [atomic migration](https://docs.djangoproject.com/en/4.0/howto/writing-migrations/#non-atomic-migrations).
+
+Additionally, we had to fix a number of foreign keys that were pointing to the Profile model, and replace them with foreign keys to the associated user records. We also had to make extensive corrections in our codebase to remove the dot access from user to profile, as well as the profile references from the `select_related` in our queries.
 
 Fortunately, our codebase is extensively covered by tests, so it was rather easy to detect where we needed to make additional changes that had initially slipped from our view. Another plus to our comprehensive test coverage was that we were able to detect a slight reduction in the number of queries performed, as we had to fix our assertions for the number of database queries.
 
@@ -96,4 +115,4 @@ The machinery behind the swappable models works so nice, that we were a bit puzz
 
 It was also impressive how, at some point in the middle of the cleanup, we were able to use indistinctly `settings.AUTH_USER_MODEL`, `get_user_model()`, or `"core.User"` as pointers in our relation database fields, without generating any changes in migrations.
 
-We continue to monitor the effects of the change, learn from the process, and plan new anecdotes.
+We continue to monitor any possible effects of the change, learn from the process, and plan new anecdotes.
