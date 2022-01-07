@@ -1,6 +1,6 @@
 ---
 author: lorinkoz
-date: 2021-12-31
+date: 2022-01-07
 layout: post
 title: Changing the User model without breaking the crockery
 subtitle: How we switched from django.contrib.auth.models.User to a custom User model mid-project
@@ -54,7 +54,7 @@ class User(AbstractUser):
 
 The manager definition turned out to be important for us, as without it we started getting errors saying that `User.objects` couldn't be used because the manager had been swapped out.
 
-We then updated the setting `AUTH_USER_MODEL` to point to this newly created model.
+We then updated the setting `AUTH_USER_MODEL` to point to this newly created model. This was enough to swap the user in the entire codebase, because we were only referring to the User model through this setting or `django.contrib.auth.get_user_model()`.
 
 Next we did an exploratory step of regenerating our migrations from zero, only to examine and copy the operation that created the new custom user. We then restored our migration history and pasted the operation into the actual first migration of the app. Then removed all occurrences of `migrations.swappable_dependency(settings.AUTH_USER_MODEL)`, and made the first migration depend on the most recent migration of `django.contrib.auth`, as explained in the unofficial guide.
 
@@ -74,7 +74,7 @@ One thing that we didn't do from the guide was to repurpose the content type rec
 
 We could have also renamed the database table after the takeover, from `auth_user` to the default name of `core_user`. This is doable by just removing the `db_table` in the Meta options. However, we decided not to do so as of now, as that would have broken a number of queries we're running in other external tools.
 
-As a final touch of code cleanup, we decided to start referring directly to our new User model, instead of doing it implicitly via `settings.AUTH_USER_MODEL` or `django.contrib.auth.get_user_model()`. This goes against the prescription of [certain section of the Django documentation](https://docs.djangoproject.com/en/4.0/topics/auth/customizing/#referencing-the-user-model), but our codebase was actually never intended to run in user agnostic situations, so we decided that we were not gaining any benefit from the indirection. Hopefully, we will not regret this decision in the future, otherwise, we will diligently write about it 😆.
+As a final touch of cleanup, we decided to start referring directly to our new User model, instead of doing it implicitly via `settings.AUTH_USER_MODEL` or `django.contrib.auth.get_user_model()`. While the abstraction had made the transition easier and is actually prescribed by [certain section of the Django documentation](https://docs.djangoproject.com/en/4.0/topics/auth/customizing/#referencing-the-user-model), we had by then settled for the definitive User model, so we decided that we were not gaining any benefit from the indirection. Hopefully, we will not regret this decision in the future, otherwise, we will diligently write about it 😆.
 
 ## Merging User and Profile models
 
