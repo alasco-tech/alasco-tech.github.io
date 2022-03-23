@@ -1,0 +1,43 @@
+<div class="section recommended-posts">
+    <div class="max-width-container">
+      <h2>Recommended Posts</h2>
+    </div>
+    <div class="max-width-container">
+      <div class="flexcontainer">
+
+        {% for post in site.posts %}
+          {% if post.tags contains "featured" %}
+          <div class="flex-box-33">
+            <div class="flex-box-padding">
+              <a data-w-id="06f08df4-8d04-178d-5325-4f7e27001551" href="{{ post.url }}" class="article-link-block w-inline-block">
+                <div class="post-container">
+                  <div class="category-label">
+                    <div>Category</div>
+                  </div>
+                  {% if post.author.first %}
+                    {% comment %} author is not a string, but an array {% endcomment %}
+                    {% assign writer = site.data.authors[post.author.first] %}
+                  {% else %}
+                    {% assign writer = site.data.authors[post.author] %}
+                  {% endif %}
+                  <div class="article-image-container"><img src="{{ site.url }}/assets/images/{{ post.thumb|default: 'post_thumb.jpg' }}" alt="{{ post.title }}" class="article-teaser-image"></div>
+                  <div class="post-text-container">
+                    <h3 class="article-heading">{{ post.title }}</h3>
+                    <p data-w-id="3e90a71a-1326-8569-f2ef-3f960b8e4fc2" class="article-teaser-text" style="height: 0px;">{{ post.excerpt | strip_html | strip_newlines | truncate: 140 }}</p>
+                    <div class="author-container"><img src="{{ site.url }}/assets/images/{{ writer.image|default: 'avatar.png' }}" alt="{{ writer.name }}" class="author-image">
+                      <div class="author-info">
+                        <div class="author-name">{{ writer.name }}</div>
+                        <div class="article-date">{{ post.date | date: "%B %e, %Y" }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+        
+      </div>
+    </div>
+  </div>

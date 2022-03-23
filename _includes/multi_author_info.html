@@ -1,20 +1,31 @@
-
 <div class="author-container">
 {% for writer in page.author %}
     {% assign author = site.data.authors[writer] %}
     <img src="{{ site.url }}/assets/images/{{ author.image|default: 'placeholder_author.jpg' }}" alt="" class="author-image big" />
     <div class="author-info">
-        <div class="author-name">{{ author.name }}</div>  
+        <div class="author-name">{{ author.name }}</div>
+        {% if forloop.first %}
+        <div class="article-date">{{ page.date | date: "%B %e, %Y" }}</div>
+        {% endif %}
     </div>
     
     <div class="author-socials" style="margin-right:2em">
         {% if author.twitter %}
-        <div class="flexcontainer social"><img src="{{ site.url }}/assets/images/twitter-square-brands.svg" alt="" class="social-icon"><a href="https://www.twitter.com/{{ author.twitter }}" target="_blank" class="author-social-link">@{{ author.twitter }}</a></div>
+        <div class="flexcontainer social">
+            <img src="{{ site.url }}/assets/images/twitter-square-brands.svg" alt="" class="social-icon">
+            <a href="https://www.twitter.com/{{ author.twitter }}" target="_blank" class="author-social-link">
+                @{{ author.twitter }}
+            </a>
+        </div>
         {% endif %}
         {% if author.linkedin %}
-        <div class="flexcontainer social"><img src="{{ site.url }}/assets/images/linkedin-brands.svg" alt="" class="social-icon"><a href="https://www.linkedin.com/in/{{ author.linkedin }}/" target="_blank" class="author-social-link">{{ author.linkedin }}</a></div>
+        <div class="flexcontainer social">
+            <img src="{{ site.url }}/assets/images/linkedin-brands.svg" alt="" class="social-icon">
+            <a href="https://www.linkedin.com/in/{{ author.linkedin }}/" target="_blank" class="author-social-link">
+                {{ author.linkedin }}
+            </a>
+        </div>
         {% endif %}
     </div>
-{%endfor%}
+{% endfor %}
 </div>
-<div class="article-date">{{ page.date | date: "%B %e, %Y" }}</div>
