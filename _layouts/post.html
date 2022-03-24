@@ -20,7 +20,9 @@ layout: default
       {% endif %}
 
       </div>
-      <div class="article-header-image-container"><img src="{{ site.url }}/assets/images/{{ page.thumb|default: 'post_thumb.jpg' }}"  alt="{{ page.teaseralt | default: page.title }}" class="article-header-image"></div>
+      <div class="article-header-image-container">
+        <img src="{{ site.url }}/assets/images/{{ page.thumb|default: 'post_thumb.jpg' }}"  alt="{{ page.teaseralt | default: page.title }}" class="article-header-image">
+      </div>
     </div>
   </div>
   <div class="max-width-container"></div>
