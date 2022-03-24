@@ -599,24 +599,26 @@ li {
 
 .paragraph-article.code-snippet {
   font-family: Inconsolata, monospace;
-  font-size: 90%;
+  font-size: 1em;
 }
 
 .article code {
   font-family: Inconsolata, monospace;
-  font-size: 90%;
-  padding: 2px 4px;
-  background-color: #f9f2f4;
-  border-radius: 4px;
+  font-size: 1em;
 }
 
+.article p > code {
+  padding: 2px 4px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+}
 .article pre {
   white-space: pre;
   overflow-x: auto;
   margin: 1em 0em;
   max-width: 100%;
   color: #1b1b32;
-  font-size: 1.2rem;
+  font-size: 1.1em;
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   padding: 10px;
