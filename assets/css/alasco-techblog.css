@@ -388,6 +388,10 @@ li {
   border-radius: 100px;
 }
 
+.author-image + .author-image {
+  margin-left: 3px;
+}
+
 .author-image.big {
   width: 50px;
 }
