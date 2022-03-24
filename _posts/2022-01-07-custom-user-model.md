@@ -41,7 +41,6 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-
     objects = UserManager()
 
     class Meta:
