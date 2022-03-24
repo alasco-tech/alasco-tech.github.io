@@ -15,11 +15,11 @@ URLs are for web applications what doors are for buildings. As long as they take
 
 ## Our domain is moving
 
-Over the last three years, the Alasco application has grown from a small cost controlling tool into a widely used SaaS construction finance management suite. Along with this growth, the domain that we are covering has evolved at high pace: With each passing quarter the product is growing into new areas, shifting away from less successful ones and undergoing significant refinement — our very understanding of _what it is that we are building_ is moving.
+Over the last three years, the Alasco application has grown from a small cost controlling tool into a widely used SaaS construction finance management suite. Along with this growth, the domain that we are covering has evolved at high pace: With each passing quarter the product is growing into new areas, shifting away from less successful ones and undergoing significant refinement — our very understanding of _what it is that we are building_ changes.
 
 The app was once structured in categories such as `Estimating`, `Contracting` and `Invoice processsing` — by now our product areas are instead `Costs`, `Incomes`, `KPIs`, etc. We continue to adjust both the user-facing product and our internal codebase to keep up with the improving model of our domain.
 
-We moved slower, however, in refactoring URLs of existing pages, because, well, [cool URIs don’t change](https://www.w3.org/Provider/Style/URI). We decided to do it anyways, because with years of accumulated changes in the product, our URLs were far from being “cool” anymore. We saw significant user value in doing so: most users still see URLs on the top of their browser window and we wanted to support them by keeping URLs readable, concise, and a helpful guide of where in the application they are and of what they are doing.
+We moved slower, however, in refactoring URLs of existing pages, because, well, [cool URIs don’t change](https://www.w3.org/Provider/Style/URI). We recently decided to do it anyways, because with years of accumulated changes in the product, our URLs were far from being “cool” anymore. We saw significant user value in doing so: most users still see URLs on the top of their browser window and we wanted to support them by keeping URLs readable, concise, and a helpful guide of where in the application they are and of what they are doing.
 
 ## Helpful URLs: predictable, consistent, and clean
 
