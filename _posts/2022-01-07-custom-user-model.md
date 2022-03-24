@@ -31,8 +31,6 @@ So these are the steps we followed:
 
 We first defined a custom User model identical in structure to that of `django.contrib.auth`:
 
-<br/>
-
 ```python
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import UserManager as BaseUserManager
@@ -49,8 +47,6 @@ class User(AbstractUser):
     class Meta:
         db_table = "auth_user"
 ```
-
-<br/>
 
 The manager definition turned out to be important for us, as without it we started getting errors saying that `User.objects` couldn't be used because the manager had been swapped out.
 
@@ -80,8 +76,6 @@ As a final touch of cleanup, we decided to start referring directly to our new U
 
 The second part of our adventure was to merge the User and Profile models together, as we could then have all the extended fields directly in the User model. For the main part we only had to do a migration to transfer the data from one model to the other, after creating the fields in the new User model. In order to make sure that all fields had been copied over, we included an assertion like this at the end of our data migration:
 
-<br/>
-
 ```python
 from django.db.models import  F
 
@@ -92,8 +86,6 @@ assert not User.objects.exclude(
     fieldn=F("profile__fieldn"),
 ).exists()
 ```
-
-<br/>
 
 The assertion made sure that the migration was reverted if any field was different. This was only possible in the context of an [atomic migration](https://docs.djangoproject.com/en/4.0/howto/writing-migrations/#non-atomic-migrations).
 
