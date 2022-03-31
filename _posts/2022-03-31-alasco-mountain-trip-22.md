@@ -13,6 +13,6 @@ We recently got back from our Alasco mountain trip that took place on the 19th a
 
 ![Alascians having lunch on a mountain](/assets/images/mountain_trip_lunch.jpg "Alascians having lunch on a mountain")
 
-Team events are an important detail of our organisation. They happen at team level, at function & department level and at company level and Alasco goes far to ensure that they are an exciting and enjoyable experience for everyone.
+Team events are an important detail at Alasco, and we go as far as to ensure that they are exciting and enjoyable experiences for everyone. Such team events happen at both team, department and company levels.
 
 The modern process of building software requires close collaboration of many stakeholders — and that collaboration benefits from inter-team connections and cross-pollination of ideas. While we follow processes in our day to day, good ideas also arise from unplanned interactions. With team events and activities, we are fostering a dense interaction and trust graph at Alasco.
