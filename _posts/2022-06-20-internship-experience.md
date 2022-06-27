@@ -50,8 +50,8 @@ Until the beginning of June, there was no obligation to be in the office. But th
 
 ---
 
-My time at Alasco is coming to an end. Soon, my internship here will be over and I'm setting my sights on my Master. Of course, I could have started right after finishing my Bachelor, but I'm glad I took the time and also got the opportunity for this internship.  
-I believe that over the past months I've improved significantly as a developer. Regardless of what I decide to do for my Master's, I'm sure I'll make good use of this experience, be it for private projects, open source projects or maybe another job. Aside from that, I've also met some amazing and inspiring people, as well as made new friends. And finally, Alasco has shown me what an enjoyable workplace culture should look like
+My time at Alasco is coming to an end. Soon, my internship here will be over and I'm setting my sights on a Master's degree. Of course, I could have started right after finishing my Bachelor, but I'm glad I took the time and also got the opportunity for this internship.  
+I believe that over the past months I've improved significantly as a developer. Regardless of what I decide to do for my Master's, I'm sure I'll make good use of this experience, be it for private projects, open source projects or maybe another job. Alasco has shown me what workplace culture should look like as I've met many inspiring people as well as new friends.
 
 Who knows, maybe I'll find myself back here in a couple years.
 
