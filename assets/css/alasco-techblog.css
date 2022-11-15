@@ -603,6 +603,27 @@ li {
   font-size: 0.9em;
 }
 
+.article p > code {
+  padding: 2px 4px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.article pre {
+  white-space: pre;
+  overflow-x: auto;
+  margin: 1em 0em;
+  max-width: 100%;
+  color: #1b1b32;
+  font-size: 1em;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  border-radius: 3px;
+  line-height: 1.3em;
+}
+
 .button_load_less {
   display: inline-block;
   margin-right: auto;
