@@ -44,21 +44,21 @@ Accessibility is essential for developers and organizations that want to create 
 
 ### Who is responsible here?
 
-Even though we are all responsible on making the web accessible to everyone, the [Web Accessibility Initiative](https://www.w3.org/WAI/about/participating/) provides an international forum for collaboration between industry, disability organisations, accessibility researchers, government, and others interested in web accessibility. Anyone can contribute and there are several Community Groups that are actively looking for contributors.
+In short, we are all responsible for making the web accessible to everyone. The [Web Accessibility Initiative](https://www.w3.org/WAI/about/participating/) provides an international forum for collaboration between industry, disability organisations, accessibility researchers, government, and others interested in web accessibility. Anyone can contribute and there are several Community Groups that are actively looking for contributors.
 
 ### How can software assist?
 
 Screen readers are software programs that allow blind or visually impaired users to read the text that is displayed on the computer screen with a speech synthesizer or braille display. A screen reader is the interface between the computer's operating system, its applications, and the user. Usual suspects for system-wide accessibility include Eye-Pal, iMax for Mac, JAWS, Voice Over, and many more.
 
-When it comes to browsers, mayor vendors come with screen readers built-in. If we are talking about Safari, you get VoiceOver for free from the OS (macOS, iOS). Google Chrome does offer [Screen Reader](https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn), a browser extension, but they recommend using a fully fledged software such as ChromeVox (ChromeOS only), VoiceOver on the Mac and JAWS, NVDA or Narrator in Windows. Microsoft Edge comes with a built-in screen reader, available in both Windows and macOS. As of the time of writing, both Google Chrome and Microsoft Edge ship with a screen reader. Firefox on the other hand, does not ship with a screen reader by default. However, it provides basic support for VoiceOver on Apple platforms and does link to several add-ons users can install on any platform.
+When it comes to browsers, major vendors come with screen readers built-in. If we are talking about Safari, you get VoiceOver for free from the OS (macOS, iOS). Google Chrome offers [Screen Reader](https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn), a browser extension, but they recommend using fully fledged software such as ChromeVox (ChromeOS only), VoiceOver on the Mac and JAWS, NVDA or Narrator in Windows. Microsoft Edge comes with a built-in screen reader, available in both Windows and macOS. Firefox on the other hand, does not ship with a screen reader by default. However, it provides basic support for VoiceOver on Apple platforms and links to several add-ons users can install on any platform.
 
 ### Some interesting stats
 
-I came across the [screen reader survey #8 by Web AIM (Accessibility in mind)](https://webaim.org/projects/screenreadersurvey8/), which provides a nice overview on some topics from a screen reader user perspective. It's worth a read, and you can even compare how these results have evolved over time. What I believe it's important to take from these results, is the reasons the interviewees believe accessibility in the web is lagging behind. Lack of awareness is the most voted reason, which is something that we can fix overtime. It's important to note how critical can be having a good level of accessibility for a human being, either if it's for work or for browsing Reddit at 3:00 in the morning.
+I came across the [screen reader survey #8 by Web AIM (Accessibility in mind)](https://webaim.org/projects/screenreadersurvey8/), which provides a nice overview on some topics from a screen reader user perspective. It's worth a read, and you can even compare how these results have evolved over time. What I believe is important to take from these results, are the reasons the interviewees believe accessibility in the web is lagging behind. Lack of awareness is the most voted reason, which is something that we can fix overtime. It's important to note how critical it can be to have a good level of accessibility for a human being, no matter whether it's for work or for browsing Reddit at 3:00 in the morning.
 
 ### Are screen readers a silver bullet?
 
-Any piece of software is made by humans. Therefore, no software is bullet proof. One can navigate through WebKit’s BugZilla, filtering by `VoiceOver` or going to Chromium’s site and doing the same. The result? Plenty of bugs!
+Any piece of software is made by humans. Therefore, no software is bullet proof. One can navigate through WebKit’s BugZilla and filtering by `VoiceOver`, or go to Chromium’s site and do the same. The result? Plenty of bugs!
 
 I encourage you, if you unfortunately find any bug (within any topic, not just screen readers!), **do report it!** Help the maintainers of these open source projects to improve their product by reporting unexpected errors and how to reproduce them.
 
@@ -66,11 +66,11 @@ I encourage you, if you unfortunately find any bug (within any topic, not just s
 
 ## The problem
 
-At some point in your career as a web engineer, you probably displayed some kind of number with a context behind it. After all, it would be quite weird to show the number `42` without any explication. What is 42? 
+At some point in your career as a web engineer, you probably displayed some kind of number with some context behind it. After all, it would be quite weird to show the number `42` without any explanation. What is 42? 
 
-We can be speaking about 10 double quarter pounders, 75% annual inflation or 1 banana. Instead of keep throwing numbers and their units of measurements, I raise you a more common, day to day example: € 6,50. If you are reading this, your mind probably parsed that as **six euros and fifty cents.** By the way, that’s what my favourite chicken kebab costs 🌯. That is pretty easy, right? You might wonder how screen readers perform?  Well, pretty neat! Voice over will read that just like your brain. That’s awesome!
+We can be speaking about 10 double quarter pounders, 75% annual inflation or 1 banana. Instead of continuing to throw numbers and their units of measurements, I raise you a more common, day to day example: € 6,50. If you are reading this, your mind probably parsed that as **six euros and fifty cents.** By the way, that’s what my favourite chicken kebab costs 🌯. That is pretty easy, right? You might wonder how screen readers perform?  Well, pretty neat! Voice over will read that just like your brain. That’s awesome!
 
-However, not everything in life is nicely-priced kebabs. Imagine you are using a web application to measure your CO₂ emissions. Something that has been gaining track as of late. How would you read the following `1.500,78 Kg CO₂` (aside: that’s how you measure, generally, CO₂ emissions). You probably went **one thousand five hundred and seventy-eight kilograms of carbon dioxide.** A quick run in VoiceOver, throws **one thousand five hundred seventy-eight key ge ce o two**.
+However, not everything in life is nicely-priced kebabs. Imagine you are using a web application to measure your CO₂ emissions. Something that has been gaining traction as of late. How would you read the following `1.500,78 Kg CO₂` (aside: that’s how you measure, generally, CO₂ emissions). You probably thought **one thousand five hundred and seventy-eight kilograms of carbon dioxide.** A quick run in VoiceOver, throws **one thousand five hundred seventy-eight key gee cee oh two**.
 
 That’s not a rap verse, VoiceOver, that's a valid unit of measurement!
 
@@ -112,7 +112,7 @@ const Amount = () => (
 );
 ```
 
-We can also start talking some API decisions. For now, let’s make `Amount` a functional component, and represent the numerical amount the sole child.
+We can also start talking some API decisions. For now, let’s make `Amount` a functional component, and represent the numerical amount as the sole child.
 
 ```tsx
 const Amount: FC = ({ children }) => (
@@ -185,7 +185,7 @@ export default function Amount({ children, unit }: PropsWithChildren<Props>) {
 
 ```
 
-💡 It is worth noting that the generation of this `Unit` is completely implementation agnostic. You can use your favourite i18n library, Intl’s built in databases and so on.
+💡 It is worth noting that the generation of this `Unit` is completely implementation agnostic. You can use your favourite internationalisation library, Intl’s built in databases and so on.
 
 # Conclusion
 Before signing off, I would like to go back to the very title of this post: accessible labels and **where to find them?** Well: 🥁🥁🥁 in you! Yeah, that's right. You know how to build reusable components, and have just seen how easy it is to make your app a bit friendlier. Take the initiative and start adding those labels!
