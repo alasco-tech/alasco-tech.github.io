@@ -18,7 +18,7 @@ Fortunately, I had a chance to speak about it at the Munich React meetup that wa
 - [Introduction](#introduction)
   - [What means an accessible web?](#what-means-an-accessible-web)
   - [Status quo](#status-quo)
-    - [Who is DRI here?](#who-is-dri-here)
+    - [Who is responsible here?](#who-is-responsible-here)
     - [How can software assist?](#how-can-software-assist)
     - [Some interesting stats](#some-interesting-stats)
     - [Are screen readers a silver bullet?](#are-screen-readers-a-silver-bullet)
@@ -34,11 +34,9 @@ Fortunately, I had a chance to speak about it at the Munich React meetup that wa
 
 ## What means an accessible web?
 
-The Web is fundamentally designed to work for all people, whatever their hardware, software, language, location, or ability. When the Web meets this goal, it is accessible to people with a diverse range of hearing, movement, sight, and cognitive ability.
+The Web is fundamentally designed to work for all people, whatever their hardware, software, language, location, or ability. When the Web meets this goal, it is accessible to people with a diverse range of hearing, movement, sight, and cognitive ability. This is essential for developers and organizations that want to create high-quality websites and web tools, and not exclude people from using their products and services.
 
 Web accessibility, in all its means, can be an extensive topic that would require more than a 15 minute talk. Therefore, from now on until the end of this document, I will focus on vision assistance through screen readers.
-
-Accessibility is essential for developers and organizations that want to create high-quality websites and web tools, and not exclude people from using their products and services. One can not only encompass those who directly require assistance, but also people without disabilities.
 
 ## Status quo
 
