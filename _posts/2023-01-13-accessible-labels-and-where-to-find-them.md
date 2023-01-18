@@ -42,7 +42,7 @@ Accessibility is essential for developers and organizations that want to create 
 
 ## Status quo
 
-### Who is DRI here?
+### Who is responsible here?
 
 Even though we are all responsible on making the web accessible to everyone, the [Web Accessibility Initiative](https://www.w3.org/WAI/about/participating/) provides an international forum for collaboration between industry, disability organisations, accessibility researchers, government, and others interested in web accessibility. Anyone can contribute and there are several Community Groups that are actively looking for contributors.
 
