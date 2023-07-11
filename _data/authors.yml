@@ -2,32 +2,32 @@ schuon:
   name: Sebastian Schuon
   twitter: schuon
   title: Founder
-  image: sebastian_schuon.jpg
+  image: avatar.sebastian_schuon.jpg
 
 wearebasti:
   name: Sebastian Seitz
   twitter: wearebasti
   linkedin: seitzsebastian
   title: Software Engineer
-  image: sebastian_seitz.jpg
+  image: avatar.sebastian_seitz.jpg
 
 moser:
   name: Martin Vielsmaier
   twitter: moserei
   title: Software Engineer
-  image: martin_vielsmaier.jpg
+  image: avatar.martin_vielsmaier.jpg
 
 jan-engelmann:
   name: Jan Engelmann
   linkedin: jan-paul-engelmann
   title: Intern Engineering
-  image: jan_engelmann.jpg
+  image: avatar.jan_engelmann.jpg
 
 anselmbauer:
   name: Anselm Bauer
   linkedin: anselmbauer
   title: Founder
-  image: anselm_bauer.jpg
+  image: avatar.anselm_bauer.jpg
 
 chrisittner:
   name: Chris Ittner
@@ -36,18 +36,18 @@ chrisittner:
 sebastianmark:
   name: Sebastian Mark
   title: Software Engineer
-  image: sebastian_mark.jpg
+  image: avatar.sebastian_mark.jpg
 
 juliabastian:
   name: Julia Bastian
   title: UX Researcher
-  image: julia_bastian.jpg
+  image: avatar.julia_bastian.jpg
   linkedin: julia-bastian
 
 francisali:
   name: Francis Ali
   title: Software Engineer
-  image: francis_ali.png
+  image: avatar.francis_ali.png
 
 frontend-team:
   name: Frontend Team
@@ -58,44 +58,44 @@ engineering-team:
 lysanderkiesel:
   name: Lysander Kiesel
   title: Software Engineer
-  image: lysander_kiesel.jpg
+  image: avatar.lysander_kiesel.jpg
   linkedin: lysander-kiesel
 
 greg-signal:
   name: Greg Signal
   title: Software Engineer
-  image: greg_signal.jpg
+  image: avatar.greg_signal.jpg
   linkedin: glsignal
   twitter: glsignal
 
 anika-watzka:
   name: Anika Watzka
   title: UX Researcher
-  image: anika_watzka.jpg
+  image: avatar.anika_watzka.jpg
   linkedin: anika-watzka-79871314b
 
 lorinkoz:
   name: Lorenzo Peña
   title: Software Engineer
-  image: lorenzo_pena.jpeg
+  image: avatar.lorenzo_pena.jpeg
   twitter: lorinkoz
 
 DeinAlptraum:
   name: Jannick Kremer
   title: Software Engineering Intern
-  image: jannick_kremer.jpg
+  image: avatar.jannick_kremer.jpg
   linkedin: jannick-kremer-791052186
 
 reloadedhead:
   name: Tomás García Gobet
   title: Software Engineer
-  image: tomas_garcia_gobet.jpeg
+  image: avatar.tomas_garcia_gobet.jpeg
   twitter: reloadedhead
   linkedin: tomasgobet
 
 UlianaMunich:
   name: Uliana Cáceres (Andriieshyna)
   title: Community Manager
-  image: uliana.jpg
+  image: avatar.uliana.jpg
   twitter: uliana_munich
   linkedin: ulianaa
