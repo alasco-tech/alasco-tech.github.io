@@ -309,7 +309,7 @@ li {
   margin-bottom: 2px;
   font-family: var(--font-family-headers);
   color: var(--body-text__color);
-  font-size: var(--font-size-h5)*0.8;
+  font-size: calc(var(--font-size-h5)*0.8);
 }
 
 .article-teaser-image {
@@ -384,7 +384,7 @@ li {
   display: block;
   margin-bottom: 3px;
   font-family: var(--font-family-headers);
-  font-size: var(-font-size-h5)*0.8;
+  font-size: calc(var(-font-size-h5)*0.8);
   font-weight: 700;
 }
 
@@ -609,7 +609,7 @@ li {
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
   color: var(--body-text__color);
-  font-size: var(--font-size-h5)*0.8;
+  font-size: calc(var(--font-size-h5)*0.8);
   text-decoration: none;
 }
 
