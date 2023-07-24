@@ -26,7 +26,7 @@ h1 {
   margin-bottom: 10px;
   font-family: var(--font-family-headers);
   color:var(--body-text__color);
-  font-size: var(--font-size-h1)*1.4;
+  font-size: var(--font-size-header__large);
   line-height: 44px;
   font-weight: 700;
 }
@@ -36,7 +36,7 @@ h2 {
   margin-bottom: 20px;
   font-family: var(--font-family-headers);
   color:var(--body-text__color);
-  font-size: var(--font-size-h1)*1.2;
+  font-size: var(--font-size-header__large);
   line-height: 1.3em;
   font-weight: 700;
 }
@@ -152,7 +152,7 @@ li {
 }
 
 .section {
-  padding-top: 70px;
+  padding-top: 60px;
   padding-bottom: 70px;
 }
 
