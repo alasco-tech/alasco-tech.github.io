@@ -4,13 +4,14 @@ date: 2023-07-11
 layout: post
 title: Product and Engineering Hackathon Rabbit Hunt
 subtitle: An internal hackathon, a blog post, and a way of making innovation with fun.
-thumb: hackathon/hackathon-2023-digital-banner.jpg
+thumb: hackathon/hackathon-2023-digital-banner.png
+tag: featured
 description: Internal hackathons and innovation
 ---
 
 ## Innovation and what does it have to do with Hackathon?
 
-Innovation is a key driver for business growth and success in today's fast-paced world. And let’s be honest, for us engineers, it is fun to actually code and experiment with state-of-the-art technologies. o encourage this within our organisation, we at Alasco recently held our very own second edition of product and engineering Hackathon 2023, the rabbit hunt edition. 
+Innovation is a key driver for business growth and success in today's fast-paced world. And let’s be honest, for us engineers, it is fun to actually code and experiment with state-of-the-art technologies. And to encourage this within our organisation, we at Alasco recently held our very own second edition of product and engineering Hackathon 2023, the rabbit hunt edition. 
 
 This time it was made not only by engineers for engineers but with the joint effort of product managers and designers where we experienced going from the discovery to the delivery phase in just 8 hours. If you are curious about the result, let’s dive in.
 
@@ -36,19 +37,23 @@ Let’s use a quote from one of our teams to answer: “Heck, yes!”
 
 Just 2 weeks after the hackathon took place we released a fully production-ready feature designed and developed by a team of two people: designer Sophia Scholpp and engineer Dima Pravotorov. More to come: 3 projects are currently in the pipeline to make production ready and 2 are in a backlog.
 
-![Hackathon Brick by Brick rabbit hunt projects pitch](/assets/images/hackathon/hackathon-2023-pitch-time-1.jpg "Hackathon Brick by Brick rabbit hunt projects pitch")
+![Hackathon Brick by Brick rabbit hunt projects pitch](/assets/images/hackathon/hackathon-2023-pitch-time-1.png "Hackathon Brick by Brick rabbit hunt projects pitch")
 
 Here are just some of the impressions from participants:
 
-***“Just constant happy mood >>>>> one memorable moment.”***
+<blockquote class="twitter-tweet blockquote text-right" data-lang="en"><p lang="en" dir="ltr" class="mb-0">Just constant happy mood >>>>> one memorable moment.</p>
+</blockquote>
 
-“We should do Hackathons twice a year or even include 1 Sprint per Quarter where Engineers are in the lead of driving Hackathon-like projects to foster engagement and enthusiasm, engineering-driven discoveries, and domain knowledge across the Engineering department.”
+<blockquote class="twitter-tweet blockquote text-right" data-lang="en"><p lang="en" dir="ltr" class="mb-0">“We should do Hackathons twice a year or even include 1 Sprint per Quarter where Engineers are in the lead of driving Hackathon-like projects to foster engagement and enthusiasm, engineering-driven discoveries, and domain knowledge across the Engineering department.”</p>
+</blockquote>
 
-***“An amazing atmosphere with awesome people. No meetings, just pure focus, in the flow and freedom to develop what I always wanted to. It was also great to have product and designers in the team!”***
+<blockquote class="twitter-tweet blockquote text-right" data-lang="en"><p lang="en" dir="ltr" class="mb-0">An amazing atmosphere with awesome people. No meetings, just pure focus, in the flow and freedom to develop what I always wanted to. It was also great to have product and designers in the team!.</p>
+</blockquote>
 
-“Incredibly high-quality ideas (really impressed), super atmosphere, great organization & a lot of fun”
+<blockquote class="twitter-tweet blockquote text-right" data-lang="en"><p lang="en" dir="ltr" class="mb-0">“Incredibly high-quality ideas (really impressed), super atmosphere, great organization & a lot of fun”</p>
+</blockquote>
 
-![Hackathon Brick by Brick rabbit hunt projects pitch](/assets/images/hackathon/hackathon-2023-pitch-time-2.jpg "Hackathon Brick by Brick rabbit hunt projects pitch")
+![Hackathon Brick by Brick rabbit hunt projects pitch](/assets/images/hackathon/hackathon-2023-pitch-time-2.png "Hackathon Brick by Brick rabbit hunt projects pitch")
 
 All participants liked the full-day hackathon and the average satisfaction ratio was 4.8, where 5 is the max. 50% of which showed a high interest to repeat it this year already without waiting for the next one. What a spirit!
 

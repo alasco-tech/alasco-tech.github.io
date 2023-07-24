@@ -11,9 +11,6 @@
             <div class="flex-box-padding">
               <a data-w-id="06f08df4-8d04-178d-5325-4f7e27001551" href="{{ post.url }}" class="article-link-block w-inline-block">
                 <div class="post-container">
-                  <div class="category-label">
-                    <div>Category</div>
-                  </div>
                   {% if post.author.first %}
                     {% comment %} author is not a string, but an array {% endcomment %}
                     {% assign writer = site.data.authors[post.author.first] %}
