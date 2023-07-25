@@ -54,7 +54,7 @@ h4 {
   margin-top: 10px;
   margin-bottom: 20px;
   font-family: var(--font-family-headers);
-  color: var(--text-base-color__dark-bckg);
+  color: var(--text-base-color__dark-bg);
   font-size: var(--font-size-h4);
   line-height: 1.1em;
   font-weight: 700;
@@ -147,7 +147,7 @@ li {
   margin-right: 20px;
 }
 
-.logo_image {
+.logo-image {
   width: 170px;
 }
 
@@ -326,7 +326,7 @@ li {
   display: block;
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
-  color: var(--text-base-color__dark-bckg);
+  color: var(--text-base-color__dark-bg);
   font-size: 0.875em;
   line-height: 1.5em;
   text-align: left;
@@ -345,7 +345,7 @@ li {
   display: inline;
   margin-left: 20px;
   float: right;
-  color: var(--text-base-color__dark-bckg);
+  color: var(--text-base-color__dark-bg);
 }
 
 .footer-link.first {
@@ -397,7 +397,7 @@ li {
   background-color: var( --background__color-light);
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
-  color: var(--text-base-color__dark-bckg);
+  color: var(--text-base-color__dark-bg);
   font-weight: 700;
 }
 
@@ -457,8 +457,11 @@ li {
   margin-top: 15px;
   padding: 15px;
   border-radius: 2px;
-  background-color: var(-background__base-color);
   text-align: center;
+}
+
+.job-box h5 {
+  color: var(--text-base-color__dark-bg);
 }
 
 .flex-box-30 {
@@ -498,7 +501,7 @@ li {
   background-color: var(--background__color-light);
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
-  color: var(--text-base-color__dark-bckg);
+  color: var(--text-base-color__dark-bg);
 }
 
 .button-primary:hover {
@@ -513,7 +516,7 @@ li {
 .h4-jobbox {
   margin-top: 0px;
   margin-bottom: 5px;
-  color: var(--text-base-color__dark-bckg);
+  color: var(--text-base-color__dark-bg);
   text-align: center;
 }
 
@@ -600,7 +603,7 @@ li {
 
 .copyright {
   display: inline-block;
-  color: var(--text-base-color__dark-bckg);
+  color: var(--text-base-color__dark-bg);
   font-size: var(--font-size-paragraph);
   line-height: 1.5em;
 }
@@ -627,7 +630,7 @@ li {
   padding: 10px 20px;
   border-radius: 2px;
   background-color: var(--background__color-light);
-  color: var(--text-base-color__dark-bckg)
+  color: var(--text-base-color__dark-bg);
 }
 
 .button:hover {
@@ -737,7 +740,8 @@ li {
     width: 170px;
   }
 
-  .logo_image {
+  .logo-image {
+    background-image: url("./assets/images/Logo.svg");
     width: auto;
   }
 
@@ -815,7 +819,7 @@ li {
     margin-right: 5px;
   }
 
-  .logo_image {
+  .logo-image {
     width: 150px;
   }
 
@@ -849,42 +853,3 @@ li {
     flex-basis: 100%;
   }
 }
-/* TODO: To uncomment if accordian is added to the website */
-/* .accordion_toggle_form {
-  width: 100%;
-  color: #2897f3;
-  font-size: 1em;
-}
-
-.accordion_toggle_form:hover {
-  color: #2897f3;
-}
-
-.accordion_toggle_form.w--open {
-  background-image: url("../images/close_icon_bue_1close_icon_bue.png");
-  background-position: 99% 50%;
-  color: #2897f3;
-}
-
-.accordion-content {
-  overflow: hidden;
-  margin-right: -15px;
-  margin-left: -15px;
-  padding-right: 15px;
-  padding-left: 15px;
-} */
-
-/* TODO: Add categories functionality */
-/* .category-button {
-  margin: 5px;
-  padding: 12px 20px;
-  border-radius: 2px;
-  background-color: var(--title-text__color);
-  -webkit-transition: all 200ms ease;
-  transition: all 200ms ease;
-  color: var(--text-base-color__dark-bckg);
-}
-
-.category-button:hover {
-  background-color: #00b7cc;
-} */
