@@ -8,6 +8,7 @@ title: Cool URIs don’t change — but what if yours aren’t?
 subtitle: How we painlessly restructured our app URLs in Django
 thumb: doors.jpg
 teaseralt: A rendering of many doors
+tag: featured
 description: How we painlessly restructured our app URLs in Django
 ---
 

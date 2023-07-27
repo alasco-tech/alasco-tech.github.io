@@ -1,0 +1,27 @@
+:root {
+    --font-family-headers: "Space Grotesk", sans-serif;
+    --font-family-text: "Inter", sans-serif;
+    --background__base-color: #FFFFFF;
+    --background__color-light: #11CDD4;
+    --background__color-dark: #046;
+    --background-article__color-light: #f8f8f8;
+    --background-section-header__color: #fff2dd;
+    --background-header__color-light: #f0f4f6;
+    
+    --body-text__color: #004466;
+    --title-text__color: #11CDD4;
+    --text-base-color__dark-bg: #FFFFFF;
+
+    --border__color: #ccc;
+
+    --font-size-h1: 1.6em;
+    --font-size-h2: 1.5em;
+    --font-size-h3: 1.4em;
+    --font-size-h4: 1.2em;
+    --font-size-h5: 1em;
+    --font-size-header__large: 2.25em;
+
+    --font-site-text-block: 1.2em;
+    --font-size-paragraph: 0.9em;
+    
+}
