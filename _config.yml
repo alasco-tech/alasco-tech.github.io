@@ -9,6 +9,7 @@ defaults:
       image: true
 
 ga_id: "UA-134504184-1"
+ga4_tag_id: "GTM-P555XNH8"
 
 title: "Alasco | Tech Blog"
 tagline: "Alasco Tech Blog - Where the Product & Engineering team of Alasco shares their stories"

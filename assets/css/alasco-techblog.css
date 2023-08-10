@@ -733,7 +733,7 @@ li {
   }
 
   .nav-textblock {
-    line-height: 1.2em;
+    display: none;
   }
 
   .brand {
