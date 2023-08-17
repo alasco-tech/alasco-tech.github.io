@@ -4,8 +4,8 @@ authors:
 date: 2023-07-11
 title: Product and Engineering Hackathon Rabbit Hunt
 subtitle: An internal hackathon, a blog post, and a way of making innovation with fun.
-tag: featured
 thumbnail: ./images/digital-banner.jpg
+tag: featured
 description: Internal hackathons and innovation
 ---
 

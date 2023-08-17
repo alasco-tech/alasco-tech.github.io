@@ -147,7 +147,7 @@ def _print_result(pip_diff: dict, file_diff: dict):
                 print("\n".join(f"- {el[0]} - {el[1]}" for el in elements))
             else:
                 print("_Not applicable_")
-                print("\n")
+            print("\n")
     else:
         print("# No Python dependencies changed")
 

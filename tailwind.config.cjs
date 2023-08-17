@@ -16,6 +16,9 @@ module.exports = {
       "poppy-red": "#BF280B",
       seashell: "#E4E3E3",
     },
+    fontFamily: {
+      sans: ["Inter", "sans-serif"],
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
