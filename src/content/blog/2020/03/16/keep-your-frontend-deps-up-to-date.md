@@ -5,7 +5,6 @@ date: 2020-03-16
 title: Keep your frontend dependencies up-to-date
 subtitle: How we tackle the problem to update our frontend deps on a regular basis
 thumbnail: ./images/frontenddeps_1.jpg
-tag: featured
 teaseralt: Code on a computer screen
 description: How we tackle the problem to update our frontend deps on a regular basis at Alasco, using npm-check-updates.
 ---
@@ -40,7 +39,7 @@ Run npm install to install new versions.
 
 Basically the package offers everything we need for our challenge, so we decided to take a shot here. In order to have the tool executed on a regular basis we created an automated job in our build setup and added the configuration for running the command. To check if there is an version update in our codebase we copy the old `package.json` and compare it with the new one which was created by the `ncu`.
 
-```
+```bash
 echo "### Install ncu"
 npm install npm-check-updates
 
@@ -59,26 +58,26 @@ We are now ready to open the PR when updates have been made during the build:
 
 ```bash
 if [ "HAS_NEW_DEPS" == "1" ]; then
-echo "### Create branch"
-git checkout -b "frontend-update-${CIRCLE_SHA1}"
-echo "### Cleanup ncu"
-npm uninstall npm-check-updates
+  echo "### Create branch"
+  git checkout -b "frontend-update-${CIRCLE_SHA1}"
+  echo "### Cleanup ncu"
+  npm uninstall npm-check-updates
 
-echo "### Commit changes"
-git add --all
-git commit -m "update frontend dependencies to ${CIRCLE_SHA1}"
+  echo "### Commit changes"
+  git add --all
+  git commit -m "update frontend dependencies to ${CIRCLE_SHA1}"
 
-echo "### Push"
-git push
+  echo "### Push"
+  git push
 
-echo "### Write update result to file"
-printf "$DEPENDENCY_CHECK_RESULT" > pr_description.txt
+  echo "### Write update result to file"
+  printf "$DEPENDENCY_CHECK_RESULT" > pr_description.txt
 
-echo "### Update PR description"
-pip install --user PyGithub
-python ../.circleci/pull_request.py -t "Update Frontend deps" -b "frontend-update-${CIRCLE_SHA1}" -d pr_description.txt
+  echo "### Update PR description"
+  pip install --user PyGithub
+  python ../.circleci/pull_request.py -t "Update Frontend deps" -b "frontend-update-${CIRCLE_SHA1}" -d pr_description.txt
 else
-echo "No dependency updates available"
+  echo "No dependency updates available"
 fi
 ```
 

@@ -53,14 +53,14 @@ For this we created a [script](https://github.com/alasco-tech/alasco-tools), tha
 This module / script deletes AWS stacks that have no corresponding branch on
 GitHub anymore. It is expected that AWS stacks have a tag called `branch`.
 Example:
-Running this is as simple as:
-$ python3 remove_branchless_stacks.py my-github-repo
-It'll assume the AWS region is `eu-central-1` it can be set via the
-optional CLI parameter `--region`
+    Running this is as simple as:
+        $ python3 remove_branchless_stacks.py my-github-repo
+    It'll assume the AWS region is `eu-central-1` it can be set via the
+    optional CLI parameter `--region`
 Attributes:
-_PROTECTED_STACKS (tuple): This iterable of branch-names will never be
-deleted. Change these to branches you'll make sure to keep, e.g. `master`
-or `production`.
+    _PROTECTED_STACKS (tuple): This iterable of branch-names will never be
+    deleted. Change these to branches you'll make sure to keep, e.g. `master`
+    or `production`.
 """
 from typing import Dict, Set
 
@@ -161,11 +161,11 @@ def remove_branchless_stacks(repo: str, region: str):
 def main():
     """ Remove AWS Stacks without an GitHub branch """
     parser = argparse.ArgumentParser(
-    description="Remove Cloudformation stacks without branch"
+        description="Remove Cloudformation stacks without branch"
     )
     parser.add_argument("repo", type=str, help="GitHub repo to check")
     parser.add_argument(
-    "--region", type=str, help="AWS region name", default="eu-central-1"
+        "--region", type=str, help="AWS region name", default="eu-central-1"
     )
 
     args = parser.parse_args()

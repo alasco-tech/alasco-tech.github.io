@@ -141,20 +141,20 @@ def _read_json_file(in_file: str) -> List[Dict]:
 def _print_result(pip_diff: dict, file_diff: dict):
     if pip_diff and any(pip_diff.values()):
         print("# Python dependencies (pip installed) differ")
-    for key, elements in pip_diff.items():
-        print(f"## {key} dependencies:")
-        if elements:
-            print("\n".join(f"- {el[0]} - {el[1]}" for el in elements))
-        else:
-            print("_Not applicable_")
-            print("\n")
+        for key, elements in pip_diff.items():
+            print(f"## {key} dependencies:")
+            if elements:
+                print("\n".join(f"- {el[0]} - {el[1]}" for el in elements))
+            else:
+                print("_Not applicable_")
+                print("\n")
     else:
         print("# No Python dependencies changed")
 
 def main():
     parser = argparse.ArgumentParser(description="Beautyif container diff output")
     parser.add_argument(
-    "input_file", type=str, help="Path to diff file to read (json format)"
+        "input_file", type=str, help="Path to diff file to read (json format)"
     )
     args = parser.parse_args()
     in_file = args.input_file

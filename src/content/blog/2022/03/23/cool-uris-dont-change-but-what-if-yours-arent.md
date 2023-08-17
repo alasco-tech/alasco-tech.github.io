@@ -6,6 +6,7 @@ date: 2022-03-23
 title: Cool URIs don’t change — but what if yours aren’t?
 subtitle: How we painlessly restructured our app URLs in Django
 thumbnail: ./images/doors.jpg
+tag: featured
 teaseralt: A rendering of many doors
 description: How we painlessly restructured our app URLs in Django
 ---
