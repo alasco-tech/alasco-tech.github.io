@@ -38,7 +38,7 @@ authors:
 date: 2019-02-14 # date of the post, in format `YYYY-MM-DD`
 title: $title #required, shows up as page-title, headline, ...
 subtitle: $subtitle # optional, displayed under the title
-description: $longer_description # optional, will be used for seo meta links
+description: $longer_description # will be used for seo meta links
 thumbnail: $thumbnail # image, needs to be in ./images/
 tag: $tag # optional, "featured" tag is used (to display in "Recommended posts")
 teaseralt: $tag # optional, used for short description on the card
