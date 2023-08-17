@@ -1,0 +1,32 @@
+---
+import BaseHead from "../components/general/BaseHead.astro";
+import Header from "../components/general/Header.astro";
+import BlogDescription from "../components/index/BlogDescription.astro";
+import Footer from "../components/general/Footer.astro";
+import RecommendedPosts from "../components/index/RecommendedPosts.astro";
+import LatestPosts from "../components/index/LatestPosts.astro";
+import { getCollection } from "astro:content";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const authors = await getCollection("author");
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <BlogDescription />
+      <RecommendedPosts posts={posts} authors={authors} />
+      <LatestPosts posts={posts} authors={authors} />
+    </main>
+    <Footer />
+  </body>
+</html>

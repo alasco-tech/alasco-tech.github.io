@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../assets/images/logo.svg";
+---
+
+<header class="bg-white text-midnight-blue sticky top-0">
+  <div class="shadow-md">
+    <div class="mx-auto w-full max-w-screen-xl p-3 h-18">
+      <div class="flex justify-between">
+        <div class="flex items-center">
+          <a href="/"><Image src={logo} alt="Alasco Logo" class="w-36" /></a>
+          <span class="text-2xl ml-4 invisible md:visible">Tech Blog</span>
+        </div>
+        <div class="flex items-center">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.alasco.de/en/career/"
+            class="text-l hover:text-bright-teal"
+          >
+            Career
+          </a>
+
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://alasco.breezy.hr/?utm_medium=techblog&utm_source=cta-btn&utm_campaign=techblog"
+            class="bg-bright-teal hover:bg-midnight-blue rounded py-2 px-5 block text-center text-white text-l mx-5"
+            >Open positions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

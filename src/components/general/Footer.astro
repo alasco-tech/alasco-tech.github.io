@@ -1,0 +1,83 @@
+---
+import { Icon } from "astro-icon";
+
+const today = new Date();
+---
+
+<footer class="bg-midnight-blue text-white">
+  <div class="mx-auto w-full max-w-screen-xl p-4 py-6">
+    <div class="flex flex-col md:flex-row justify-between">
+      <div class="flex justify-between">
+        <div class="mb-6">
+          <h2 class="mb-6 text-xl font-bold">Company</h2>
+          <a
+            href="https://www.alasco.de"
+            target="_blank"
+            class="hover:text-bright-teal block mb-2">Home</a
+          ><a
+            href="https://www.alasco.de/about/"
+            target="_blank"
+            class="hover:text-bright-teal block mb-2">About Us</a
+          ><a
+            href="https://www.alasco.de/contact/"
+            target="_blank"
+            class="hover:text-bright-teal block">Contact Us</a
+          >
+        </div>
+        <div class="mb-6 ml-32">
+          <h2 class="mb-6 text-xl font-bold">Social</h2>
+          <div class="flex items-center mb-2">
+            <Icon name="mdi:twitter" class="w-5 h-5" />
+            <a
+              href="https://twitter.com/tech_alasco"
+              target="_blank"
+              class="ml-2 hover:text-bright-teal">@tech_alasco</a
+            >
+          </div>
+          <div class="flex items-center mb-2">
+            <Icon name="mdi:glassdoor" class="w-5 h-5" />
+            <a
+              href="https://www.glassdoor.de/Bewertungen/Alasco-Bewertungen-E2277787.htm?countryRedirect=true"
+              target="_blank"
+              class="ml-2 hover:text-bright-teal">Alasco at Glassdoor</a
+            >
+          </div>
+          <div class="flex items-center">
+            <Icon name="mdi:linkedin" class="w-5 h-5" />
+            <a
+              href="https://www.linkedin.com/company/alasco-software/"
+              target="_blank"
+              class="ml-2 hover:text-bright-teal">Alasco at LinkedIn</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="mb-6 flex flex-col justify-center">
+        <span class="font-bold text-xl block text-center mb-1"
+          >Join our growing team!</span
+        >
+        <span class="text-m block text-center mb-1">We&#x27;re hiring.</span>
+        <a
+          href="https://alasco.breezy.hr/"
+          target="_blank"
+          class="bg-bright-teal hover:bg-midnight-blue rounded py-2 px-5 block text-center text-l mx-5"
+          >View Jobs now</a
+        >
+      </div>
+    </div>
+    <hr class="border-bright-teal" />
+    <div class="flex justify-between mt-5 items-center">
+      <div class="text-l">
+        &copy; Copyright {today.getFullYear()} Alasco GmbH
+      </div>
+      <div class="flex flex-col md:flex-row gap-3">
+        <a href="https://www.alasco.de/impressum/" class="text-l">Impressum</a>
+        <a
+          href="https://www.alasco.de/datenschutzerklaerung-alasco/"
+          class="text-l">Datenschutz</a
+        >
+      </div>
+    </div>
+  </div>
+  <div></div>
+</footer>

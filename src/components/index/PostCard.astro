@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  authors: Array<CollectionEntry<"author">>;
+}
+
+const { post, authors } = Astro.props;
+---
+
+<div class="rounded overflow-hidden shadow-lg bg-white group">
+  <a href={`/${post.slug}/`} class="mb-8 h-full flex flex-col">
+    <Image
+      src={post.data.thumbnail}
+      alt={post.data.title}
+      class="w-full"
+      quality="low"
+    />
+    <div
+      class="p-4 flex flex-col grow justify-between"
+      style="min-height: 150px"
+    >
+      <h3 class="text-bright-teal font-bold text-xl">
+        {post.data.title}
+      </h3>
+
+      {
+        /* 
+        TODO: display short description of the article when hovering on the card 
+        <p class="hidden">{post.data.teaseralt}</p>
+        */
+      }
+
+      <div class="flex items-center">
+        {
+          post.data.authors.map((author) => {
+            const authorData = authors.find((a) => a.id === author.id).data;
+
+            return (
+              <Image
+                src={authorData.image}
+                alt={authorData.name}
+                class="w-8 h-8 rounded-3xl"
+                quality="low"
+              />
+            );
+          })
+        }
+
+        <div class="fliex flex-col ml-3">
+          <div class="font-bold">
+            {
+              post.data.authors.map((author, i, authorsArr) => {
+                const authorData = authors.find((a) => a.id === author.id).data;
+
+                if (i > 0) {
+                  return ` & ${authorData.name}`;
+                }
+
+                return authorData.name;
+              })
+            }
+          </div>
+          <div>{post.data.date.toDateString()}</div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

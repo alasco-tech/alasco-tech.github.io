@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostCard from "./PostCard.astro";
+
+interface Props {
+  posts: Array<CollectionEntry<"blog">>;
+  authors: Array<CollectionEntry<"author">>;
+}
+
+const { posts, authors } = Astro.props;
+
+const recommendedPosts = posts.filter((blog) => blog.data.tag === "featured");
+---
+
+<div class="py-16 bg-seashell text-midnight-blue">
+  <div class="mx-auto w-full max-w-screen-xl p-4">
+    <h2 class="text-3xl font-bold">Recommended Posts</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+      {
+        recommendedPosts.map((post) => {
+          return <PostCard post={post} authors={authors} />;
+        })
+      }
+    </div>
+  </div>
+</div>

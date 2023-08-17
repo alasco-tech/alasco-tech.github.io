@@ -1,0 +1,94 @@
+---
+import { CollectionEntry, getEntries } from "astro:content";
+import { Icon } from "astro-icon";
+import BaseHead from "../components/general/BaseHead.astro";
+import { Image } from "astro:assets";
+import Header from "../components/general/Header.astro";
+import Footer from "../components/general/Footer.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const {
+  authors,
+  date,
+  title,
+  subtitle,
+  description,
+  thumbnail,
+  tag,
+  teaseralt,
+} = Astro.props;
+
+const authorsData = await getEntries(authors);
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <Header />
+    <main class="mx-auto w-full max-w-screen-xl p-4 py-12">
+      <article class="text-midnight-blue">
+        <div>
+          <h1 class="text-4xl font-bold">{title}</h1>
+          <h2 class="text-xl mt-1">{subtitle}</h2>
+          <div class="flex gap-4 mt-2">
+            {
+              authorsData.map((author, i, authorsArr) => {
+                return (
+                  <div class="flex items-center gap-1">
+                    <Image
+                      src={author.data.image}
+                      alt={author.data.name}
+                      class="w-12 h-12 rounded-3xl"
+                      quality="low"
+                    />
+                    <div class="flex flex-col">
+                      <div class="font-bold">{author.data.name}</div>
+                      {author.data.twitter && (
+                        <div class="flex gap-1 items-center">
+                          <Icon name="mdi:twitter" class="w-5 h-5" />
+                          <a
+                            href={`https://www.twitter.com/${author.data.twitter}`}
+                            target="_blank"
+                            class="hover:text-bright-teal"
+                          >
+                            @{author.data.twitter}
+                          </a>{" "}
+                        </div>
+                      )}
+                      {author.data.linkedin && (
+                        <div class="flex gap-1 items-center">
+                          <Icon name="mdi:linkedin" class="w-5 h-5" />
+                          <a
+                            href={`https://www.linkedin.com/in/${author.data.linkedin}/`}
+                            target="_blank"
+                            class="hover:text-bright-teal"
+                          >
+                            {author.data.linkedin}
+                          </a>{" "}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            }
+          </div>
+          <div class="mt-2">
+            {date.toDateString()}
+          </div>
+        </div>
+        {thumbnail && <Image src={thumbnail} alt={title} class="mt-2 w-full" />}
+        <div
+          class="prose text-midnight-blue prose-headings:text-midnight-blue prose-a:text-bright-teal max-w-full prose-img:w-2/3 prose-img:mx-auto mt-4"
+        >
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
