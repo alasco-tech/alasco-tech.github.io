@@ -10,7 +10,7 @@ description: Visual Thinking; B2B product discovery;
 ---
 Traditional ways of working with many reporting layers, written handovers, and linear structures have been erupted by agile, iterative, and lean approaches — which are the only way to approach an increasingly dynamic and fast-paced environment.
 
-<p class="quote">"All these new ways of working have one thing in common; they need a high degree of visual techniques to stimulate collaboration. These techniques improve the speed, creativity and effectiveness of teams as they collaborate in a dynamic environmen"</p>
+<p class="quote">"All these new ways of working have one thing in common; they need a high degree of visual techniques to stimulate collaboration. These techniques improve the speed, creativity and effectiveness of teams as they collaborate in a dynamic environment"</p>
 <p class="quote quote-author"> – Willemian Brand, 2022</p>
 
 Luckily, visualization has already found its way into our daily work through methods like design thinking, Kanban boards, user story maps or prototypes. However, there is way more value to be leveraged as soon as all product people start to learn, practice, and apply not only visualizations but visual thinking in their daily work.
