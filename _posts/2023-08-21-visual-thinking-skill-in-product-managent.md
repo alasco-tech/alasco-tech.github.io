@@ -105,7 +105,7 @@ Therefore, the product team should not only share information to feature launche
 
 When you start with visual thinking, I would always recommend to start with pen & paper. You get reminded of childhood days when you where not afraid of drawing and you can just start exactly at this moment, without any setup and distraction.
 
-As soon as you feel comfortable with pen & paper you can start using digital tools like Miro , Excalidraw, or apps like Concepts (this is the one I use) or Procreate on a tablet. It took me some practice to feel comfortable with a digital drawing tool, but as soon as you have some routine, it is just amazing :)
+As soon as you feel comfortable with pen & paper you can start using digital tools like Miro, Excalidraw, or apps like Concepts (this is the one I use) or Procreate on a tablet. It took me some practice to feel comfortable with a digital drawing tool, but as soon as you have some routine, it is just amazing :)
 
 Furthermore, I can recommend to practice drawing by setting up an icon library or a visual alphabet. This helps to practice thinking in simplified pictures - for instance: an idea is a light bulb, a goal is a dart board or a start up is a rocket.
 
