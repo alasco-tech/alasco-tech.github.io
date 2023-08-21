@@ -84,7 +84,7 @@ And yes, visualization is the best way to do this and to find those patterns! Th
 There is no right or wrong! It is just about getting started and doing it. I iterate continuously on my drawings and if I get stuck, I try to change the perspective on how I look at the collected information.
 
 
-I always recommend product managers not to do all the research and then start synthesizing. There is no clear point at which to stop and synthesize - it is about ? “_synthesizing as you go_”.
+I always recommend product managers not to do all the research and then start synthesizing. There is no clear point at which to stop and synthesize - it is about “_synthesizing as you go_”.
 
 This is how I do “_synthesizing as you go_”:
 
