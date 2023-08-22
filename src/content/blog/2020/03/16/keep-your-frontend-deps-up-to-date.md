@@ -5,7 +5,6 @@ date: 2020-03-16
 title: Keep your frontend dependencies up-to-date
 subtitle: How we tackle the problem to update our frontend deps on a regular basis
 thumbnail: ./images/frontenddeps_1.jpg
-tag: featured
 teaseralt: Code on a computer screen
 description: How we tackle the problem to update our frontend deps on a regular basis at Alasco, using npm-check-updates.
 ---
