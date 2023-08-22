@@ -10,7 +10,7 @@ description: Visual Thinking; B2B product discovery;
 ---
 Traditional ways of working with many reporting layers, written handovers, and linear structures have been erupted by agile, iterative, and lean approaches — which are the only way to approach an increasingly dynamic and fast-paced environment.
 
-<p class="quote">"All these new ways of working have one thing in common; they need a high degree of visual techniques to stimulate collaboration. These techniques improve the speed, creativity and effectiveness of teams as they collaborate in a dynamic environmen"</p>
+<p class="quote">"All these new ways of working have one thing in common; they need a high degree of visual techniques to stimulate collaboration. These techniques improve the speed, creativity and effectiveness of teams as they collaborate in a dynamic environment"</p>
 <p class="quote quote-author"> – Willemian Brand, 2022</p>
 
 Luckily, visualization has already found its way into our daily work through methods like design thinking, Kanban boards, user story maps or prototypes. However, there is way more value to be leveraged as soon as all product people start to learn, practice, and apply not only visualizations but visual thinking in their daily work.
@@ -82,7 +82,7 @@ And yes, visualization is the best way to do this and to find those patterns! Th
 There is no right or wrong! It is just about getting started and doing it. I iterate continuously on my drawings and if I get stuck, I try to change the perspective on how I look at the collected information.
 
 
-I always recommend product managers not to do all the research and then start synthesizing. There is no clear point at which to stop and synthesize - it is about ? “_synthesizing as you go_”.
+I always recommend product managers not to do all the research and then start synthesizing. There is no clear point at which to stop and synthesize - it is about “_synthesizing as you go_”.
 
 This is how I do “_synthesizing as you go_”:
 
@@ -103,7 +103,7 @@ Therefore, the product team should not only share information to feature launche
 
 When you start with visual thinking, I would always recommend to start with pen & paper. You get reminded of childhood days when you where not afraid of drawing and you can just start exactly at this moment, without any setup and distraction.
 
-As soon as you feel comfortable with pen & paper you can start using digital tools like Miro , Excalidraw, or apps like Concepts (this is the one I use) or Procreate on a tablet. It took me some practice to feel comfortable with a digital drawing tool, but as soon as you have some routine, it is just amazing :)
+As soon as you feel comfortable with pen & paper you can start using digital tools like Miro, Excalidraw, or apps like Concepts (this is the one I use) or Procreate on a tablet. It took me some practice to feel comfortable with a digital drawing tool, but as soon as you have some routine, it is just amazing :)
 
 Furthermore, I can recommend to practice drawing by setting up an icon library or a visual alphabet. This helps to practice thinking in simplified pictures - for instance: an idea is a light bulb, a goal is a dart board or a start up is a rocket.
 
