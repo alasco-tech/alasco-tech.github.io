@@ -4,7 +4,7 @@ date: 2023-08-21
 layout: post
 title: Visual Thinking — an essential skill in Product Management
 tag: featured
-thumb: visual-thinking-banner.jpg
+thumb: visual-thinking-1.jpg
 teaseralt: The value of visual thinking in product managment is underestimated.
 description: Visual Thinking; B2B product discovery;
 ---
@@ -20,8 +20,6 @@ Therefore, I believe that visual thinking is a central skill all product manager
 ## What is visual thinking?
 
 Visual thinking is a process of <b>learning new information and organizing thoughts by visually processing them</b>. It can be used to make complex information which we see, hear, or read accessible — not only for ourselves but also for others.
-
-![The process of visual thinking (Julia Bastian)]({{ site.url }}/assets/images/visual-thinking-1.jpg "The process of visual thinking (Julia Bastian)")
 
 Visual thinking helps me process information by connecting them with mental models and images in my brain. Mental models are simplified representations that reflect processes and structures in the world which have developed from our past experiences, memories, perceptions, and knowledge. They are an essential part of our daily lives because they influence our thinking, our behavior, and our approach of solving problems.
 
