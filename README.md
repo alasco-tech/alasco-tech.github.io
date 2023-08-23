@@ -54,5 +54,5 @@ markdown or mdx. Just make sure to name your file accordingly (`.md` or `.mdx`).
 
 ```bash
 npm install
-npm dev run
+npm run dev
 ```
