@@ -8,6 +8,11 @@ interface Props {
 }
 
 const { post, authors } = Astro.props;
+
+const firstAuthor = post.data.authors[0];
+const firstAuthorData = authors.find(
+  (author) => author.id === firstAuthor.id,
+).data;
 ---
 
 <div class="rounded overflow-hidden shadow-lg bg-white group">
@@ -37,34 +42,16 @@ const { post, authors } = Astro.props;
       }
 
       <div class="flex items-center">
-        {
-          post.data.authors.map((author) => {
-            const authorData = authors.find((a) => a.id === author.id).data;
+        <Image
+          src={firstAuthorData.image}
+          alt={firstAuthorData.name}
+          class="w-8 h-8 rounded-3xl"
+          quality="low"
+        />
 
-            return (
-              <Image
-                src={authorData.image}
-                alt={authorData.name}
-                class="w-8 h-8 rounded-3xl"
-                quality="low"
-              />
-            );
-          })
-        }
-
-        <div class="fliex flex-col ml-3">
+        <div class="flex flex-col ml-3">
           <div class="font-bold">
-            {
-              post.data.authors.map((author, i, authorsArr) => {
-                const authorData = authors.find((a) => a.id === author.id).data;
-
-                if (i > 0) {
-                  return ` & ${authorData.name}`;
-                }
-
-                return authorData.name;
-              })
-            }
+            {firstAuthorData.name}
           </div>
           <div>{post.data.date.toDateString()}</div>
         </div>
