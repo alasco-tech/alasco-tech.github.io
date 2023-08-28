@@ -10,3 +10,23 @@ h5,
 h6 {
   font-family: "Space Grotesk", sans-serif;
 }
+.author-social,
+.top-nav-tech-blog-text {
+  padding-left: 15px;
+  border-left: 1px solid #cfdee6;
+}
+
+.article-link-block {
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.article-link-block:hover {
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+}
+.article-link-block img {
+  min-height: 60%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

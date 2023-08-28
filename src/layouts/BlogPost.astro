@@ -26,11 +26,11 @@ const authorsData = await getEntries(authors);
       <div>
         <h1 class="text-4xl font-bold">{title}</h1>
         <h2 class="text-xl mt-1">{subtitle}</h2>
-        <div class="flex gap-4 mt-2">
+        <div class="flex gap-4 mt-4">
           {
             authorsData.map((author, i, authorsArr) => {
               return (
-                <div class="flex items-center gap-1">
+                <div class="flex items-center gap-4">
                   <Image
                     src={author.data.image}
                     alt={author.data.name}
@@ -38,7 +38,14 @@ const authorsData = await getEntries(authors);
                     quality="low"
                   />
                   <div class="flex flex-col">
-                    <div class="font-bold">{author.data.name}</div>
+                    <div class="flex gap-1 items-center font-bold">
+                      {author.data.name}
+                    </div>
+                    <div class="flex gap-1 items-center article-date">
+                      {date.toDateString()}
+                    </div>
+                  </div>
+                  <div class="flex flex-col author-social">
                     {author.data.twitter && (
                       <div class="flex gap-1 items-center">
                         <Icon name="mdi:twitter" class="w-5 h-5" />
@@ -68,9 +75,6 @@ const authorsData = await getEntries(authors);
               );
             })
           }
-        </div>
-        <div class="mt-2">
-          {date.toDateString()}
         </div>
       </div>
       {thumbnail && <Image src={thumbnail} alt={title} class="mt-2 w-full" />}

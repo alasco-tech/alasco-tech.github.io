@@ -11,7 +11,10 @@ const { post, authors } = Astro.props;
 ---
 
 <div class="rounded overflow-hidden shadow-lg bg-white group">
-  <a href={`/${post.slug}/`} class="mb-8 h-full flex flex-col">
+  <a
+    href={`/${post.slug}/`}
+    class="mb-8 h-full flex flex-col article-link-block"
+  >
     <Image
       src={post.data.thumbnail}
       alt={post.data.title}
