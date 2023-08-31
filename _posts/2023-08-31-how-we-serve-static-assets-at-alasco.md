@@ -11,7 +11,7 @@ At Alasco, we are constantly striving to improve our front-end architecure. As o
 
 ## A bit of background
 
-Alasco started as a fully server-side rendered Django application. As time passed, we needed to build increasingly complex UI interactions. That's when we realized that we needed something more powerful that would allow us to write code in a maintainable and scalable way. We settled on React because it was easy to integrate and had an easy learning curve compared to other frameworks.
+Alasco started as a fully server-side rendered Django application. As time passed, we needed to build increasingly complex UI interactions. That's when we realized that we needed something more powerful that would allow us to write code in a maintainable and scalable way. We ended up settling on React.
 
 Today, the application's frontend is a hybrid of a single-page app and a server-side rendered app. The majority of each page is rendered by the backend, but there are special mount points for mounting React-based features. These features are loaded dynamically when the page is first rendered, and they can make requests to APIs or render whatever content is needed.
 
