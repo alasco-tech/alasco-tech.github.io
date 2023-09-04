@@ -137,7 +137,7 @@ expect(within(screen.getByRole("button", {
 ).toHaveClass("tw-rotate-45");
 ```
 
-> 💡 It’s easier to define a very long selectors **once**, give them a **proper name** and **reuse** them in all tests than defining it every time.
+> 💡 It’s easier to define very long selectors **once**, give them a **proper name** and **reuse** them in all tests than defining it every time.
 
 ### Extract helper methods
 
