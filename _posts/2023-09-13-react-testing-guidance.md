@@ -253,7 +253,7 @@ or
 
 ### Mocks assertions: please be as specific as possible 
 
-If you use some mocks and write assertions for them, please don’t forget to check :
+If you use some mocks and write assertions for them, please don’t forget to check:
 
 - ✅ how many **times** a mocked function has been called (very important for all BE mocks) → use `toHaveBeenCalledTimes(...)`
 - ✅ check the **args** → use `toHaveBeenCalledWith(…)`
