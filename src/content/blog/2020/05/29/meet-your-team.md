@@ -24,9 +24,9 @@ These values are not only mere words for us, they are a guiding star for our pro
 
 Besides our culture, teamwork is a very important topic for us.
 
-<blockquote class="twitter-tweet blockquote text-right" data-lang="en"><p lang="en" dir="ltr" class="mb-0">Individual commitment to a group effort – that is what makes a team work, a company work, a society work, a civilization work.</p>
-    <footer class="blockquote-footer">Vince Lombardi</footer>
-</blockquote>
+> Individual commitment to a group effort – that is what makes a team work, a company work, a society work, a civilization work.
+
+-- Vince Lombardi
 
 In a fast growing team such as ours it can be challenging to keep our values in sync, to constantly support the growth of the team and to make it easy for new members to really feel like a part of the team.
 

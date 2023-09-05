@@ -103,6 +103,6 @@ This has already been a positive improvement to our workflow. Creating realistic
 
 As we scale to more teams and people using the design system over the next year, we are starting to feel the need to invest in the third aspect of the design system: **documentation.** Documenting interaction patterns, do's and don'ts, and component best practices so all teams can be empowered to easily build consistent experiences.
 
-For us this means: starting small and iteratively. Our first iteration of documentation lives in **[Notion](https://www.notion.so/)**, where we already collaborate on our internal documentation**.** As we learn about the documentation needs and how to write great documentation, we will move this to a fully custom page, that unifies anything related to building user experiences in one place and brings documentation & implementation closer together.
+For us this means: starting small and iteratively. Our first iteration of documentation lives in **[Notion](https://www.notion.so/)**, where we already collaborate on our internal documentation. As we learn about the documentation needs and how to write great documentation, we will move this to a fully custom page, that unifies anything related to building user experiences in one place and brings documentation & implementation closer together.
 
 And from thereon, iterate to continuously elevate the experiences we build for our users, while at the same time making it easier, faster, and more enjoyable to do so.

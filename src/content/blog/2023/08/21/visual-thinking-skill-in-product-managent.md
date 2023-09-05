@@ -68,10 +68,12 @@ In order to get this alignment in the beginning, I am a huge fan of Teresa Torre
 
 The steps Teresa Torres describes are the following:
 
-1. <b>Set the scope</b> of the experience map: this defines how broad or narrow the topic will be
+1. <b>Set the scope</b> of the experience map: this defines how broad or narrow the
+   topic will be
 2. <b>Work individually</b> — to avoid group thinking in the beginning
 3. Experience maps are <b>visual not verbal</b>
-4. <b>Explore the diverse perspectives</b> of you team: share your drawing, clarify your thinking and answer questions
+4. <b>Explore the diverse perspectives</b> of you team: share your drawing, clarify
+   your thinking and answer questions
 5. <b>Co-create</b> a shared experience map in the team
 
 Eventually, an experience map is just a visualization of what you know — it can be a process, a concept map, a story line, a graph or what ever helps to get a common understanding of the topic.

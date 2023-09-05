@@ -50,7 +50,7 @@ HAS_NEW_DEPS="(cmp --silent old_package.json package.json; echo $?)"
 
 We want to promote transparency within the frontend team about dependency updates, so we’re saving the output of `ncu` in a variable in order to use it later for the description of the PR:
 
-```
+```bash
 DEPENDENCY_CHECK_RESULT="$(npm run check-for-updates)"
 ```
 

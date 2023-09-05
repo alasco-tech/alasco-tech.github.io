@@ -2,7 +2,20 @@
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "midnight-blue",
+            "--tw-prose-bold": "midnight-blue",
+            "--tw-prose-bullets": "midnight-blue",
+            "--tw-prose-counters": "midnight-blue",
+            "--tw-prose-headings": "midnight-blue",
+            "--tw-prose-quotes": "midnight-blue",
+          },
+        },
+      }),
+    },
     colors: {
       "midnight-blue": "#004466",
       "bright-teal": "#11CDD4",
@@ -18,6 +31,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
+      headers: ["Space Grotesk", "sans-serif"],
     },
   },
   plugins: [require("@tailwindcss/typography")],

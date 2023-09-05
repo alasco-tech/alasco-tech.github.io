@@ -49,11 +49,11 @@ const firstAuthorData = authors.find(
           quality="low"
         />
 
-        <div class="flex flex-col ml-3">
+        <div class="flex flex-col ml-3 font-headers">
           <div class="font-bold">
             {firstAuthorData.name}
           </div>
-          <div>{post.data.date.toDateString()}</div>
+          <div class="text-sm">{post.data.date.toDateString()}</div>
         </div>
       </div>
     </div>
