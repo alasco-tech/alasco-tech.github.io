@@ -1,6 +1,7 @@
 ---
 import "@fontsource/inter";
 import "@fontsource/space-grotesk";
+import { ViewTransitions } from "astro:transitions";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts.ts";
 import BaseHead from "../components/general/BaseHead.astro";
@@ -11,10 +12,11 @@ import Header from "../components/general/Header.astro";
 const isDev = import.meta.env.DEV;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <ViewTransitions />
   </head>
   <body>
     {!isDev && <GoogleTagManager />}
