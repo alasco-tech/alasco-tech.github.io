@@ -61,7 +61,9 @@ First of all, frontend tests are totally different from backend tests. Why is th
 
 Knowing all that, you have to ask yourself a question: what exactly do you want to test and how.
 
-TBD.
+I will try to explain how do I think about writing tests and what I would test and where. 
+
+✨ Let's take a look at the first example! ✨
 
 **Utils**
 
