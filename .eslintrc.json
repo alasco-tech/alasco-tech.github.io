@@ -1,0 +1,16 @@
+{
+  "extends": ["plugin:astro/jsx-a11y-recommended", "plugin:mdx/recommended"],
+  "settings": {
+    "mdx/code-blocks": true
+  },
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      }
+    }
+  ]
+}
