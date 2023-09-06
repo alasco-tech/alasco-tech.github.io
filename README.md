@@ -1,69 +1,58 @@
 # Readme
 
-This is the tech blog of the Alasco engineering squad, we write about everything we find interesting in our daily work --> www.alasco.tech
+This is the tech blog of the Alasco engineering squad, we write about everything
+we find interesting in our daily work --> <www.alasco.tech>
 
+We use [Astro framework](https://astro.build/).
 
 ## Adding posts
-It's as simple as adding a markdown (or html) file to the [_posts](./_posts) folder! Just make sure to follow the naming schema of `YYYY-MM-DD-title-of-post.[md/html]` - if you use different naming jekyll won't find your posts!
+
+It's as simple as adding a markdown (or mdx) file to the
+[/src/content/blog/](/src/content/blog/) folder! Just make sure to follow the
+naming schema of `/YYYY/MM/DD/title-of-post.[md/mdx]`! Check
+[/src/content/config.ts](/src/content/config.ts) for collection schemas.
 
 ### Add yourself as an author
-In the [_data](./_data) folder is a the [authors.yml](./_data/authors.yml) file, please add yourself to that list. The format is currently the following:
+
+Please add yourself to the [/src/content/autor/](/src/content/author/) file.
+The format is currently the following:
 
 ```yaml
-$nickname:
-  name: $fullname
-  twitter: $twitterhandle  # optional
-  linkedin: $linkedin-handle  # optional
-  image: $avatar.[png,jpg]  # image needs to be in ./assets/images/
+name: $fullname
+title: $title # optional
+image: $avatar # image needs to be in ./avatars/
+twitter: $twitterhandle # optional
+linkedin: $linkedin-handle # optional
 ```
 
 ### Create your first post
-Just put a file in the mentioned format (`YYYY-MM-DD-title-of-post.[md/html]`) in the [_posts](./_posts) folder, the important thing to remember is to create the correct [front matter](https://jekyllrb.com/docs/front-matter/). The front matter basically represents post meta-data and we use and support the following flags:
+
+Just put a file in the mentioned format (`/YYYY/MM/DD/title-of-post.[md/mdx]`)
+in the [/src/content/blog/](/src/content/blog/) folder, the important thing to
+remember is to create the meta-data and we use and support the following flags:
 
 ```yaml
 ---
-author: $nickname   # required, has to be in the authors file!
-date: 2019-02-14  # date of the post, in format `YYYY-MM-DD` 
-layout: post  # fixed string, tells jekyll what template (layout) to use
-title: $title  #required, shows up as page-title, headline, ...
-subtitle: $subtitle  # optional, displayed under the title
-description: $longer_description  # optional, will be used by jekyll-seo-tag for seo meta links
+authors:
+  - $nickname # required, has to be in the author folder (can be multiple)
+date: 2019-02-14 # date of the post, in format `YYYY-MM-DD`
+title: $title #required, shows up as page-title, headline, ...
+subtitle: $subtitle # optional, displayed under the title
+description: $longer_description # will be used for seo meta links
+thumbnail: $thumbnail # image, needs to be in ./images/
+tag: $tag # optional, "featured" tag is used (to display in "Recommended posts")
+teaseralt: $tag # optional, used for short description on the card
 ---
 ```
 
-Make sure to have the three `-` as start and end signal for the front matter or jekyll won't work with these files!
+Make sure to have the three `-` as start and end signal for the front matter!
 
-After the closing `---` your actual post starts, feel free to write in simple markdown or html. Just make sure to name your file accordingly (`.md` or `.html`).
+After the closing `---` your actual post starts, feel free to write in simple
+markdown or mdx. Just make sure to name your file accordingly (`.md` or `.mdx`).
 
-### Multiple Authors
-If your article is a joint effort of multiple persons, feel free to use yaml list style for the author information in the frontmatter. The rest should work automatically!
-
-```yaml
-author:
-  - $nickname1
-  - $nickname2
-```
-
-## Run jekyll pages on local machine
-Some simple steps to get you going, tested with Mac OS, should work fine on
-other \*nix systems too! [Readme from github](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
-
-### Install bundler & jekyll
+## Run blog on a local machine
 
 ```bash
-sudo gem install bundler
-bundle install --path vendor/bundle
-```
-
-
-After this you're actually up and running!
-### Run jekyll
-```bash
-bundle exec jekyll serve
-```
-
-After some time having the repo on your local machine you might want to update
-your dependencies:
-```bash
-bundle update
+npm install
+npm run dev
 ```
