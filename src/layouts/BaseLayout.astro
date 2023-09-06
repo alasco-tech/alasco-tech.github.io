@@ -1,0 +1,31 @@
+---
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/space-grotesk/400.css";
+import "@fontsource/space-grotesk/700.css";
+import { ViewTransitions } from "astro:transitions";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts.ts";
+import BaseHead from "../components/general/BaseHead.astro";
+import Footer from "../components/general/Footer.astro";
+import GoogleTagManager from "../components/general/GoogleTagManager.astro";
+import Header from "../components/general/Header.astro";
+
+const isDev = import.meta.env.DEV;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <ViewTransitions />
+  </head>
+  <body>
+    {!isDev && <GoogleTagManager />}
+    <Header title={SITE_TITLE} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

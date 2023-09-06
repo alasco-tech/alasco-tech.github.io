@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon";
+import { Image } from "astro:assets";
+
+const { authorsData, date } = Astro.props;
+---
+
+<div class="flex gap-4 mt-4">
+  {
+    authorsData.map((author) => {
+      return (
+        <div class="flex items-center gap-4">
+          <Image
+            src={author.data.image}
+            alt={author.data.name}
+            class="w-12 h-12 rounded-3xl"
+            quality="low"
+          />
+          <div class="flex flex-col">
+            <div class="flex gap-1 items-center font-bold">
+              {author.data.name}
+            </div>
+            <div class="flex gap-1 items-center article-date">
+              {date.toDateString()}
+            </div>
+          </div>
+          <div class="flex flex-col author-social">
+            {author.data.twitter && (
+              <div class="flex gap-1 items-center">
+                <Icon name="mdi:twitter" class="w-5 h-5" />
+                <a
+                  href={`https://www.twitter.com/${author.data.twitter}`}
+                  target="_blank"
+                  class="hover:text-bright-teal"
+                >
+                  @{author.data.twitter}
+                </a>{" "}
+              </div>
+            )}
+            {author.data.linkedin && (
+              <div class="flex gap-1 items-center">
+                <Icon name="mdi:linkedin" class="w-5 h-5" />
+                <a
+                  href={`https://www.linkedin.com/in/${author.data.linkedin}/`}
+                  target="_blank"
+                  class="hover:text-bright-teal"
+                >
+                  {author.data.name}
+                </a>{" "}
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    })
+  }
+</div>
