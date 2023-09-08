@@ -1,12 +1,11 @@
 ---
 authors:
   - ewanestorowicz
-date: 2023-08-13
+date: 2023-09-13
 title: React Testing Guidance
-subtitle: tbd.
+subtitle: Our frontend testing journey at Alasco
 tag: featured
 thumbnail: ./images/react-tests.jpg
-teaseralt: tbd.
 
 description: React; Frontend; Testing;
 ---
@@ -89,12 +88,12 @@ Here we see a large page container `AssetOverview` containing `GeneralInformatio
 For this type of test (testing a lot of components working together) I would write some longer tests, without testing any validation.
 
 So what would I be testing here? Here some examples:
-1. *User navigates to the page and sees initially a loading spinner and later one both sections being rendered*
-2. *User can edit the first section, saves the changes and can see a green toast message*
-3. *User can edit the second sections, saves the changes and can see a green toast message*
-4. *Error handling:*
-   1. *User navigated to the page and BE returns a 400 or 500 -> let's assert that the error handling works properly*
-   2. *Saving changes (section 1 and section 2) and BE returns a 400 or 500 -> let's assert that the error handling works properly*
+1. *User navigates to the page and sees first a loading spinner and later both sections being rendered.*
+2. *The user can edit the first section, save the changes and see a green toast message.*
+3. *User can edit the second section, save the changes and see a green toast message.*
+4. *Error handling:* 
+    1. *User navigates to the page and BE returns a 400 or 500 -> let's assume that the error handling is working properly.*
+    2. *Saving changes (section 1 and section 2) and BE returns a 400 or 500 -> let's assume that the error handling works properly.*
 
 **Zoom in: Smaller integration tests 🔍**
 
