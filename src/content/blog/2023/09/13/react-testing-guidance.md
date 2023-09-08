@@ -1,7 +1,7 @@
 ---
 authors:
   - ewanestorowicz
-date: 2023-09-13
+date: 2023-08-13
 title: React Testing Guidance
 subtitle: tbd.
 tag: featured
@@ -61,9 +61,64 @@ First of all, frontend tests are totally different from backend tests. Why is th
 
 Knowing all that, you have to ask yourself a question: what exactly do you want to test and how.
 
-I will try to explain how do I think about writing tests and what I would test and where. 
+I will explain how do I think about writing tests and what I would test and where. 
+
+
+
+**TLDR;**
+
+- 👤 Try to write your tests the way the users would interact with the **components** (UI elements).
+- 💸 Think about the **cost** of writing a test, and think about **where** to test what.
+- 👀 To test **common user journeys**, it's better to **zoom out** and write **larger integration tests** that test not only **success scenarios** but also **error handling**.
+- 🔍 To test many **edge cases**, it's better to **zoom in** and write **many smaller tests** (e.g. checking the interaction between two components or form validation).
+
+---
 
 ✨ Let's take a look at the first example! ✨
+
+**Zoom out: integration tests 👀**
+
+First, we will analyse what we can see in the screenshots below and try to think of test cases.
+
+![Integration tests](./images/integration-test-1.png "Integration tests")
+
+![Integration tests](./images/integration-test-2.png "Integration tests")
+
+Here we see a large page container `AssetOverview` containing `GeneralInformation` and `AdditionalData` (both with read and edit mode).
+
+For this type of test (testing a lot of components working together) I would write some longer tests, without testing any validation.
+
+So what would I be testing here? Here some examples:
+1. *User navigates to the page and sees initially a loading spinner and later one both sections being rendered*
+2. *User can edit the first section, saves the changes and can see a green toast message*
+3. *User can edit the second sections, saves the changes and can see a green toast message*
+4. *Error handling:*
+   1. *User navigated to the page and BE returns a 400 or 500 -> let's assert that the error handling works properly*
+   2. *Saving changes (section 1 and section 2) and BE returns a 400 or 500 -> let's assert that the error handling works properly*
+
+**Zoom in: Smaller integration tests 🔍**
+
+Let's quickly summarise what we can see here. We have a component called _CityFilter.tsx_, which is a container for both _FilterChip_ and _MultiselectFilter_.
+Looking at the two screenshots, what test cases might we need here?
+
+![Small integration tests](./images/small-integration-test-1.png "Small integration tests")
+
+![Small integration tests](./images/small-integration-test-2.png "Small integration tests")
+
+Here I'm testing the integration, but not with as many different components as in the previous example. This helps me to still have **good integration tests** and also to test **many different use cases**.
+So what would I be testing here? Here some examples:
+
+1. *User selects only one filter and apply (chip button will behave differently -> showing a text)*
+2. *User selects more than one filter and apply (chip button will behave differently -> showing a number)*
+3. *User selects a filter, does not apply it and clicks outside to close the list and opens a list again afterwards (no filters should be applied or persisted)*
+4. *Testing search:*
+  1. *User types text in the search field (we want to find some results), selects a first result from top & applies it, opens a list again (to make sure that the selected filter is selected and the search field remains empty and does not contain the old value)*
+  2. *User types text and there are no results for a given query*
+
+This filter could, of course, be used at the top of a page and show some search results below. Major integration tests (including testing the whole page) would be something like:
+1. *User selects a filter and there should be some search results* -> let's assert what will be rendered as a search result below
+2. *User selects a filter, but there are no search results
+3. *User selects a filter, but the backend returns a 400 or 500 -> let's assert that the error handling works properly
 
 **Utils**
 
@@ -265,7 +320,7 @@ expect(await getDormer().disabled()).toBe(true);
 
 If you use some mocks and write assertions for them, please don’t forget to check:
 
-- ✅ how many **times** a mocked function has been called (very important for all BE mocks) → use `toHaveBeenCalledTimes(...)`
+- ✅ how many **times** a mocked function has been called (very important for all service mocks) → use `toHaveBeenCalledTimes(...)`
 - ✅ check the **args** → use `toHaveBeenCalledWith(…)`
 - ✨Use `expect.objectContaining` with **caution**:
   - Use it if you only want to check a **subset** of the argument that is relevant to the case being tested (this can help improve the test durability, for instance).
@@ -290,4 +345,6 @@ expect(description).toHaveTextContent(
 👉 Test should help us to **catch** bugs and doing copy-paste like this we won't be aware of any bugs or problems…
 
 👉 Writing **good tests** is sometimes **different** from writing good **production code**. For example, having hard-coded strings is often a **good** thing (as it makes it **easier** to see what's **expected**):
-`expect(emissionFactorInput.value).toEqual("0.4321");`
+```ts 
+expect(emissionFactorInput.value).toEqual("0.4321");
+```
