@@ -6,7 +6,7 @@ title: React Testing Guidance
 subtitle: Our frontend testing journey at Alasco
 tag: featured
 thumbnail: ./images/react-tests.jpg
-
+thumbnailSrc: https://unsplash.com/de/fotos/EWLHA4T-mso
 description: React; Frontend; Testing;
 ---
 
@@ -347,3 +347,9 @@ expect(description).toHaveTextContent(
 ```ts 
 expect(emissionFactorInput.value).toEqual("0.4321");
 ```
+
+## Summary
+As you may have noticed, a good testing strategy is a very **large** and **complex** topic. It also took me a while to see and then implement some of the patterns I have shared with you.
+
+Having such a testing guidance in your project will make **code reviews** much **faster** and **easier** (you can link to a section from the testing guidance you have agreed as a team and request changes 🤓).
+Using some **shared selectors** and **helper methods** will not only make your tests more **readable** and **shorter**, but any refactoring will be much faster and less painful, because you would only have to change the selector method once.
