@@ -29,11 +29,11 @@ I am pretty sure you have already heard about the test pyramid many times before
 <a class="image-source-link text-xs mb-8" target="_blank" href="https://www.innoq.com/en/blog/tests-granularity/">Image source</a>
 
 
-🏎️ The basic idea is that most of the tests in the application should be isolated **unit tests**. These tests are not difficult to write or maintain.
+🏎️ The basic idea is that most of the tests in the application should be isolated **unit tests**. These tests are typically less complex and focus on testing small, specific parts of the software
 
 🚀 The next level in the pyramid are **integration** tests. You need them to test the integration between different modules and components to make sure that they are working together as you expect them to.
 
-🐢💸 The last part are **E2E** tests which are very expensive, because they treat the system as the whole and interact with it as the actual users. It’s not only time consuming to write them but also to **maintain**.
+🐢💸 The last part are **end-to-end (E2E)** tests which are very expensive, because they treat the system as the whole and interact with it as the actual users. It’s not only time consuming to write them but also to **maintain**.
 
 ---
 
@@ -51,11 +51,9 @@ First of all, frontend tests are totally different from backend tests. Why is th
 
 > The more your tests resemble the way your software is used, the more confidence they can give you.
 
--- Guiding principles from React Testing Library
+-- [Guiding principles from React Testing Library](https://testing-library.com/docs/guiding-principles)
 
-[Quotation source](https://testing-library.com/docs/guiding-principles)
-
-[React Testing Library](https://testing-library.com/docs/) (which we use) encourages us to write all the tests from the user's perspective (to act as a user). So basically we try to test what the user sees and how they interact with our system. It means that the test pyramid **does not apply** to our concept as much. If we should write tests from the user perspective, it means that we should have **mostly integration** and **e2e** tests and very **few unit** tests 🧐. Integration tests are covered using _React Testing Library_.
+[React Testing Library](https://testing-library.com/docs/) (which we use) encourages us to write all the tests from the user's perspective. In other words, we try to test what the user sees and how they interact with our system. It means that the test pyramid **does not apply** to our concept as much. If we should write tests from the user perspective, it means that we should have **mostly integration** and **e2e** tests and very **few unit** tests 🧐. Integration tests are covered using _React Testing Library_.
 
 ### Concrete example
 
@@ -68,9 +66,9 @@ I will explain how do I think about writing tests and what I would test and wher
 **TLDR;**
 
 - 👤 Try to write your tests the way the users would interact with the **components** (UI elements).
-- 💸 Think about the **cost** of writing a test, and think about **where** to test what.
-- 👀 To test **common user journeys**, it's better to **zoom out** and write **larger integration tests** that test not only **success scenarios** but also **error handling**.
-- 🔍 To test many **edge cases**, it's better to **zoom in** and write **many smaller tests** (e.g. checking the interaction between two components or form validation).
+- 💸 Think about the **cost** of writing a test, and think about where to test what.
+- 👀 To test common user journeys, it's better to **zoom out** and write larger integration tests that test not only success scenarios but also error handling.
+- 🔍 To test many edge cases, it's better to **zoom in** and write many smaller tests (e.g. checking the interaction between two components or form validation).
 
 ---
 
@@ -105,7 +103,7 @@ Looking at the two screenshots, what test cases might we need here?
 
 ![Small integration tests](./images/small-integration-test-2.png "Small integration tests")
 
-Here I'm testing the integration, but not with as many different components as in the previous example. This helps me to still have **good integration tests** and also to test **many different use cases**.
+Here I'm testing the integration, but not with as many different components as in the previous example. This helps me to still have good integration tests and also to test many different use cases.
 So what would I be testing here? Here some examples:
 
 1. *User selects only one filter and apply (chip button will behave differently -> showing a text)*
@@ -117,8 +115,8 @@ So what would I be testing here? Here some examples:
 
 This filter could, of course, be used at the top of a page and show some search results below. Major integration tests (including testing the whole page) would be something like:
 1. *User selects a filter and there should be some search results* -> let's assert what will be rendered as a search result below
-2. *User selects a filter, but there are no search results
-3. *User selects a filter, but the backend returns a 400 or 500 -> let's assert that the error handling works properly
+2. *User selects a filter, but there are no search results*
+3. *User selects a filter, but the backend returns a 400 or 500* -> let's assert that the error handling works properly
 
 **Utils**
 
@@ -162,7 +160,7 @@ const setup = () => {
 };
 ```
 
-✨ **Let's bring it into action!** ✨
+✨ Let's bring it into action! ✨
 
 ```tsx
 it("should close dropdown if user clicks outside and do not apply any filters", async () => {
@@ -200,7 +198,7 @@ expect(
 ).toHaveClass("tw-rotate-45");
 ```
 
-> 💡 It’s easier to define very long selectors **once**, give them a **proper name** and **reuse** them in all tests than defining it every time.
+> 💡 It’s easier to define very long selectors **once**, give them a proper name and reuse them in all tests than defining it every time.
 
 ### Extract helper methods
 
@@ -263,7 +261,7 @@ it("should edit a gas measure and save changes", async () => {
 
 ### Add comments if you think they might be helpful
 
-I’m not a big fan of writing comments (very often commented code changes but the comments not 😅). However, in some long and complex **tests**, comments can be very helpful:
+I’m not a big fan of writing comments (very often commented code changes but the comments not 😅). However, in some long and complex tests, comments can be very helpful:
 
 ```ts
 it("should find some results for the given search query, select the first one and apply", async () => {
@@ -314,7 +312,7 @@ expect(await getAdjacentBuildings().currentValue()).toEqual(
 expect(await getDormer().disabled()).toBe(true);
 ```
 
-> 💡 Use the comments if you think they might be **helpful** and do not get **outdated**.
+> 💡 Use the comments if you think they might be **helpful** and do not get outdated.
 
 ### Mocks assertions: please be as specific as possible
 
@@ -342,15 +340,15 @@ expect(description).toHaveTextContent(
 );
 ```
 
-👉 Test should help us to **catch** bugs and doing copy-paste like this we won't be aware of any bugs or problems…
+👉 Test should help us to **catch** bugs and doing copy-paste like this we won't be aware of any bugs or problems, because we're reusing the logic and not actually testing what it does!
 
-👉 Writing **good tests** is sometimes **different** from writing good **production code**. For example, having hard-coded strings is often a **good** thing (as it makes it **easier** to see what's **expected**):
+👉 Writing good tests is sometimes different from writing good production code. For example, having hard-coded strings is often a good thing (as it makes it easier to see what's expected):
 ```ts 
 expect(emissionFactorInput.value).toEqual("0.4321");
 ```
 
 ## Summary
-As you may have noticed, a good testing strategy is a very **large** and **complex** topic. It also took me a while to see and then implement some of the patterns I have shared with you.
+As you may have noticed, a good testing strategy is a very large and complex topic. It also took me a while to see and then implement some of the patterns I have shared with you.
 
-Having such a testing guidance in your project will make **code reviews** much **faster** and **easier** (you can link to a section from the testing guidance you have agreed as a team and request changes 🤓).
-Using some **shared selectors** and **helper methods** will not only make your tests more **readable** and **shorter**, but any refactoring will be much faster and less painful, because you would only have to change the selector method once.
+Having such a testing guidance in your project will make code reviews much faster and easier (you can link to a section from the testing guidance you have agreed as a team and request changes 🤓).
+Using some shared selectors and helper methods will not only make your tests more readable and shorter, but any refactoring will be much faster and less painful, because you would only have to change the selector method once.
