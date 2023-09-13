@@ -50,9 +50,7 @@ First of all, frontend tests are totally different from backend tests. Why is th
 
 > The more your tests resemble the way your software is used, the more confidence they can give you.
 
--- Guiding principles from React Testing Library
-
-[Quotation source](https://testing-library.com/docs/guiding-principles)
+-- [Guiding principles from React Testing Library](https://testing-library.com/docs/guiding-principles)
 
 [React Testing Library](https://testing-library.com/docs/) (which we use) encourages us to write all the tests from the user's perspective. In other words, we try to test what the user sees and how they interact with our system. It means that the test pyramid **does not apply** to our concept as much. If we should write tests from the user perspective, it means that we should have **mostly integration** and **e2e** tests and very **few unit** tests 🧐. Integration tests are covered using _React Testing Library_.
 
