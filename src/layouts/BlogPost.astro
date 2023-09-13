@@ -31,7 +31,16 @@ const authorsData = await getEntries(authors);
         <BlogPostAuthorsInfo authorsData={authorsData} date={date} />
       </div>
       {thumbnail && <Image src={thumbnail} alt={title} class="mt-2 w-full" />}
-      {thumbnailSrc && <a class="text-xs hover:text-bright-teal italic" href={thumbnailSrc}>Image source</a>}
+      {
+        thumbnailSrc && (
+          <a
+            class="text-xs hover:text-bright-teal image-source-link mt-2 mb-8"
+            href={thumbnailSrc}
+          >
+            Image source
+          </a>
+        )
+      }
       <div
         class="prose prose-a:text-bright-teal max-w-full prose-img:w-2/3 prose-img:mx-auto mt-4"
       >

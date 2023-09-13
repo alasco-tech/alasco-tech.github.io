@@ -26,7 +26,8 @@ We aim to follow best practices and avoid common mistakes when using _React Test
 
 I am pretty sure you have already heard about the test pyramid many times before. It looks like this:
 ![Test pyramid](./images/test-pyramid.png "Test pyramid")
-[Image source](https://www.innoq.com/en/blog/tests-granularity/)
+<a class="image-source-link text-xs mb-8" target="_blank" href="https://www.innoq.com/en/blog/tests-granularity/">Image source</a>
+
 
 🏎️ The basic idea is that most of the tests in the application should be isolated **unit tests**. These tests are not difficult to write or maintain.
 

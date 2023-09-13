@@ -33,3 +33,15 @@ h6 {
   -o-object-fit: cover;
   object-fit: cover;
 }
+
+:root a.image-source-link {
+  color: inherit;
+  font-style: italic;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+a.image-source-link:hover {
+  color: rgb(17 205 212 / var(--tw-text-opacity));
+}
