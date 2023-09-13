@@ -339,7 +339,7 @@ expect(description).toHaveTextContent(
 );
 ```
 
-👉 Test should help us to **catch** bugs and doing copy-paste like this we won't be aware of any bugs or problems…
+👉 Test should help us to **catch** bugs and doing copy-paste like this we won't be aware of any bugs or problems, because we're reusing the logic and not actually testing what it does!
 
 👉 Writing **good tests** is sometimes **different** from writing good **production code**. For example, having hard-coded strings is often a **good** thing (as it makes it **easier** to see what's **expected**):
 ```ts 
