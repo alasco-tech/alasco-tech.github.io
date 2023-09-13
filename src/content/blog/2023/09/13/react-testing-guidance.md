@@ -65,9 +65,9 @@ I will explain how do I think about writing tests and what I would test and wher
 **TLDR;**
 
 - 👤 Try to write your tests the way the users would interact with the **components** (UI elements).
-- 💸 Think about the **cost** of writing a test, and think about **where** to test what.
-- 👀 To test **common user journeys**, it's better to **zoom out** and write **larger integration tests** that test not only **success scenarios** but also **error handling**.
-- 🔍 To test many **edge cases**, it's better to **zoom in** and write **many smaller tests** (e.g. checking the interaction between two components or form validation).
+- 💸 Think about the **cost** of writing a test, and think about where to test what.
+- 👀 To test common user journeys, it's better to **zoom out** and write larger integration tests that test not only success scenarios but also error handling.
+- 🔍 To test many edge cases, it's better to **zoom in** and write many smaller tests (e.g. checking the interaction between two components or form validation).
 
 ---
 
@@ -102,7 +102,7 @@ Looking at the two screenshots, what test cases might we need here?
 
 ![Small integration tests](./images/small-integration-test-2.png "Small integration tests")
 
-Here I'm testing the integration, but not with as many different components as in the previous example. This helps me to still have **good integration tests** and also to test **many different use cases**.
+Here I'm testing the integration, but not with as many different components as in the previous example. This helps me to still have good integration tests and also to test many different use cases.
 So what would I be testing here? Here some examples:
 
 1. *User selects only one filter and apply (chip button will behave differently -> showing a text)*
@@ -159,7 +159,7 @@ const setup = () => {
 };
 ```
 
-✨ **Let's bring it into action!** ✨
+✨ Let's bring it into action! ✨
 
 ```tsx
 it("should close dropdown if user clicks outside and do not apply any filters", async () => {
@@ -197,7 +197,7 @@ expect(
 ).toHaveClass("tw-rotate-45");
 ```
 
-> 💡 It’s easier to define very long selectors **once**, give them a **proper name** and **reuse** them in all tests than defining it every time.
+> 💡 It’s easier to define very long selectors **once**, give them a proper name and reuse them in all tests than defining it every time.
 
 ### Extract helper methods
 
@@ -260,7 +260,7 @@ it("should edit a gas measure and save changes", async () => {
 
 ### Add comments if you think they might be helpful
 
-I’m not a big fan of writing comments (very often commented code changes but the comments not 😅). However, in some long and complex **tests**, comments can be very helpful:
+I’m not a big fan of writing comments (very often commented code changes but the comments not 😅). However, in some long and complex tests, comments can be very helpful:
 
 ```ts
 it("should find some results for the given search query, select the first one and apply", async () => {
@@ -311,7 +311,7 @@ expect(await getAdjacentBuildings().currentValue()).toEqual(
 expect(await getDormer().disabled()).toBe(true);
 ```
 
-> 💡 Use the comments if you think they might be **helpful** and do not get **outdated**.
+> 💡 Use the comments if you think they might be **helpful** and do not get outdated.
 
 ### Mocks assertions: please be as specific as possible
 
@@ -341,13 +341,13 @@ expect(description).toHaveTextContent(
 
 👉 Test should help us to **catch** bugs and doing copy-paste like this we won't be aware of any bugs or problems, because we're reusing the logic and not actually testing what it does!
 
-👉 Writing **good tests** is sometimes **different** from writing good **production code**. For example, having hard-coded strings is often a **good** thing (as it makes it **easier** to see what's **expected**):
+👉 Writing good tests is sometimes different from writing good production code. For example, having hard-coded strings is often a good thing (as it makes it easier to see what's expected):
 ```ts 
 expect(emissionFactorInput.value).toEqual("0.4321");
 ```
 
 ## Summary
-As you may have noticed, a good testing strategy is a very **large** and **complex** topic. It also took me a while to see and then implement some of the patterns I have shared with you.
+As you may have noticed, a good testing strategy is a very large and complex topic. It also took me a while to see and then implement some of the patterns I have shared with you.
 
-Having such a testing guidance in your project will make **code reviews** much **faster** and **easier** (you can link to a section from the testing guidance you have agreed as a team and request changes 🤓).
-Using some **shared selectors** and **helper methods** will not only make your tests more **readable** and **shorter**, but any refactoring will be much faster and less painful, because you would only have to change the selector method once.
+Having such a testing guidance in your project will make code reviews much faster and easier (you can link to a section from the testing guidance you have agreed as a team and request changes 🤓).
+Using some shared selectors and helper methods will not only make your tests more readable and shorter, but any refactoring will be much faster and less painful, because you would only have to change the selector method once.
