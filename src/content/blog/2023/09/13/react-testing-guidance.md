@@ -28,7 +28,7 @@ I am pretty sure you have already heard about the test pyramid many times before
 ![Test pyramid](./images/test-pyramid.png "Test pyramid")
 [Image source](https://www.innoq.com/en/blog/tests-granularity/)
 
-🏎️ The basic idea is that most of the tests in the application should be isolated **unit tests**. These tests are not difficult to write or maintain.
+🏎️ The basic idea is that most of the tests in the application should be isolated **unit tests**. These tests are typically less complex and focus on testing small, specific parts of the software
 
 🚀 The next level in the pyramid are **integration** tests. You need them to test the integration between different modules and components to make sure that they are working together as you expect them to.
 
