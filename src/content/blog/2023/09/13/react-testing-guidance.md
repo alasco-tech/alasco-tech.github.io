@@ -114,8 +114,8 @@ So what would I be testing here? Here some examples:
 
 This filter could, of course, be used at the top of a page and show some search results below. Major integration tests (including testing the whole page) would be something like:
 1. *User selects a filter and there should be some search results* -> let's assert what will be rendered as a search result below
-2. *User selects a filter, but there are no search results
-3. *User selects a filter, but the backend returns a 400 or 500 -> let's assert that the error handling works properly
+2. *User selects a filter, but there are no search results*
+3. *User selects a filter, but the backend returns a 400 or 500* -> let's assert that the error handling works properly
 
 **Utils**
 
