@@ -32,7 +32,7 @@ I am pretty sure you have already heard about the test pyramid many times before
 
 🚀 The next level in the pyramid are **integration** tests. You need them to test the integration between different modules and components to make sure that they are working together as you expect them to.
 
-🐢💸 The last part are **E2E** tests which are very expensive, because they treat the system as the whole and interact with it as the actual users. It’s not only time consuming to write them but also to **maintain**.
+🐢💸 The last part are **end-to-end (E2E)** tests which are very expensive, because they treat the system as the whole and interact with it as the actual users. It’s not only time consuming to write them but also to **maintain**.
 
 ---
 
