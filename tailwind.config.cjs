@@ -12,6 +12,20 @@ module.exports = {
             "--tw-prose-counters": "midnight-blue",
             "--tw-prose-headings": "midnight-blue",
             "--tw-prose-quotes": "midnight-blue",
+            code: {
+              backgroundColor: "#E4E3E3",
+              color: "#004466",
+              fontWeight: "400",
+              "border-radius": "0.25rem"
+            },
+            "code::before": {
+              content: '""',
+              "padding-left": "0.25rem"
+            },
+            "code::after": {
+              content: '""',
+              "padding-right": "0.25rem"
+            }
           },
         },
       }),
