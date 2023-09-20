@@ -6,12 +6,28 @@ module.exports = {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
-            "--tw-prose-body": "midnight-blue",
-            "--tw-prose-bold": "midnight-blue",
-            "--tw-prose-bullets": "midnight-blue",
-            "--tw-prose-counters": "midnight-blue",
-            "--tw-prose-headings": "midnight-blue",
-            "--tw-prose-quotes": "midnight-blue",
+            "--tw-prose-body": theme("colors.midnight-blue"),
+            "--tw-prose-bold": theme("colors.midnight-blue"),
+            "--tw-prose-bullets": theme("colors.midnight-blue"),
+            "--tw-prose-counters": theme("colors.midnight-blue"),
+            "--tw-prose-headings": theme("colors.midnight-blue"),
+            "--tw-prose-quotes": theme("colors.midnight-blue"),
+            "--code-padding": "0.25rem",
+            "--code-border-radius": "0.25rem",
+            code: {
+              backgroundColor: theme("colors.seashell"),
+              color: theme("colors.midnight-blue"),
+              fontWeight: 400,
+              "border-radius": "var(--code-border-radius)",
+            },
+            "code::before": {
+              content: '""',
+              "padding-left": "var(--code-padding)",
+            },
+            "code::after": {
+              content: '""',
+              "padding-right": "var(--code-padding)",
+            },
           },
         },
       }),
