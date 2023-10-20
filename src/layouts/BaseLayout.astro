@@ -5,19 +5,30 @@ import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/700.css";
 import { ViewTransitions } from "astro:transitions";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts.ts";
-import BaseHead from "../components/general/BaseHead.astro";
-import Footer from "../components/general/Footer.astro";
-import GoogleTagManager from "../components/general/GoogleTagManager.astro";
-import Header from "../components/general/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "~/consts.ts";
+import BaseHead from "~/components/general/BaseHead.astro";
+import Footer from "~/components/general/Footer.astro";
+import GoogleTagManager from "~/components/general/GoogleTagManager.astro";
+import Header from "~/components/general/Header.astro";
+
+type Props = { post?: CollectionEntry<"blog">["data"] };
 
 const isDev = import.meta.env.DEV;
+
+const { post } = Astro.props;
+
+const pageType = post != null ? "article" : "website";
+const title = post?.title || SITE_TITLE;
+const description = post?.description || SITE_DESCRIPTION;
+const image = post?.thumbnail?.src || "/favicon.png";
+const authors = post?.authors;
+const date = post?.date;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={title} description={description} image={image} authors={authors} pageType={pageType} date={date} />
     <ViewTransitions />
   </head>
   <body>
