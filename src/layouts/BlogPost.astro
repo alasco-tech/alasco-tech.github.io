@@ -2,40 +2,30 @@
 import { CollectionEntry, getEntries } from "astro:content";
 import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
+import BlogPostAuthorsInfo from "~/components/post/BlogPostAuthorsInfo.astro";
 import BaseLayout from "./BaseLayout.astro";
-import BlogPostAuthorsInfo from "../components/post/BlogPostAuthorsInfo.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const {
-  authors,
-  date,
-  title,
-  subtitle,
-  description,
-  thumbnail,
-  tag,
-  teaseralt,
-  thumbnailSrc,
-} = Astro.props;
+const post = Astro.props;
 
-const authorsData = await getEntries(authors);
+const authorsData = await getEntries(post.authors);
 ---
 
-<BaseLayout>
+<BaseLayout post={post}>
   <div class="mx-auto w-full max-w-screen-lg p-4 py-12">
     <article class="text-midnight-blue">
       <div>
-        <h1 class="text-4xl font-bold">{title}</h1>
-        <h2 class="text-xl mt-1">{subtitle}</h2>
-        <BlogPostAuthorsInfo authorsData={authorsData} date={date} />
+        <h1 class="text-4xl font-bold">{post.title}</h1>
+        <h2 class="text-xl mt-1">{post.subtitle}</h2>
+        <BlogPostAuthorsInfo authorsData={authorsData} date={post.date} />
       </div>
-      {thumbnail && <Image src={thumbnail} alt={title} class="mt-2 w-full" />}
+      {post.thumbnail && <Image src={post.thumbnail} alt={post.title} class="mt-2 w-full" />}
       {
-        thumbnailSrc && (
+        post.thumbnailSrc && (
           <a
             class="text-xs hover:text-bright-teal image-source-link mt-2 mb-8"
-            href={thumbnailSrc}
+            href={post.thumbnailSrc}
           >
             Image source
           </a>
