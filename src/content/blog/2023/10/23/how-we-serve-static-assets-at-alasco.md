@@ -106,7 +106,7 @@ import ReactDOM from "react-dom";
 
 import { registerFeature } from "@alasco/features";
 import { findMountPoint } from "@alasco/support/dom";
-// A customer component that wraps the <Suspense /> and <ErrorBoundary /> react components.
+// A custom component that wraps the <Suspense /> and <ErrorBoundary /> react components.
 +import { LazyLoaded } from "@alasco/support/react";
 
 -import ReactComponent from ".";
@@ -129,6 +129,8 @@ registerFeature(mountFeature);
 
 ## Conclusion
 
-Along the journey, we faced a lot of interesting challenges that were related to cookies and CORS in the context of iframes that deserve their own blog post to talk about.
+By implementing these changes, we observed a decrease of approximately 60% in the number of times a static asset is downloaded. Additionally, our main bundle size reduced by about 18%, and the DOM content loading time decreased by a median of 24-28%.
+
+Throughout the journey, we faced a lot of interesting challenges that were related to cookies and CORS in the context of iframes that deserve their own blog post to talk about.
 
 I hope this article gave you a good idea about how we serve our static assets. As we mentioned in the beginning, architecture is an evolving thing, and we are always looking for opportunities to improve it.
