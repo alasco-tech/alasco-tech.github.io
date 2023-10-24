@@ -1,10 +1,11 @@
 ---
 authors:
   - chagweyh
-date: 2023-10-23
+date: 2023-10-24
 title: How we serve static assets at Alasco
 subtitle: How static assets are served in a Django React hybrid application.
 thumbnail: ./images/minified-js-file.jpg
+thumbnailSrc: https://unsplash.com/de/fotos/quellcode-lud4OaUCP4Q
 description: How static assets are served in a Django React hybrid application.
 ---
 
