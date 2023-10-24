@@ -76,7 +76,7 @@ Theortically, this could be solved by [code splitting](https://developer.mozilla
 
 ### Deploying the assets differently
 
-One of the main changes that we did, was to upload the assets to an S3 bucket under a unique version rather that keeping them in the app's filesystem. This ensures that they will be cached by the browser. The unique version that we chose is a combination of the branch name and the last commit hash. In practice, we would have something like this: `https://alasco-static-assets.s3.eu-central-1.amazonaws.com/static/master-c94a236/js/main.js`
+One of the main changes that we made, was to upload the assets to an S3 bucket under a unique version rather that keeping them in the app's filesystem. This allowed us to turn the browser caching back on. The unique version that we chose is a combination of the branch name and the last commit hash. In practice, we would have something like this: `https://alasco-static-assets.s3.eu-central-1.amazonaws.com/static/master-c94a236/js/main.js`
 
 ![The static assets build process](./images/build-process-static-assets.png)
 
@@ -122,6 +122,8 @@ registerFeature(mountFeature);
 ## Conclusion
 
 By implementing these changes, we observed a decrease of approximately 60% in the number of times a static asset is downloaded. Additionally, our main bundle size reduced by about 18%, and the DOM content loading time decreased by a median of 24-28%.
+
+![Resource download per view](./images/resource-download-per-view.png)
 
 Throughout the journey, we faced a lot of interesting challenges that were related to cookies and CORS in the context of iframes that deserve their own blog post to talk about.
 
