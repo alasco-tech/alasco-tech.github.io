@@ -69,7 +69,7 @@ On production, we have a Github Action job that does the same thing; it gets tri
 
 ## What's the problem?
 
-The problem is that this way of serving static assets is not efficient. We generate one single and large bundle file that's not versioned, which means it will not be cached by the browser. So our users would to have to re-download it on each page visit.
+The problem is that this way of serving static assets is not efficient. We generate one single and large bundle file that's not versioned, which means it will not be cached by the browser. So our users would have to re-download it on each page visit.
 
 Theortically, this could be solved by [code splitting](https://developer.mozilla.org/en-US/docs/Glossary/Code_splitting), but we didn't have the right infrastructure to support that. We use a [rolling deployment strategy](https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/rolling-deployments.html) which can lead to chunks collision because our static assets were served from the filesystem, which is also not optimal because it increased the load on our webservers and made it hard to cache them.
 
