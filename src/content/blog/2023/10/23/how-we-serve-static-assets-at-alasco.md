@@ -42,20 +42,12 @@ import ReactDOM from "react-dom";
 
 import { registerFeature } from "@alasco/features";
 import { findMountPoint } from "@alasco/support/dom";
-import { LazyLoaded } from "@alasco/support/react";
-
-const ReactComponent = React.lazy(() => import("."));
 
 function mountFeature() {
   const reactFeature = findMountPoint("mount-point");
 
   if (reactFeature) {
-    ReactDOM.render(
-      <LazyLoaded>
-        <ReactComponent />
-      </LazyLoaded>,
-      reactFeature
-    );
+    ReactDOM.render(<ReactComponent />, reactFeature);
   }
 }
 
