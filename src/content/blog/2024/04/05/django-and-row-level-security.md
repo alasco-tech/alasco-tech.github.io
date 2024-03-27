@@ -9,17 +9,21 @@ teaseralt: Love locks in the Pont-des-Arts bridge in Paris
 description: How we leveraged Django abstractions to seamlessly integrate Postgres Row-level Security
 ---
 
-Enter the Software-as-a-service world and the term "database multi-tenancy" becomes an everyday matter. Housing the data of multiple customers in a few number of databases implies that one must be able to tell which data belongs to which customer, and let every user interact only with the data that is in the scope of their accounts.
+Enter the Software-as-a-service world and the term "database multi-tenancy" becomes an everyday matter. Housing the data of multiple customers in a few number of databases implies that one must be able to tell which data belongs to which customer, and let every user interact only with the data that is in the scope of the accounts they belong to.
 
-Architecting database multi-tenancy is a [topic on its own](https://learn.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns). At Alasco we store data for different accounts on the same tables, and identify them either directly or indirectly through foreign keys.
+Architecting database multi-tenancy is a [topic on its own](https://learn.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns). At Alasco we store data for different accounts on the same tables and identify them either directly or indirectly through foreign keys.
 
-For a few years until now we had been using database joins on every query to filter the rows of each table that were in scope for the user making a request. But Postgres comes with [Row-level security](https://www.postgresql.org/docs/15/ddl-rowsecurity.html) and we surely had to try that.
+For a few years until now we had been using database joins on every query to filter the rows of each table that were in scope for the user making a request. But Postgres comes with [Row-level security](https://www.postgresql.org/docs/15/ddl-rowsecurity.html) and we surely wanted to try that.
 
-After successfully implementing Row-level security in the parts of our codebase that use the FastAPI + SQLAlchemy stack, we wanted to take the next step and do the same for the Django stack. And we did it! So now our Django is friends with Postgres Row-level security, and we want to tell you our story.
+After successfully implementing Row-level security in the parts of our codebase that use the FastAPI + SQLAlchemy stack, we wanted to take the next step and do the same for the Django stack. And we did it!
+
+Now we can proudly tell that our Django is friends with Postgres Row-level security. Here's how we made it happen.
 
 ## Row-level security in a nutshell
 
-In Postgres it is possible to add one or many row security policies to a table. A policy is a rule that must apply to all rows involved in a given operation (e.g. SELECT, INSERT, UPDATE, DELETE). Policies must be also enabled on the table before they start taking effect. Table owners are normally excluded from the policies, but it's possible to include them with an option to enforce the policy.
+In Postgres it is possible to add one or many row security policies to a table.
+
+A policy is a rule that will apply to all rows involved in a given operation (e.g. SELECT, INSERT, UPDATE, DELETE). Policies must be also enabled on the table before they start taking effect. Table owners are normally excluded from the policies, but it's possible to include them with an option to enforce the policy.
 
 A policy definition can look like this:
 
@@ -28,7 +32,7 @@ CREATE POLICY user_policy ON costs_invoice
 USING (user_name = current_user);
 ```
 
-This policy would make Postgres apply any operation only to the rows where the column `user_name` matches the Postgres user doing the query. There is also the option of using a [Postgres configuration settings](https://www.postgresql.org/docs/15/functions-admin.html#FUNCTIONS-ADMIN-SET-TABLE) like this:
+This policy would make Postgres apply any operation only to the rows where the column `user_name` matches the Postgres user doing the query. There is also the option of not taking the database user into account and using a [Postgres configuration settings](https://www.postgresql.org/docs/15/functions-admin.html#FUNCTIONS-ADMIN-SET-TABLE) like this:
 
 ```SQL
 CREATE POLICY account_policy ON costs_invoice
@@ -41,7 +45,7 @@ This policy would make Postgres apply any operation to the rows where the column
 SET app.account_id = '100';
 ```
 
-Finally, policies must be enabled and enforced, so that they apply even to the user owning the table:
+Such policies must be enabled and enforced, so that they apply even to the user owning the table:
 
 ```SQL
 ALTER TABLE costs_invoice ENABLE ROW LEVEL SECURITY;
@@ -50,7 +54,9 @@ ALTER TABLE costs_invoice FORCE ROW LEVEL SECURITY;
 
 ## Enter Django
 
-In order to truly say that Django became friends with Row-level security (RLS from now on), we wanted to make it work seamlessly with Django models. We also wanted the process of adding RLS to any Django model as idiomatic as possible. Think in terms of:
+In order to truly say that Django became friends with Row-level security (RLS from now on), we wanted to make it work seamlessly with Django models. We also wanted the process of adding RLS to any Django model as idiomatic as possible.
+
+Think in terms of:
 
 ```python
 class Invoice(RowLevelSecurityProtectedModel):
@@ -58,7 +64,7 @@ class Invoice(RowLevelSecurityProtectedModel):
     ...
 ```
 
-So that we could in turn do:
+So that we could in turn do something like this and get automatic scoping to the proper account:
 
 ```python
 set_current_account(account)
@@ -70,9 +76,7 @@ Invoice.objects.create(
 )
 ```
 
-And get automatic scoping to the account `account`, both in the select and the create operation.
-
-This was not extraordinary, because [many other Django packages](https://djangopackages.org/grids/g/multi-tenancy/) out there for database multi-tenancy have the same notion of a globally defined tenant context that is then applied to all ORM operations.
+This was not extraordinary, because [many other Django packages for database multi-tenancy](https://djangopackages.org/grids/g/multi-tenancy/) have the same notion of a globally defined tenant context that is then applied to all ORM operations.
 
 But before getting too deep with the code, let's first resolve a couple of important edge cases that are needed here:
 
@@ -107,7 +111,7 @@ This way we could do `rls_current_account.set(100)` or `rls_current_account.set(
 
 ### RLS policy
 
-On the Postgres side we were also going to have a global state in the settings configuration (i.e. `current_setting('app.account_id')`), so we also needed a RLS policy that would capture all the possible values for that global state.
+On the Postgres side we were also going to have a global state in the settings configuration (i.e. `current_setting('app.account_id')`), so we also needed an RLS policy that would capture all the possible values for that global state.
 
 We went with something like this:
 
@@ -132,11 +136,11 @@ Notice also the special case of `current_setting('app.account_id', True) IS NULL
 
 ### Taking advantage of Django constraints
 
-In order to treat RLS as something we could add to or remove from our models, we had to make it part of Django's migration mechanism. Django allows for [custom migration operations](https://docs.djangoproject.com/en/5.0/ref/migration-operations/#writing-your-own) that could be leveraged to add and remove the RLS policy, but we wanted to take it one step further. Why, you may ask? Developers, developers, developers. We really wanted to make the process a bliss, and adding custom migration operations meant we had to do it ourselves.
+In order to treat RLS as something we could add to or remove from our models, we had to make it part of Django's migration mechanism. Django allows for [custom migration operations](https://docs.djangoproject.com/en/5.0/ref/migration-operations/#writing-your-own) which are useful to add and remove the RLS policy, but we wanted to take it one step further. Why, you may ask? We really wanted to make the process a bliss, and adding custom migration operations meant we had to do it ourselves every time.
 
-But we found out that Django also comes with [abstractions for database constraints](https://docs.djangoproject.com/en/5.0/ref/models/constraints/) so we thought: if we can think of the RLS policy as a constraint and treat it as such, then converting a model into RLS should be as easy as adding a new constraint to the `Meta`.
+We found out that Django comes with [abstractions for database constraints](https://docs.djangoproject.com/en/5.0/ref/models/constraints/), so we thought: if we can think of the RLS policy as a constraint and treat it as such, then converting a model into RLS should be as easy as adding a new constraint to the model's `Meta`.
 
-And so we did it:
+So we did it like this:
 
 ```python
 from django.db.models import BaseConstraint
@@ -204,9 +208,9 @@ class RowLevelSecurityConstraint(BaseConstraint):
         return (path, (self.target_field,), kwargs)
 ```
 
-Notice how `create_sql` and `remove_sql` are methods used to install and remove the RLS policy, respectively.
+Notice how `create_sql` and `remove_sql` are the methods used to install and remove the RLS policy.
 
-Then the migrations mechanism would pick it up automatically by doing something like this:
+With this approach, the migrations mechanism would pick the changes automatically by doing something like this at the model level:
 
 ```python
 from django.db import models
@@ -228,17 +232,19 @@ class Invoice(models.Model):
 
 ### Global state management
 
+With things taking shape in the Django side, we also had to solve the global state management in Postgres.
+
 Because the RLS policy relied on the current account being set in the database settings configuration, we needed some part of our Django codebase to take care of running the SQL query `SET app.account_id = '{rls_current_account}'`.
 
-Taking inspiration of other open source libraries that deal with the same problem, we decided to define a custom Postgres backend to do the heavy lifting. The gory details of this we will spare you on this blog post. But because we don't want to leave you hanging, dear reader, feel free to use [this vague reference](https://github.com/django-tenants/django-tenants/blob/master/django_tenants/postgresql_backend/base.py) to how `django-tenants` does it as further reading material.
+Taking inspiration in other open source libraries that deal with the same problem, we decided to define a custom Postgres backend to do the heavy lifting. In this blog post we will spare you the gory details of the how, but because we don't want to leave you hanging, dear reader, feel free to use [this vague reference](https://github.com/django-tenants/django-tenants/blob/master/django_tenants/postgresql_backend/base.py) to how `django-tenants` does it as further reading material.
 
-But in short, the idea is that the custom Django database backend sets the current account on the database level every time a cursor is created.
+In short, the idea is that the custom database backend sets the current account on the database level every time a cursor is created.
 
 ### Custom querysets
 
-With the custom database backend taking care of the state management in the Postgres side, we guaranteed that all queries would return filtered results using the RLS policy. However, because the policy is restrictive by default, we still wanted the Django code to alert us if we had forgotten to set a value other than `RlsWildcard.NONE` in the Django side.
+With the custom database backend taking care of the state management in the Postgres side, we guaranteed that all queries would return filtered results using the RLS policy. However, because the policy was restrictive by default, we still wanted the Django code to alert us if we had forgotten to set a value other than `RlsWildcard.NONE` in the Django side.
 
-For this went on and created a custom queryset that, in the absence of a current account set, would raise an error and make it obvious:
+For this we went on and created a custom queryset that, in the absence of a current account set, would raise an error and make it obvious:
 
 ```python
 from django.db import models
@@ -290,7 +296,7 @@ AccountManager = models.Manager.from_queryset(AccountQueryset)
 
 The final piece of the puzzle was providing a way for actually bypassing RLS and letting us do ORM operations across tenant boundaries.
 
-We also wanted to communicate the idea in the code that an RLS bypass was meant as very contextual and specific: a temporary escape hatch if you will.
+We also wanted to communicate the idea in the code that an RLS bypass was meant as very contextual and specific operation: a temporary escape hatch, if you will.
 
 So we used a [Python context manager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for that:
 
@@ -315,7 +321,7 @@ with rls_bypass():
     Invoice.objects.all()
 ```
 
-As an extra way, we also did another type of queryset and manager:
+As an extra convenience, we also did another type of queryset and manager:
 
 ```python
 from django.db import models
@@ -346,7 +352,7 @@ class AccountBypassQueryset(models.QuerySet):
 AccountBypassManager = models.Manager.from_queryset(AccountBypassQueryset)
 ```
 
-## Final abstraction
+### Final abstraction
 
 Taking all the existing ingredients, our final Django model abstraction looked like this:
 
@@ -380,8 +386,20 @@ class RowLevelSecurityProtectedModel(models.Model):
 
 Notice the use of two different managers, one for RLS bound operations, another for doing the bypass. Notice also how we conveniently used the current account as default value for the model field.
 
-## Final final abstraction
+### Final final abstraction
 
 Okay, we wanted to take it a bit further, because we do use more constraints sometimes, and that would have meant more manual RLS activation for those models where the inherited `Meta` constraints were not enough.
 
 So we did a metaclass that automagically added the constraint if it was not present, but that might be a topic for another time.
+
+## Closing remarks
+
+The solution is working good and feels very idiomatic.
+
+It was not free of issues, though. In order to consider the transition path into RLS feasible we had to do a number of "side quests". Here's a few of those:
+
+- The default admin user of RDS has embedded magic that makes it bypass RLS, so we had to tweak platform to use a different user.
+- Because the active account was now in a global state, our extensive test battery required careful changes on where and how to activate a test account, in order to ensure tests wouldn't give false positives or negatives.
+- Also, because there were now foreign keys to the account on every model, we had to make sure they didn't show up in the UI (e.g. Django admin)
+
+All in all, we think it was well worth it and continue to iterate in our abstractions.
