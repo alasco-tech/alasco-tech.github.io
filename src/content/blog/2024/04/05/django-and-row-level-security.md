@@ -321,7 +321,7 @@ with rls_bypass():
     Invoice.objects.all()
 ```
 
-As an extra convenience, we also did another type of queryset and manager:
+As an extra convenience, we also created another type of queryset and manager:
 
 ```python
 from django.db import models
@@ -369,7 +369,7 @@ def get_current_tenant() -> int | None:
 
 class RowLevelSecurityProtectedModel(models.Model):
 
-    tenant = models.ForeignKey("Tenant", default=get_current_tenant_id, ...)
+    tenant = models.ForeignKey("Tenant", default=get_current_tenant, ...)
 
     objects = TenantManager()
     unsafe_bypass_objects = TenantBypassManager()
@@ -388,18 +388,18 @@ Notice the use of two different managers, one for RLS bound operations, another 
 
 ### Final final abstraction
 
-Okay, we wanted to take it a bit further, because we do use more constraints sometimes, and that would have meant more manual RLS activation for those models where the inherited `Meta` constraints were not enough.
+Okay, we wanted to take it a bit further, because we use model constraints sometimes, and that would have meant more manual RLS activation for those models where the inherited `Meta` constraints were not enough.
 
 So we did a metaclass that automagically added the constraint if it was not present, but that might be a topic for another time.
 
 ## Closing remarks
 
-The solution is working good and feels very idiomatic.
+The solution is currently working good and feels very idiomatic.
 
 It was not free of issues, though. In order to consider the transition path into RLS feasible we had to do a number of "side quests". Here's a few of those:
 
-- The default admin user of RDS has embedded magic that makes it bypass RLS, so we had to tweak platform to use a different user.
-- Because the active tenant was now in a global state, our extensive test battery required careful changes on where and how to activate a test tenant, in order to ensure tests wouldn't give false positives or negatives.
-- Also, because there were now foreign keys to the tenant on every model, we had to make sure they didn't show up in the UI (e.g. Django admin)
+- The default admin user of RDS has embedded magic that makes it bypass RLS, so we had to tweak platform to use a different database user.
+- Because the active tenant is now in a global state, our extensive test battery required careful changes on where and how to activate our "test tenants" in order to ensure tests wouldn't give false positives or false negatives.
+- Also, because there are now foreign keys to the tenant on every model, we had to make sure they didn't show up in the UI (e.g. Django admin)
 
 All in all, we think it was well worth it and continue to iterate in our abstractions.
