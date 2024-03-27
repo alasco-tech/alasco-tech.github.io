@@ -1,7 +1,7 @@
 ---
 authors:
   - lorinkoz
-date: 2024-04-05
+date: 2024-03-28
 title: Django friends with Postgres Row-level Security
 subtitle: How we leveraged Django abstractions to seamlessly integrate Postgres Row-level Security
 thumbnail: ./images/Love-locks-Pont-des-Arts-014.jpg
