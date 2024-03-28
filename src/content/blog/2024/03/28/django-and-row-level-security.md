@@ -27,27 +27,27 @@ A policy is a rule that will apply to all rows involved in a given operation (e.
 
 A policy definition can look like this:
 
-```SQL
+```sql
 CREATE POLICY user_policy ON costs_invoice
 USING (user_name = current_user);
 ```
 
 This policy would make Postgres apply any operation on the invoices table only to the rows where the column `user_name` matches the Postgres user doing the query. There is also the option of not taking the database user into account and checking against the tenant itself, using a [Postgres configuration settings](https://www.postgresql.org/docs/15/functions-admin.html#FUNCTIONS-ADMIN-SET-TABLE) like this:
 
-```SQL
+```sql
 CREATE POLICY tenant_policy ON costs_invoice
 USING (tenant_id = current_setting('app.tenant_id')::int);
 ```
 
 This policy would make Postgres apply any operation on the invoices table to the rows where the column `tenant_id` matches whatever was set in the setting `app.tenant_id`. This could have been previously done with a query like this:
 
-```SQL
+```sql
 SET app.tenant_id = '100';
 ```
 
 Such policies be must added to all tables where Row-level security is desired, and then also enabled and enforced, so that they apply even to the user owning the table:
 
-```SQL
+```sql
 ALTER TABLE costs_invoice ENABLE ROW LEVEL SECURITY;
 ALTER TABLE costs_invoice FORCE ROW LEVEL SECURITY;
 ```
@@ -115,7 +115,7 @@ On the Postgres side we were also going to have a global state in the settings c
 
 We went with something like this:
 
-```SQL
+```sql
 CREATE POLICY %(policy_name)s ON %(table_name)s USING (
     CASE
         WHEN current_setting('app.tenant_id', True) IS NULL THEN FALSE
@@ -136,16 +136,30 @@ Notice also the special case of `current_setting('app.tenant_id', True) IS NULL`
 
 ### Taking advantage of Django constraints
 
-In order to treat RLS as something we could add to or remove from our models, we had to make it part of Django's migration mechanism. Django allows for [custom migration operations](https://docs.djangoproject.com/en/5.0/ref/migration-operations/#writing-your-own) which are useful to add and remove the RLS policy, but we wanted to take it one step further. Why, you may ask? We really wanted to make the process a bliss, and adding custom migration operations meant we had to do it ourselves every time.
+In order to treat RLS as something we could add to or remove from our models, we had to make it part of Django's migration mechanism. Django allows for [custom migration operations](https://docs.djangoproject.com/en/5.0/ref/migration-operations/#writing-your-own) which would have been useful to add and remove the RLS policy, but we wanted to take it one step further. Why, you may ask? We really wanted to make the process a bliss, and adding a custom migration operation meant we had to do it ourselves every time.
 
-We found out that Django comes with [abstractions for database constraints](https://docs.djangoproject.com/en/5.0/ref/models/constraints/), so we thought: if we can think of the RLS policy as a constraint and treat it as such, then converting a model into RLS should be as easy as adding a new constraint to the model's `Meta`.
-
-So we did it like this:
+So we found that Django comes with [abstractions for database constraints](https://docs.djangoproject.com/en/5.0/ref/models/constraints/) and we thought: if we can think of the RLS policy as a constraint and treat it as such, then converting a model into RLS should be as easy as adding a new constraint to the model's `Meta`, like this:
 
 ```python
-from django.db.models import BaseConstraint
-from django.db.backends.ddl_references import Statement, Table
+from django.db import models
 
+class Invoice(models.Model):
+    tenant = models.ForeignKey("Tenant", ...)
+
+    # invoice specific fields here
+
+    class Meta:
+        constraints = [
+            RowLevelSecurityConstraint(
+                field="tenant",
+                name="rls_on_tenant"
+            )
+        ]
+```
+
+So we used our previous idea of a templated policy:
+
+```python
 CREATE_SQL = """
     CREATE POLICY %(policy_name)s ON %(table_name)s USING (
         CASE
@@ -165,13 +179,18 @@ DROP_SQL = """
     DROP POLICY IF EXISTS %(policy_name)s on %(table_name)s
 """
 
+```
+
+And implemented a `RowLevelSecurityConstraint` like this:
+
+```python
+from django.db.models import BaseConstraint
+from django.db.backends.ddl_references import Statement, Table
+
 class RowLevelSecurityConstraint(BaseConstraint):
     def __init__(self, field: str, name: str) -> None:
         super().__init__(name=name)
         self.target_field: str = field
-
-    def constraint_sql(self, model: Any, schema_editor: Any) -> str:
-        return ""
 
     def create_sql(self, model: Any, schema_editor: Any) -> Any:
         return Statement(
@@ -189,15 +208,6 @@ class RowLevelSecurityConstraint(BaseConstraint):
             field_column=field_column,
         )
 
-    def validate(
-        self,
-        model: Any,
-        instance: Any,
-        exclude: Any = None,
-        using: Any = _dj_utils.DEFAULT_DB_ALIAS,
-    ) -> None:
-        pass
-
     def __eq__(self, other: object) -> bool:
         if isinstance(other, RowLevelSecurityConstraint):
             return self.name == other.name and self.target_field == other.target_field
@@ -206,35 +216,20 @@ class RowLevelSecurityConstraint(BaseConstraint):
     def deconstruct(self) -> tuple[str, tuple, dict]:
         path, _, kwargs = super().deconstruct()
         return (path, (self.target_field,), kwargs)
+
+    # some required methods omitted for simplicity...
+
 ```
 
 Notice how `create_sql` and `remove_sql` are the methods used to install and remove the RLS policy.
 
-With this approach, the migrations mechanism would pick the changes automatically by doing something like this at the model level:
+With this approach the migrations mechanism picked the changes automatically as an `AddConstraint` operation.
 
-```python
-from django.db import models
-
-class Invoice(models.Model):
-    tenant = models.ForeignKey("Tenant", ...)
-
-    # invoice specific fields here
-
-    class Meta:
-        constraints = [
-            RowLevelSecurityConstraint(
-                field="tenant_id",
-                name="rls_on_tenant"
-            )
-        ]
-
-```
-
-### Global state management
+### Global state synchronization
 
 With things taking shape in the Django side, we also had to solve the global state management in Postgres.
 
-Because the RLS policy relied on the current tenant being set in the database settings configuration, we needed some part of our Django codebase to take care of running the SQL query `SET app.tenant_id = '{rls_current_tenant}'`.
+Because the RLS policy relied on the current tenant being set in the database settings configuration, we needed that some part of our Django codebase took care of running the SQL query `SET app.tenant_id = '{rls_current_tenant}'`.
 
 Taking inspiration in other open source libraries that deal with the same problem, we decided to define a custom Postgres backend to do the heavy lifting. In this blog post we will spare you the gory details of the how, but because we don't want to leave you hanging, dear reader, feel free to use [this vague reference](https://github.com/django-tenants/django-tenants/blob/master/django_tenants/postgresql_backend/base.py) to how `django-tenants` does it as further reading material.
 
@@ -378,7 +373,7 @@ class RowLevelSecurityProtectedModel(models.Model):
         abstract = True
         constraints = [
             RowLevelSecurityConstraint(
-                field="tenant_id",
+                field="tenant",
                 name="rls_on_tenant"
             )
         ]
