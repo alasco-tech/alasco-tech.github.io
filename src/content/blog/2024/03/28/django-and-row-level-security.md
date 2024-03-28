@@ -13,9 +13,9 @@ Enter the Software-as-a-service world and the term "database multi-tenancy" beco
 
 Architecting database multi-tenancy is a [topic on its own](https://learn.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns). At Alasco we store data for different tenants on the same tables and identify them either directly or indirectly through foreign keys.
 
-For a few years until now we had been using database joins on every query to filter the rows of each table that were in scope for the user making a request. But Postgres comes with [Row-level security](https://www.postgresql.org/docs/15/ddl-rowsecurity.html) and we surely wanted to try that.
+For a few years until now we had been using database joins on every query to filter the rows of each table that were in scope for the user making a request. But Postgres comes with [Row-level security](https://www.postgresql.org/docs/15/ddl-rowsecurity.html) and we surely wanted to try it. If we could leverage the database management system itself for handling tenant separation, that would mean we would have one less thing to worry about in the application layer.
 
-After successfully implementing Row-level security in the parts of our codebase that use the FastAPI + SQLAlchemy stack we wanted to do the same for the Django stack. It all started as a hackathon experiment a few months ago, but now we can proudly assert that our Django codebase has become friends with Postgres Row-level security.
+After successfully implementing Row-level security in the parts of our codebase that use the FastAPI + SQLAlchemy stack, we wanted to do the same for the Django stack. It all started as a hackathon experiment a few months ago, but now we can proudly assert that our Django codebase has become friends with Postgres Row-level security.
 
 Here's how we made it happen.
 
@@ -23,7 +23,7 @@ Here's how we made it happen.
 
 In Postgres it is possible to add one or many row security policies to a table.
 
-A policy is a rule that will apply to all rows involved in a given operation (e.g. SELECT, INSERT, UPDATE, DELETE). Policies must be also enabled on the table before they start taking effect. Table owners are normally excluded from the policies, but it's possible to include them with an option to enforce the policy.
+A policy is a rule that will apply to all rows involved in a given operation (e.g. SELECT, INSERT, UPDATE, DELETE). Policies must be also enabled on the table before they start taking effect. Table owners are normally excluded from the policies, but it's possible to include them with an option to enforce the policy. However, database superusers and users with the option `BYPASSRLS` will always bypass row security, so these users cannot be used here.
 
 A policy definition can look like this:
 
@@ -76,7 +76,7 @@ Invoice.objects.create(
 )
 ```
 
-This was not extraordinary, because [many other Django packages for database multi-tenancy](https://djangopackages.org/grids/g/multi-tenancy/) have the same notion of a globally defined tenant context that is then applied to all ORM operations.
+This was not extraordinary, because [many other Django packages for database multi-tenancy](https://djangopackages.org/grids/g/multi-tenancy/) have the same notion of a globally-defined tenant context that is then applied to all ORM operations.
 
 But before getting too deep with the code, let's first resolve a couple of important edge cases that are needed here:
 
@@ -85,13 +85,17 @@ But before getting too deep with the code, let's first resolve a couple of impor
 
 For question 1 we decided that security should come first. We should never do an ORM operation without previously setting a current tenant, but if for some reason that were to happen, no row should be returned and we should get a loud error telling us where to look and fix.
 
-For question 2, we definitely needed a way to do that, because it's a very common use case. Without it, we would have not been able to do system-wide queries or data migration operations from within Django.
+For question 2 we definitely needed a way to do it. Without it, we would have not been able to do system-wide queries or data migration operations from within Django.
 
-So let's now get deep with the code.
+So let's get deep with the code now.
 
 ### Active tenant in a global state
 
-We had three possible states to represent: no tenant set, a specific tenant set, or ALL tenants set (the latter for doing cross-tenant operations).
+We had three possible states to represent:
+
+- No tenant set.
+- A specific tenant set.
+- All tenants set (e.g. for doing cross-tenant operations).
 
 For storing those values in a global state, we went with [Python contextvars](https://docs.python.org/3.11/library/contextvars.html) in tandem with an enum:
 
@@ -129,7 +133,7 @@ CREATE POLICY %(policy_name)s ON %(table_name)s USING (
 Notice the three placeholders, which would make the policy applicable to any table we wanted:
 
 - `policy_name` is the name of the policy, which must be unique per table.
-- `table_name` is the name of the table,
+- `table_name` is the name of the table.
 - `field_column` is the name of the column that contains the foreign key to the tenant, most of the time it was going to be `tenant_id` but we wanted to stay flexible.
 
 Notice also the special case of `current_setting('app.tenant_id', True) IS NULL`, which was meant as a last line of defense, again, in case that, for some reason, no global state had been set on the Postgres side.
@@ -157,7 +161,7 @@ class Invoice(models.Model):
         ]
 ```
 
-So we used our previous idea of a templated policy:
+So we took our previous idea of a templated policy plus the needed activations:
 
 ```python
 CREATE_SQL = """
@@ -194,7 +198,7 @@ class RowLevelSecurityConstraint(BaseConstraint):
 
     def create_sql(self, model: Any, schema_editor: Any) -> Any:
         return Statement(
-            SQL_CREATE,
+            CREATE_SQL,
             policy_name=policy_name,
             table_name=Table(model._meta.db_table, self.quote_name),
             field_column=field_column,
@@ -202,7 +206,7 @@ class RowLevelSecurityConstraint(BaseConstraint):
 
     def remove_sql(self, model: Any, schema_editor: Any) -> Any:
         return Statement(
-            SQL_DROP,
+            DROP_SQL,
             policy_name=policy_name,
             table_name=Table(model._meta.db_table, self.quote_name),
             field_column=field_column,
@@ -221,7 +225,7 @@ class RowLevelSecurityConstraint(BaseConstraint):
 
 ```
 
-Notice how `create_sql` and `remove_sql` are the methods used to install and remove the RLS policy.
+Notice how `create_sql` and `remove_sql` are the methods used to install and remove the RLS policy. Custom equality comparison and deconstruction was needed so that the historic states in migrations would be correctly compared.
 
 With this approach the migrations mechanism picked the changes automatically as an `AddConstraint` operation.
 
@@ -239,7 +243,7 @@ In short, the idea is that the custom database backend sets the current tenant o
 
 With the custom database backend taking care of the state management in the Postgres side, we guaranteed that all queries would return filtered results using the RLS policy. However, because the policy was restrictive by default, we still wanted the Django code to alert us if we had forgotten to set a value other than `RlsWildcard.NONE` in the Django side.
 
-For this we went on and created a custom queryset that, in the absence of a current tenant set, would raise an error and make it obvious:
+For this we created a custom queryset that, in the absence of a current tenant set, would raise an error and make it obvious:
 
 ```python
 from django.db import models
@@ -291,7 +295,7 @@ TenantManager = models.Manager.from_queryset(TenantQueryset)
 
 The final piece of the puzzle was providing a way for actually bypassing RLS and letting us do ORM operations across tenant boundaries.
 
-We also wanted to communicate the idea in the code that an RLS bypass was meant as very contextual and specific operation: a temporary escape hatch, if you will.
+We also wanted to communicate the idea in the code that an RLS bypass was meant as a very contextual and specific operation: a temporary escape hatch, if you will.
 
 So we used a [Python context manager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for that:
 
@@ -353,8 +357,9 @@ Taking all the existing ingredients, our final Django model abstraction looked l
 
 ```python
 from django.db import models
+from core.models import Tenant
 
-def get_current_tenant() -> int | None:
+def get_current_tenant() -> Tenant | None:
     current_tenant = rls_current_tenant.get()
 
     if isinstance(current_tenant, RlsWildcard):
@@ -374,27 +379,29 @@ class RowLevelSecurityProtectedModel(models.Model):
         constraints = [
             RowLevelSecurityConstraint(
                 field="tenant",
-                name="rls_on_tenant"
+                name="rls_on_tenant_%(class)s"
             )
         ]
 ```
 
-Notice the use of two different managers, one for RLS bound operations, another for doing the bypass. Notice also how we conveniently used the current tenant as default value for the model field.
+Notice the use of two different managers, one for RLS bound operations, another for doing the bypass. Notice also how we conveniently used the current tenant as default value for the model field, so that we could omit it during model creation.
+
+One detail that is new in this abstraction is the need for a `class` placeholder in the constraint name. This is because Django enforces unique names on constraints across all models.
 
 ### Final final abstraction
 
-Okay, we wanted to take it a bit further, because we use model constraints sometimes, and that would have meant more manual RLS activation for those models where the inherited `Meta` constraints were not enough.
+Okay, we wanted to take it a bit further, because we use model constraints frequently, and that would have meant more manual RLS activation for those models where the inherited `Meta` constraints were not enough.
 
-So we did a metaclass that automagically added the constraint if it was not present, but that might be a topic for another time.
+So we did a metaclass that automagically added the constraint if it was not present, but that is a topic for another time.
 
 ## Closing remarks
 
-The solution is currently working good and feels very idiomatic.
+The solution is currently working good and feels very Django idiomatic.
 
-It was not free of issues, though. In order to consider the transition path into RLS feasible we had to do a number of "side quests". Here's a few of those:
+It was not free of issues, though. In order to consider the transition path into RLS feasible, we had to do a number of "side quests". Here's a few of those:
 
-- The default admin user of RDS has embedded magic that makes it bypass RLS, so we had to tweak platform to use a different database user.
-- Because the active tenant is now in a global state, our extensive test battery required careful changes on where and how to activate our "test tenants" in order to ensure tests wouldn't give false positives or false negatives.
-- Also, because there are now foreign keys to the tenant on every model, we had to make sure they didn't show up in the UI (e.g. Django admin)
+- The default admin user of RDS, while not being a superuser and not having the `BYPASSRLS` option, seemingly has embedded magic that always bypasses RLS, so we had to tweak platform to use a different database user.
+- Because the active tenant is now in a global state, our extensive test battery required careful changes on where and how to activate our "test tenants", in order to ensure that tests wouldn't give false positives or false negatives.
+- Also, because there are now foreign keys to the tenant model on every tenant-bound model, we had to make sure they didn't show up in the UI (e.g. Django admin)
 
 All in all, we think it was well worth it and continue to iterate in our abstractions.
