@@ -77,7 +77,7 @@ Theortically, this could be solved by [code splitting](https://developer.mozilla
 
 ### Deploying the assets differently
 
-One of the main changes that we made, was to upload the assets to an S3 bucket under a unique version rather that keeping them in the app's filesystem. This allowed us to turn the browser caching back on. The unique version that we chose is a combination of the branch name and the last commit hash. In practice, we would have something like this: `https://alasco-static-assets.s3.eu-central-1.amazonaws.com/static/master-c94a236/js/main.js`
+One of the main changes that we made, was to upload the assets to an S3 bucket under a unique version rather that keeping them in the app's filesystem. This allowed us to turn the browser caching back on. The unique version that we chose is a combination of the branch name and the last commit hash. In practice, we would have something like this: `https://{bucket-name}.s3.eu-central-1.amazonaws.com/static/{version-reference}/js/main.js`
 
 ![The static assets build process](./images/build-process-static-assets.png)
 
